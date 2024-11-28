@@ -1,5 +1,6 @@
-import { attention, mainImg, minus, plus, rupee } from "../assets/Images/Images";
+import { attention, jar3, mainImg, minus, plus, rupee } from "../assets/Images/Images";
 import Buy from "./Buy";
+import BuyPhone from "./BuyPhone";
 import Quantity from "./Quantity";
 import { useState } from "react";
 export default function Main() {
@@ -7,16 +8,17 @@ export default function Main() {
   const [activeQty, setActiveQty] = useState("0.5");
   const [price, setPrice] = useState("600");
   return (
-    <div className="w-full pb-6 h-screen flex flex-col justify-start  items-center">
-      <div className="upper z-10 relative h-screen flex justify-between mt-[10rem] items-start w-full">
-        <div className="Product transition-all flex flex-col justify-center w-96 gap-3 items-start">
-          <h1 className="desc text-5xl font-extrabold">100% Pure & Natural Honey</h1>
+    <div className="w-full overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-5 md:justify-start  items-center">
+      <div className="upper relative z-10 md:relative h-fit md:h-screen flex flex-col md:flex-row md:justify-between justify-center mt-[3rem] md:mt-[8rem] md:items-start items-center w-full">
+        <div className="Product md:flex hidden transition-all flex-col justify-center w-96 gap-3 items-start">
+          <h1 className="desc text-5xl font-extrabold ">100% Pure & Natural Honey</h1>
           <div className="quantity text-lg">{qty}</div>
         </div>
-        <div className="Image absolute w-[80rem] -top-[12rem] left-1/2 transform -translate-x-1/2 ">
-          <img src={mainImg} className="w-[100%] -z-10" alt="" />
+        <div className="Image animate-float md:animate-none md:absolute w-[20rem] md:w-[75rem] md:-top-[12rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
+          <img src={mainImg} className="w-[100%] md:block hidden -z-10" alt="" />
+          <img src={jar3} className="w-[100%] md:hidden -z-10" alt="" />
         </div>
-        <div className="Quantity flex flex-col justify-center items-end gap-5">
+        <div className="Quantity flex flex-col justify-center items-center md:items-end gap-5">
           <div className="flex z-20 justify-center items-center gap-3">
             <Quantity
               onClick={() => {
@@ -54,8 +56,9 @@ export default function Main() {
             <p className="text-sm">100% Natural. Always Pure</p>
           </div>
         </div>
+        <div className="md:hidden absolute -z-10 w-[30rem] h-[30rem] rounded-full blur-3xl opacity-50 bg-white"></div>
       </div>
-      <div className="lower z-20 flex justify-between items-center w-full">
+      <div className="lower md:flex hidden z-20 h-fit justify-between items-center w-full">
              <p className="text-xl w-[30rem]">Golden, raw, and unfiltered—our honey is harvested directly from our hives, preserving its natural goodness. Perfect for your tea, toast, or as a wholesome treat, it’s the sweetness you can trustk</p>
              <div className="price flex justify-center items-center">
                 <h1 className="text-6xl font-extrabold">{price}</h1>
@@ -63,6 +66,7 @@ export default function Main() {
              </div>
              <Buy/>
       </div>
+      <BuyPhone qty={qty} price={price}/>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import dadu from './dadu.jpg';
 import email from './email.png'
 import ig from './ig.png'
 import mainImg from './Main img.png'
+import jar3 from './jar3.png'
 import kash from './kash.jpg'
 import less from './lessthen.png'
 import Logo from './Logo.png'
@@ -16,4 +17,4 @@ import person from './person.png'
 import plus from './plus.png'
 import rupee from './rupee.png'
 import whatsapp from './whatsapp.png'
-export {attention,bees1,bees2,cart,dadu,email,ig,mainImg,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,bees1,bees2,jar3,cart,dadu,email,ig,mainImg,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

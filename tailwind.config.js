@@ -6,6 +6,19 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        'float': 'float 3s ease-in-out infinite', // Define the float animation
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': {
+            transform: 'translateY(0)', // Start and end at the original position
+          },
+          '50%': {
+            transform: 'translateY(-10px)', // Move up 10px at the middle of the animation
+          },
+        },
+      },
       colors: {
         main : '#FFCE23',
         Dark1: '#F6B012',
