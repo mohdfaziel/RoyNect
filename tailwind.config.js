@@ -15,7 +15,7 @@ export default {
             transform: 'translateY(0)', // Start and end at the original position
           },
           '50%': {
-            transform: 'translateY(-10px)', // Move up 10px at the middle of the animation
+            transform: 'translateY(-5px)', // Move up 10px at the middle of the animation
           },
         },
       },

@@ -3,7 +3,7 @@ import Count from "./Count";
 
 export default function BuyPhone({ qty, price }) {
   return (
-    <div className="w-full gap-3 flex transition-all md:hidden flex-col justify-evenly max-h-[25rem] h-screen px-4 py-4 bg-white rounded-t-3xl items-start">
+    <div className="w-full gap-3 flex transition-all md:hidden flex-col justify-evenly max-h-[25rem] h-fit px-4 py-4 bg-white rounded-t-3xl items-start">
       <h1 className="title text-4xl font-extrabold">
         100% Pure & Natural Honey
       </h1>
