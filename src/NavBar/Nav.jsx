@@ -16,6 +16,7 @@ export default function Nav() {
           bg={page === "products" ? "white" : "Dark2"}
           txt={page === "products" ? "active" : "unactive"}
           title="Products"
+          link="#product"
           onClick={() => setPage("products")}
         />
         </div>
@@ -23,6 +24,7 @@ export default function Nav() {
           bg={page === "about" ? "white" : "Dark2"}
           txt={page === "about" ? "active" : "unactive"}
           title="About us"
+          link="#about"
           onClick={() => setPage("about")}
         />
       </div>

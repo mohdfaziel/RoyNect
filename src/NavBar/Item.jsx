@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-export default function Item({ bg, txt, title ,onClick}) {
+export default function Item({ bg, txt, title ,onClick,link}) {
     const bgClass = {
         white: "bg-white",
         Dark2: "bg-Dark2",
@@ -12,7 +12,7 @@ export default function Item({ bg, txt, title ,onClick}) {
     }[txt];
 
     return (
-        <div
+        <a href={link}
             className={classNames(
                 "px-3 md:px-4 py-1 md:py-2 cursor-pointer rounded-2xl flex w-fit justify-center items-center",
                 bgClass
@@ -20,6 +20,6 @@ export default function Item({ bg, txt, title ,onClick}) {
             onClick={onClick}
         >
             <p className={classNames("text-xs md:text-sm font-medium", textClass)}>{title}</p>
-        </div>
+        </a>
     );
 }

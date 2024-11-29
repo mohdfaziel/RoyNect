@@ -8,7 +8,7 @@ export default function Main() {
   const [activeQty, setActiveQty] = useState("0.5");
   const [price, setPrice] = useState("600");
   return (
-    <div className="w-full max-w-[102rem] md:max-h-[50rem] overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-5 md:justify-start  items-center">
+    <div id="product" className="w-full max-w-[102rem] md:max-h-[50rem] overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-5 md:justify-start  items-center">
       <div className="upper relative z-10 md:relative h-full md:h-screen flex flex-col md:flex-row md:justify-between justify-center mt-[3rem] md:mt-[8rem] md:items-start items-center w-full">
         <div className="Product md:flex hidden transition-all flex-col justify-center w-96 gap-3 items-start">
           <h1 className="desc text-5xl font-extrabold z-20">100% Pure & Natural Honey</h1>
