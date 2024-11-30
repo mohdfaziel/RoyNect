@@ -21,18 +21,9 @@ export default function Footer() {
         <p className="text-sm text-active">
           Design & Built by <span className="text-white font-medium">Mohd Faziel</span> © 2024
         </p>
-        <div className="SocialMedia flex justify-center items-center gap-5">
-          <a href="https://www.linkedin.com/in/mohdfaziel/" target="_blank">
-            <FaLinkedinIn className="transition-all hover:scale-150" />
-          </a>
+        <div className="SocialMedia flex justify-center items-center gap-3">
           <a href="mailto:mohdfazel969@gmail.com" target="_blank">
             <HiOutlineMail className="transition-all hover:scale-150" />
-          </a>
-          <a href="https://github.com/mohdfaziel" target="_blank">
-            <ImGithub className="transition-all hover:scale-150" />
-          </a>
-          <a href="https://leetcode.com/u/mohdfaziel/" target="_blank">
-            <SiLeetcode className="transition-all hover:scale-150" />
           </a>
           <a
             href="https://www.instagram.com/heyy.faziel?igsh=MWQxdW1yNDJ5ZGVicA=="
