@@ -7,10 +7,10 @@ export default function Intro() {
   return (
     <div
       id="about"
-      className="flex flex-col md:flex-row justify-center md:px-[3rem] px-[1rem] py-[1rem] gap-5 md:gap-0 items-center w-full h-screen"
+      className="flex flex-col md:flex-row justify-center md:px-[3rem] px-[1rem] py-[1rem] gap-5 md:gap-0 items-center w-full min-h-screen"
     >
       <motion.div
-        variants={fadeIn("down", 0.3)}
+        variants={fadeIn("", 0.3)}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.1 }}
@@ -26,7 +26,7 @@ export default function Intro() {
         <div className="absolute z-10 w-[20rem] h-[20rem] md:w-[40rem] md:h-[40rem] rounded-full blur-3xl opacity-40 bg-white "></div>
       </motion.div>
       <motion.div
-        variants={fadeIn("up", 0.3)}
+        variants={fadeIn("", 0.3)}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.1 }}

@@ -19,9 +19,9 @@ export default function Main() {
   return (
     <div
       id="product"
-      className="w-full max-w-[102rem] md:max-h-[50rem] overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-5 md:justify-start  items-center"
+      className="w-full max-w-[102rem] md:max-h-[50rem] overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-1 md:justify-start  items-center"
     >
-      <div className="upper relative z-10 md:relative h-full md:h-screen flex flex-col md:flex-row md:justify-between justify-center mt-[3rem] md:mt-[8rem] md:items-start items-center w-full">
+      <div className="upper relative z-10 md:relative h-full md:h-screen flex flex-col md:flex-row md:justify-between justify-center mt-[1rem] md:mt-[8rem] md:items-start items-center w-full">
         <motion.div
           variants={fadeIn("", 0.3)}
           initial="hidden"
@@ -47,7 +47,7 @@ export default function Main() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.1 }}
-          className="Quantity z-20 flex flex-col justify-center items-center md:items-end gap-5"
+          className="Quantity z-20 flex flex-col justify-center items-center md:items-end gap-2"
         >
           <div className="flex justify-center items-center gap-3">
             <Quantity

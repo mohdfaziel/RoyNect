@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Nav() {
   const [page, setPage] = useState("products");
   return (
-    <div className="w-full z-50 md:px-[3rem] px-[1rem] flex top-7 transition-all justify-center items-center min-h-7 fixed bg-transparent">
+    <div className="w-full z-50 md:px-[3rem] px-[1rem] flex top-5 md:top-7 transition-all justify-center items-center min-h-7 fixed bg-transparent">
       <div className="container bg-transparent py-2 w-[100%] flex justify-between items-center">
       <div className="Logo">
         <img src={Logo} className="md:w-32 w-24" alt="" />
