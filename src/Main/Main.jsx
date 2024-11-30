@@ -15,7 +15,7 @@ import { useState } from "react";
 export default function Main() {
   const [qty, setQty] = useState("0.5kg");
   const [activeQty, setActiveQty] = useState("0.5");
-  const [price, setPrice] = useState("600");
+  const [price, setPrice] = useState("750");
   return (
     <div
       id="product"
@@ -30,7 +30,7 @@ export default function Main() {
           className="Product md:flex hidden transition-all flex-col justify-center w-96 gap-3 items-start"
         >
           <h1 className="desc text-5xl font-extrabold z-20">
-            100% Pure & Natural Honey
+            100% Pure & Natural Apis Cerana Honey
           </h1>
           <div className="quantity text-lg">{qty}</div>
         </motion.div>
@@ -54,7 +54,7 @@ export default function Main() {
               onClick={() => {
                 setQty("0.5kg");
                 setActiveQty("0.5");
-                setPrice("600");
+                setPrice("750");
               }}
               bg={activeQty === "0.5" ? "active" : "Dark3"}
               txt={activeQty === "0.5" ? "white" : "unactive"}
@@ -64,7 +64,7 @@ export default function Main() {
               onClick={() => {
                 setQty("1kg");
                 setActiveQty("1");
-                setPrice("1,200");
+                setPrice("1,500");
               }}
               bg={activeQty === "1" ? "active" : "Dark3"}
               txt={activeQty === "1" ? "white" : "unactive"}
@@ -74,7 +74,7 @@ export default function Main() {
               onClick={() => {
                 setQty("2kg");
                 setActiveQty("2");
-                setPrice("2,400");
+                setPrice("3,000");
               }}
               bg={activeQty === "2" ? "active" : "Dark3"}
               txt={activeQty === "2" ? "white" : "unactive"}

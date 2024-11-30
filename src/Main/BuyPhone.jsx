@@ -5,7 +5,7 @@ export default function BuyPhone({ qty, price }) {
   return (
     <div className="w-full gap-3 flex transition-all md:hidden flex-col justify-evenly max-h-[25rem] h-fit px-4 py-4 bg-white rounded-t-3xl items-start">
       <h1 className="title text-4xl font-extrabold">
-        100% Pure & Natural Honey
+        100% Pure & Natural Apis Cerana Honey
       </h1>
       <p className="weight text-lg font-medium">{qty}</p>
       <div className="price&Count w-full flex justify-between items-center">
