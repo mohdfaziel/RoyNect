@@ -15,7 +15,7 @@ export default function BuyPhone({ qty, price }) {
         </div>
         <Count/>
       </div>
-      <button className="bg-main w-full text-active text-3xl font-bold py-2 rounded-full">Buy Now</button>
+      <button className="bg-main hover:scale-105 transition-all w-full text-active text-3xl font-bold py-2 rounded-full">Buy Now</button>
     </div>
   );
 }

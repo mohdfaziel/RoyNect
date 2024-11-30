@@ -14,7 +14,7 @@ export default function Item({ bg, txt, title ,onClick,link}) {
     return (
         <a href={link}
             className={classNames(
-                "px-3 md:px-4 py-1 md:py-2 cursor-pointer rounded-2xl flex w-fit justify-center items-center",
+                "px-3 md:px-4 py-1 md:py-2 cursor-pointer hover:scale-105 transition-all rounded-2xl md:rounded-3xl flex w-fit justify-center items-center",
                 bgClass
             )}
             onClick={onClick}

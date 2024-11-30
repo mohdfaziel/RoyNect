@@ -1,14 +1,17 @@
-import About from "./About Us/About"
-import Content from "./About Us/Content"
+import Intro from "./About Us/Intro"
+import Footer from "./Footer/Footer"
 import BuyPhone from "./Main/BuyPhone"
 import Main from "./Main/Main"
 import Nav from "./NavBar/Nav"
+import Legacy from "./About Us/Legacy"
 function App() {
   return (
-    <div className=" flex flex-col justify-center items-center min-h-screen w-full bg-radial-gradient">
+    <div className=" overflow-hidden flex flex-col justify-center items-center min-h-screen w-full bg-radial-gradient">
       <Nav />
       <Main />
-      <About/>
+      <Intro />
+      <Legacy/>
+      <Footer/>
     </div>
   )
 }

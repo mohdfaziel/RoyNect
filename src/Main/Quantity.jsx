@@ -11,7 +11,7 @@ export default function Quantity({bg,txt,qty,onClick}) {
         unactive: "text-unactive",
     }[txt];
   return (
-    <div onClick={onClick} className={classNames(bgClass,"w-[45px] transition-all p-1 flex justify-center items-center h-[45px] rounded-full")}>
+    <div onClick={onClick} className={classNames(bgClass,"w-[45px] hover:scale-105 transition-all p-1 flex justify-center items-center h-[45px] rounded-full")}>
       <p className={classNames(textClass,"text-sm font-semibold")}>{qty}</p>
     </div>
   )
