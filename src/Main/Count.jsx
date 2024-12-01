@@ -13,11 +13,15 @@ export default function Count()
             }}
             alt=""
           />
-          <p className="text-4xl font-bold">{num}</p>
+          <p className="text-4xl font-bold min-w-[3rem] text-center ">{num}</p>
           <img
             src={plus}
             className="cursor-pointer w-10"
-            onClick={() => setNum((prevnum) => prevnum + 1)}
+            onClick={() => {
+              if(num<=19){
+                setNum((prevnum) => prevnum + 1)
+              }
+            }}
             alt=""
           />
         </div>
