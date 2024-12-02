@@ -8,7 +8,6 @@ function App() {
     <div className=" overflow-hidden flex flex-col justify-center items-center min-h-screen w-full bg-radial-gradient">
       <Nav />
      <Outlet/>
-      <Footer/>
     </div>
   )
 }
