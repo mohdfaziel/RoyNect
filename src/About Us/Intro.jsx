@@ -7,7 +7,7 @@ export default function Intro() {
   return (
     <div
       id="about"
-      className="flex flex-col md:flex-row justify-center md:px-[3rem] px-[1rem] py-[1rem] gap-5 md:gap-0 items-center w-full min-h-screen"
+      className="flex flex-col md:flex-row justify-center md:px-[3rem] px-[1rem] py-[5rem] gap-5 md:gap-0 items-center w-full min-h-screen"
     >
       <motion.div
         variants={fadeIn("", 0.3)}

@@ -1,16 +1,13 @@
-import Intro from "./About Us/Intro"
 import Footer from "./Footer/Footer"
-import BuyPhone from "./Main/BuyPhone"
-import Main from "./Main/Main"
+import Product from "./Product/Product"
 import Nav from "./NavBar/Nav"
-import Legacy from "./About Us/Legacy"
+import About from "./About Us/About"
+import { Outlet } from "react-router-dom"
 function App() {
   return (
     <div className=" overflow-hidden flex flex-col justify-center items-center min-h-screen w-full bg-radial-gradient">
       <Nav />
-      <Main />
-      <Intro />
-      <Legacy/>
+     <Outlet/>
       <Footer/>
     </div>
   )

@@ -1,25 +1,37 @@
 import classNames from "classnames";
+import { img } from "framer-motion/client";
+import { NavLink } from "react-router-dom";
 
-export default function Item({ bg, txt, title ,onClick,link}) {
-    const bgClass = {
-        white: "bg-white",
-        Dark2: "bg-Dark2",
-    }[bg];
-
-    const textClass = {
-        active: "text-active",
-        unactive: "text-unactive",
-    }[txt];
-
-    return (
-        <a href={link}
-            className={classNames(
-                "px-3 md:px-4 py-1 md:py-2 cursor-pointer hover:scale-105 transition-all rounded-2xl md:rounded-3xl flex w-fit justify-center items-center",
-                bgClass
-            )}
-            onClick={onClick}
+export default function Item({title,link,iconActive,iconUnactive}) {
+  return (
+    <NavLink
+      to={link}
+      className={({ isActive }) =>
+        `px-3 md:px-4 py-1 md:py-2 w-[30px] h-[30px] md:h-fit cursor-pointer hover:scale-105 transition-all rounded-full md:rounded-3xl flex md:w-fit justify-center items-center" ${
+          isActive ? "bg-white text-active" : "bg-Dark2 text-unactive"
+        }`
+      }
+    >
+       {({ isActive }) => (
+        <div>
+        <p
+          className={classNames(
+            "text-xs hidden md:block md:text-sm font-medium",
+            {
+              "text-active": isActive,
+              "text-unactive": !isActive,
+            }
+          )}
         >
-            <p className={classNames("text-xs md:text-sm font-medium", textClass)}>{title}</p>
-        </a>
-    );
+          {title}
+        </p>
+        <div
+          className="flex justify-center w-[20px] h-[20px] rounded-full overflow-hidden items-center md:hidden "
+        >
+           <img className="w-[100%] h-[100%] object-cover" src={isActive ? iconActive : iconUnactive} alt="" />
+        </div>
+        </div>
+      )}
+    </NavLink>
+  );
 }
