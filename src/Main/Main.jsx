@@ -13,9 +13,9 @@ import BuyPhone from "./BuyPhone";
 import Quantity from "./Quantity";
 import { useState } from "react";
 export default function Main() {
-  const [qty, setQty] = useState("0.5kg");
-  const [activeQty, setActiveQty] = useState("0.5");
-  const [price, setPrice] = useState("750");
+  const [qty, setQty] = useState(0.5);
+  const [price, setPrice] = useState(750);
+  const [id, setId] = useState(1);
   return (
     <div
       id="product"
@@ -32,7 +32,7 @@ export default function Main() {
           <h1 className="desc text-5xl font-extrabold z-20">
             100% Pure & Natural Apis Cerana Honey
           </h1>
-          <div className="quantity text-lg">{qty}</div>
+          <div className="quantity text-lg">{qty}kg</div>
         </motion.div>
         <div className="Image animate-float md:animate-none md:absolute w-[20rem] md:w-[50rem] md:-top-[6rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
           <img
@@ -52,32 +52,32 @@ export default function Main() {
           <div className="flex justify-center items-center gap-3">
             <Quantity
               onClick={() => {
-                setQty("0.5kg");
-                setActiveQty("0.5");
-                setPrice("750");
+                setQty(0.5);
+                setPrice(750);
+                setId(1);
               }}
-              bg={activeQty === "0.5" ? "active" : "Dark3"}
-              txt={activeQty === "0.5" ? "white" : "unactive"}
+              bg={qty === 0.5 ? "active" : "Dark3"}
+              txt={qty === 0.5 ? "white" : "unactive"}
               qty=".5kg"
             />
             <Quantity
               onClick={() => {
-                setQty("1kg");
-                setActiveQty("1");
-                setPrice("1,500");
+                setQty(1);
+                setPrice(1500);
+                setId(2);
               }}
-              bg={activeQty === "1" ? "active" : "Dark3"}
-              txt={activeQty === "1" ? "white" : "unactive"}
+              bg={qty === 1 ? "active" : "Dark3"}
+              txt={qty === 1 ? "white" : "unactive"}
               qty="1kg"
             />
             <Quantity
               onClick={() => {
-                setQty("2kg");
-                setActiveQty("2");
-                setPrice("3,000");
+                setQty(2);
+                setPrice(3000);
+                setId(3);
               }}
-              bg={activeQty === "2" ? "active" : "Dark3"}
-              txt={activeQty === "2" ? "white" : "unactive"}
+              bg={qty === 2 ? "active" : "Dark3"}
+              txt={qty === 2 ? "white" : "unactive"}
               qty="2kg"
             />
           </div>
