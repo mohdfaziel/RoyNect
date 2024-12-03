@@ -11,7 +11,7 @@ const calculateTotals = (items) => {
     initialState: () => {
       const items = localStorage.getItem("cart")
         ? JSON.parse(localStorage.getItem("cart"))
-        : [{ id: 1, qty: 1, price: 750, weight: 1 }];
+        : [];
       const { qty, total } = calculateTotals(items);
       return {
         items,

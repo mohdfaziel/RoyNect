@@ -1,4 +1,3 @@
-import Footer from "./Footer/Footer"
 import Product from "./Product/Product"
 import Nav from "./NavBar/Nav"
 import About from "./About Us/About"

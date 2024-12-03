@@ -40,7 +40,7 @@ return(
             <h1 className="text-sm font-bold">{price}</h1>
             <img src={rupee} className="w-3" alt=""/>
         </div>
-        <span onClick={()=> dispatch(removeItem({id}))} className="Delete p-1 -top-[7px] hover:bg-white transition-all -right-[7px] rounded-full w-5 h-5 overflow-hidden flex justify-center items-center bg-main absolute">
+        <span onClick={()=> dispatch(removeItem({id}))} className="Delete p-1 -top-[7px] hover:bg-main transition-all -right-[7px] rounded-full w-5 h-5 overflow-hidden flex justify-center items-center bg-unactive absolute">
           <img src={cross} className="w-full h-full object-cover" alt="" />
         </span>
     </div>
