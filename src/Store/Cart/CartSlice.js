@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 const calculateTotals = (items) => {
     const qty = items.reduce((sum, item) => sum + item.qty, 0);
     const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
@@ -31,7 +32,10 @@ const calculateTotals = (items) => {
       if (existingItem) {
         existingItem.qty += action.payload.qty;
         if(existingItem.qty > 10){
+            toast.error("You can't add more than 10 items of a product");
           existingItem.qty = 10;
+        }else{
+            toast.success("Item Added to Cart");
         }
       } else {
         const newItem = {
@@ -41,6 +45,7 @@ const calculateTotals = (items) => {
           weight: action.payload.weight,
         };
         state.items.push(newItem);
+        toast.success("Item Added to Cart");
       }
       const { qty, total } = calculateTotals(state.items);
       state.qty = qty;
