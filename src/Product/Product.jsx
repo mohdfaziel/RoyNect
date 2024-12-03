@@ -8,14 +8,23 @@ import {
 } from "../assets/Images/Images";
 import { motion } from "framer-motion";
 import fadeIn from "../Framer/Fadein";
+import { useSelector,useDispatch } from "react-redux";
+import { addItem } from "../Store/Cart/CartSlice";
 import Buy from "./Buy";
 import BuyPhone from "./BuyPhone";
 import Quantity from "./Quantity";
 import { useState } from "react";
 export default function Main() {
-  const [qty, setQty] = useState(0.5);
+  const [weight, setWeight] = useState(0.5);
   const [price, setPrice] = useState(750);
   const [id, setId] = useState(1);
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+  function addToCart(){
+    console.log("Item Added to Cart");
+    dispatch(addItem({id,qty,price,weight}));
+    setQty(1);
+  }
   return (
     <div
       id="product"
@@ -32,7 +41,7 @@ export default function Main() {
           <h1 className="desc text-5xl font-extrabold z-20">
             100% Pure & Natural Apis Cerana Honey
           </h1>
-          <div className="quantity text-lg">{qty}kg</div>
+          <div className="quantity text-lg">{weight}kg</div>
         </motion.div>
         <div className="Image animate-float md:animate-none md:absolute w-[20rem] md:w-[50rem] md:-top-[6rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
           <img
@@ -52,33 +61,33 @@ export default function Main() {
           <div className="flex justify-center items-center gap-3">
             <Quantity
               onClick={() => {
-                setQty(0.5);
+                setWeight(0.5);
                 setPrice(750);
                 setId(1);
               }}
-              bg={qty === 0.5 ? "active" : "Dark3"}
-              txt={qty === 0.5 ? "white" : "unactive"}
-              qty=".5kg"
+              bg={weight === 0.5 ? "active" : "Dark3"}
+              txt={weight === 0.5 ? "white" : "unactive"}
+              weight=".5kg"
             />
             <Quantity
               onClick={() => {
-                setQty(1);
+                setWeight(1);
                 setPrice(1500);
                 setId(2);
               }}
-              bg={qty === 1 ? "active" : "Dark3"}
-              txt={qty === 1 ? "white" : "unactive"}
-              qty="1kg"
+              bg={weight === 1 ? "active" : "Dark3"}
+              txt={weight === 1 ? "white" : "unactive"}
+              weight="1kg"
             />
             <Quantity
               onClick={() => {
-                setQty(2);
+                setWeight(2);
                 setPrice(3000);
                 setId(3);
               }}
-              bg={qty === 2 ? "active" : "Dark3"}
-              txt={qty === 2 ? "white" : "unactive"}
-              qty="2kg"
+              bg={weight === 2 ? "active" : "Dark3"}
+              txt={weight === 2 ? "white" : "unactive"}
+              weight="2kg"
             />
           </div>
           <div className="Attention flex justify-center items-center gap-1">
@@ -104,9 +113,9 @@ export default function Main() {
           <h1 className="text-6xl font-extrabold">{price}</h1>
           <img src={rupee} className="w-16" alt="" />
         </div>
-        <Buy />
+        <Buy onClick={addToCart} qty={qty} setQty={setQty}/>
       </div>
-      <BuyPhone qty={qty} price={price} />
+      <BuyPhone onClick={addToCart} weight={weight} price={price} qty={qty} setQty={setQty}/>
     </div>
   );
 }

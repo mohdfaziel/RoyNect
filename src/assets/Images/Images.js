@@ -22,5 +22,6 @@ import minus from './minus.png'
 import person from './person.png'
 import plus from './plus.png'
 import rupee from './rupee.png'
+import cross from './cross.png'
 import whatsapp from './whatsapp.png'
-export {attention,bees1,bees2,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,bees1,bees2,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

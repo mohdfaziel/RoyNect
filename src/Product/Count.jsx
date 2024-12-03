@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { minus, plus } from "../assets/Images/Images";
-export default function Count()
+export default function Count({qty,setQty})
 {
-    const [num, setNum] = useState(1);
     return(
         <div className="amount flex justify-center items-center gap-5">
           <img
             src={minus}
             className="cursor-pointer w-10"
             onClick={() => {
-              if (num > 1) setNum((prevnum) => prevnum - 1);
+              if (qty > 1) setQty((prevqty) => prevqty - 1);
             }}
             alt=""
           />
-          <p className="text-4xl font-bold min-w-[3rem] text-center ">{num}</p>
+          <p className="text-4xl font-bold min-w-[3rem] text-center ">{qty}</p>
           <img
             src={plus}
             className="cursor-pointer w-10"
             onClick={() => {
-              if(num<=19){
-                setNum((prevnum) => prevnum + 1)
+              if(qty<10){
+                setQty((prevqty) => prevqty + 1)
               }
             }}
             alt=""
