@@ -57,8 +57,8 @@ export default function Cart({}) {
             <p className="text-lg">{totalCost} &#8377;</p>
           </div>
           </div>
-          <button className="w-full h-[3rem] bg-main text-xl font-bold">
-            Purchase
+          <button className="w-full opacity-50 h-[3rem] bg-main text-xl font-bold">
+            Out Of Stock
           </button>
         </div>
       </div>

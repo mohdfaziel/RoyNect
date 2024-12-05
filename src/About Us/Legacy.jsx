@@ -37,7 +37,7 @@ export default function Legacy() {
       img: jars,
       title: "Affordable Sweetness",
       sentence:
-        "Each year, I produce approximately 40-50 kilograms of honey. The process of extraction is carried out by me personally, ensuring that every drop is free from additives or impurities.",
+        "I ensure that my honey is sold at a reasonable price, making it an affordable yet premium choice.",
       flag: false,
     },
     {
