@@ -29,6 +29,7 @@ export default function Cart({}) {
         <div className="heading flex m-1 justify-start items-center">
           <img
             src={back}
+            loading="lazy"
             onClick={() => dispatch(toggleState())}
             className="w-10 hover:scale-105 transition-all"
             alt=""

@@ -27,6 +27,7 @@ export default function Content({ img, title, sentence, flag }) {
         <div className="w-[30rem] rounded-3xl overflow-hidden h-[12rem] md:h-[20rem]">
           <img
             src={img}
+            loading="lazy"
             className="object-cover object-[center] w-[100%] h-[100%] top-4"
             alt=""
           />

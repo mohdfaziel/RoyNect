@@ -28,7 +28,7 @@ export default function Item({title,link,iconActive,iconUnactive}) {
         <div
           className="flex justify-center w-[20px] h-[20px] rounded-full overflow-hidden items-center md:hidden "
         >
-           <img className="w-[100%] h-[100%] object-cover" src={isActive ? iconActive : iconUnactive} alt="" />
+           <img className="w-[100%] h-[100%] object-cover" loading="lazy" src={isActive ? iconActive : iconUnactive} alt="" />
         </div>
         </div>
       )}

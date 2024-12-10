@@ -7,6 +7,7 @@ export default function Count({qty,setQty})
           <img
             src={minus}
             className="cursor-pointer w-10"
+            loading="lazy"
             onClick={() => {
               if (qty > 1) setQty((prevqty) => prevqty - 1);
             }}
@@ -15,6 +16,7 @@ export default function Count({qty,setQty})
           <p className="text-4xl font-bold min-w-[3rem] text-center ">{qty}</p>
           <img
             src={plus}
+            loading="lazy"
             className="cursor-pointer w-10"
             onClick={() => {
               if(qty<10){

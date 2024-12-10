@@ -11,7 +11,7 @@ export default function BuyPhone({onClick, weight, price,qty,setQty }) {
       <div className="price&Count w-full flex justify-between items-center">
         <div className="price flex justify-center items-center">
           <h1 className="text-3xl font-extrabold">{price}</h1>
-          <img src={rupee} className="w-6" alt="" />
+          <img src={rupee} loading="lazy" className="w-6" alt="" />
         </div>
         <Count qty={qty} setQty={setQty}/>
       </div>

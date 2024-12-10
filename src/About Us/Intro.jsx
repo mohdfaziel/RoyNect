@@ -19,6 +19,7 @@ export default function Intro() {
         <div className="md:w-[25rem] w-[16rem] z-20 border-[1px] border-main h-[16rem] md:h-[25rem] rounded-full overflow-hidden">
           <img
             src={me}
+            loading="lazy"
             className="w-full h-full object-cover object-[center]"
             alt=""
           />

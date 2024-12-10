@@ -46,10 +46,11 @@ export default function Main() {
         <div className="Image animate-float md:animate-none md:absolute w-[20rem] md:w-[50rem] md:-top-[6rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
           <img
             src={mainImg2}
+            loading="lazy"
             className="w-[100%] md:block hidden -z-10"
             alt=""
           />
-          <img src={jar3} className="w-[100%] md:hidden -z-10" alt="" />
+          <img src={jar3} loading="lazy" className="w-[100%] md:hidden -z-10" alt="" />
         </div>
         <motion.div
           variants={fadeIn("", 0.3)}
@@ -91,7 +92,7 @@ export default function Main() {
             />
           </div>
           <div className="Attention flex justify-center items-center gap-1">
-            <img src={attention} className="w-6" alt="" />
+            <img src={attention} loading="lazy" className="w-6" alt="" />
             <p className="text-sm">100% Natural. Always Pure</p>
           </div>
         </motion.div>
@@ -111,7 +112,7 @@ export default function Main() {
         </motion.p>
         <div className="price flex justify-center items-center">
           <h1 className="text-6xl font-extrabold">{price}</h1>
-          <img src={rupee} className="w-16" alt="" />
+          <img src={rupee} loading="lazy" className="w-16" alt="" />
         </div>
         <Buy onClick={addToCart} qty={qty} setQty={setQty}/>
       </div>
