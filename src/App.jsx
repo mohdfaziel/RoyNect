@@ -4,7 +4,14 @@ import About from "./About Us/About"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Outlet } from "react-router-dom"
 import Cart from "./Cart/Cart"
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import authService from "./Firebase/Services/auth";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    authService.initAuth(dispatch);
+  }, [dispatch]);
   return (
     < >
       <Router>

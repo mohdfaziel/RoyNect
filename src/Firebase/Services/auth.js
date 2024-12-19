@@ -51,7 +51,7 @@ class AuthService {
     }
   }
 
-  async logout(dispatch) {
+  async signOut(dispatch) {
     try {
       await signOut(auth);
       dispatch(logout());

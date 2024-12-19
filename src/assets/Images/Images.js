@@ -5,6 +5,7 @@ import cart from './cart.png';
 import dadu from './dadu.png';
 import email from './email.png'
 import ig from './ig.png'
+import ggle from './google.png'
 import mainImg from './Main img.png'
 import mainImg2 from './Main img2.png'
 import jar3 from './jar3.png'
@@ -25,4 +26,4 @@ import rupee from './rupee.png'
 import cross from './cross.png'
 import back from './back.png'
 import whatsapp from './whatsapp.png'
-export {attention,bees1,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,bees1,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

@@ -1,7 +1,16 @@
-import { aboutActive, aboutUnActive, cart, jarActive, jarUnActive, Logo, person } from "../assets/Images/Images";
+import {
+  aboutActive,
+  aboutUnActive,
+  cart,
+  jarActive,
+  jarUnActive,
+  Logo,
+} from "../assets/Images/Images";
 import Item from "./Item";
+import Auth from "./Auth";
 import { toggleState } from "../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
+
 export default function Nav() {
   const dispatch = useDispatch();
   const qty = useSelector((state) => state.cart.qty);
@@ -12,19 +21,30 @@ export default function Nav() {
           <img src={Logo} className="md:w-32 w-24" alt="" />
         </div>
         <div className="Options flex justify-center items-center gap-5">
-          <Item title="Products" link="" iconActive={jarActive} iconUnactive={jarUnActive}/>
-          <Item title="About us" link="/about" iconActive={aboutActive} iconUnactive={aboutUnActive}/>
+          <Item
+            title="Products"
+            link=""
+            iconActive={jarActive}
+            iconUnactive={jarUnActive}
+          />
+          <Item
+            title="About us"
+            link="/about"
+            iconActive={aboutActive}
+            iconUnactive={aboutUnActive}
+          />
         </div>
         <div className="Actions flex justify-center items-center gap-3">
-        <div className="Login md:w-[45px] hover:scale-105 transition-all w-[30px] p-1 flex justify-center items-center rounded-full h-[30px] md:h-[45px] cursor-pointer bg-white">
-            <img src={person} className="w-[100%] h-[100%] object-cover" alt="" />
-        </div>
-        <div onClick={()=> dispatch(toggleState())} className="Cart relative md:w-[45px] hover:scale-105 transition-all w-[30px] p-1 flex justify-center items-center rounded-full h-[30px] md:h-[45px] cursor-pointer bg-Dark2">
+          <Auth/>
+          <div
+            onClick={() => dispatch(toggleState())}
+            className="Cart relative md:w-[45px] hover:scale-105 transition-all w-[30px] p-1 flex justify-center items-center rounded-full h-[30px] md:h-[45px] cursor-pointer bg-Dark2"
+          >
             <img src={cart} className="w-[100%] h-[100%] object-cover" alt="" />
             <span className="absolute transition-all right-0 -top-1 p-2 rounded-full md:w-5 md:h-5 w-4 h-4 bg-white  flex justify-center items-center">
               <p className="md:text-xs text-[9px] font-bold">{qty}</p>
             </span>
-        </div>
+          </div>
         </div>
       </div>
     </div>

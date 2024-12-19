@@ -29,7 +29,7 @@ export default function Footer() {
             href="https://www.instagram.com/heyy.faziel?igsh=MWQxdW1yNDJ5ZGVicA=="
             target="_blank"
           >
-            <FaInstagram className="transition-all hover:scale-150" />
+            <FaInstagram className="transition-all w-3 hover:scale-150" />
           </a>
         </div>
       </motion.dev>
