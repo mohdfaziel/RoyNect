@@ -22,7 +22,7 @@ function UserDetails({ status, setStatus }) {
       <ul className="flex flex-col gap-2 w-full min-h-[5rem] justify-center items-center">
         {userPresent && (
           <li className="px-4 transition-all py-1 cursor-pointer  font-medium hover:bg-slate-300 rounded-full">
-            Profile
+            My Orders
           </li>
         )}
         {!userPresent && (

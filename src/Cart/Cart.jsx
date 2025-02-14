@@ -8,6 +8,7 @@ export default function Cart({}) {
   const items = useSelector((state) => state.cart.items || []);
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
+  const honeyInStock = useSelector((state) => state.honey.qtyAvailable);
   const handleBackdropClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
       dispatch(toggleState());
@@ -58,9 +59,13 @@ export default function Cart({}) {
             <p className="text-lg">{totalCost} &#8377;</p>
           </div>
           </div>
-          <button className="w-full opacity-50 h-[3rem] bg-main text-xl font-bold">
+          {honeyInStock === 0 ? ( <button className="w-full transition-all opacity-50 h-[3rem] bg-main text-xl font-bold">
             Out Of Stock
-          </button>
+          </button>): honeyInStock < totalHoney ? ( <button className="w-full opacity-50 transition-all h-[3rem] bg-main text-xl font-bold">
+            Only {honeyInStock}kg Honey Available
+          </button>): ( <button className="w-full h-[3rem] transition-all bg-main text-xl font-bold">
+            Buy Now
+          </button>)}
         </div>
       </div>
     </div>
