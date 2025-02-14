@@ -1,6 +1,7 @@
 import { bees1, bees2, dadu, me } from "../assets/Images/Images";
 import { motion } from "framer-motion";
 import fadeIn from "../Framer/Fadein";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Content({ img, title, sentence, flag }) {
   return (
     <div
@@ -25,10 +26,13 @@ export default function Content({ img, title, sentence, flag }) {
         className="img flex justify-center items-center w-full md:w-[50%] h-full"
       >
         <div className="w-[30rem] rounded-3xl overflow-hidden h-[12rem] md:h-[20rem]">
-          <img
+          <LazyLoadImage
             src={img}
+            effect="blur"
             loading="lazy"
-            className="object-cover object-[center] w-[100%] h-[100%] top-4"
+            width="100%"
+            height="100%"
+            className="lazy-load-image object-cover object-[center] w-[100%] h-[100%] top-4"
             alt=""
           />
         </div>

@@ -25,7 +25,6 @@ export const CartSlice = createSlice({
   reducers: {
     toggleState: (state) => {
       state.state = !state.state;
-      console.log("cart status is: " + state.state);
     },
     addItem: (state, action) => {
       const existingItem = state.items.find(

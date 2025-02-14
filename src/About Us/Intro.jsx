@@ -2,6 +2,7 @@ import { email, ig, me, whatsapp } from "../assets/Images/Images";
 import { motion } from "framer-motion";
 import fadeIn from "../Framer/Fadein";
 import Social from "./Social";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Intro() {
   return (
@@ -17,10 +18,12 @@ export default function Intro() {
         className="img relative flex justify-center items-center w-full md:w-[50%] md:h-full"
       >
         <div className="md:w-[25rem] w-[16rem] z-20 border-[1px] border-main h-[16rem] md:h-[25rem] rounded-full overflow-hidden">
-          <img
+          <LazyLoadImage
             src={me}
-            loading="lazy"
-            className="w-full h-full object-cover object-[center]"
+            effect="blur"
+            width="100%"
+            height="100%"
+            className="lazy-load-image w-full h-full object-cover object-[center]"
             alt=""
           />
         </div>

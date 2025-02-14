@@ -6,9 +6,10 @@ import {
   plus,
   rupee,
 } from "../assets/Images/Images";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import fadeIn from "../Framer/Fadein";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../Store/Cart/CartSlice";
 import Buy from "./Buy";
 import BuyPhone from "./BuyPhone";
@@ -20,9 +21,9 @@ export default function Main() {
   const [id, setId] = useState(1);
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  function addToCart(){
+  function addToCart() {
     console.log("Item Added to Cart");
-    dispatch(addItem({id,qty,price,weight}));
+    dispatch(addItem({ id, qty, price, weight }));
     setQty(1);
   }
   return (
@@ -44,13 +45,18 @@ export default function Main() {
           <div className="quantity text-lg">{weight}kg</div>
         </motion.div>
         <div className="Image animate-float md:animate-none md:absolute w-[20rem] md:w-[50rem] md:-top-[6rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
-          <img
+          <LazyLoadImage
             src={mainImg2}
-            loading="lazy"
-            className="w-[100%] md:block hidden -z-10"
+            effect="blur"
+            className="lazy-load-image w-[100%] md:block hidden -z-10"
             alt=""
           />
-          <img src={jar3} loading="lazy" className="w-[100%] md:hidden -z-10" alt="" />
+          <LazyLoadImage
+            src={jar3}
+            effect="blur"
+            className="lazy-load-image w-[100%] md:hidden -z-10"
+            alt=""
+          />
         </div>
         <motion.div
           variants={fadeIn("", 0.3)}
@@ -114,9 +120,15 @@ export default function Main() {
           <h1 className="text-6xl font-extrabold">{price}</h1>
           <img src={rupee} loading="lazy" className="w-16" alt="" />
         </div>
-        <Buy onClick={addToCart} qty={qty} setQty={setQty}/>
+        <Buy onClick={addToCart} qty={qty} setQty={setQty} />
       </div>
-      <BuyPhone onClick={addToCart} weight={weight} price={price} qty={qty} setQty={setQty}/>
+      <BuyPhone
+        onClick={addToCart}
+        weight={weight}
+        price={price}
+        qty={qty}
+        setQty={setQty}
+      />
     </div>
   );
 }
