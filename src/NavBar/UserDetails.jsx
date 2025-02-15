@@ -1,16 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import authService from "../Firebase/Services/auth";
+import {useNavigate } from "react-router-dom";
 import { ggle } from "../assets/Images/Images";
 
 function UserDetails({ status, setStatus }) {
   const userPresent = useSelector((state) => state.user.status);
   const dispatch = useDispatch();
+  const Navigate = useNavigate();
   async function signIn() {
     authService.signInWithGoogle(dispatch);
   }
   async function signOut() {
     authService.signOut(dispatch);
+    Navigate("/")
   }
   return (
     <div
@@ -21,7 +24,7 @@ function UserDetails({ status, setStatus }) {
     >
       <ul className="flex flex-col gap-2 w-full min-h-[5rem] justify-center items-center">
         {userPresent && (
-          <li className="px-4 transition-all py-1 cursor-pointer  font-medium hover:bg-slate-300 rounded-full">
+          <li onClick={()=> Navigate('/myOrders')} className="px-4 transition-all py-1 cursor-pointer  font-medium hover:bg-slate-300 rounded-full">
             My Orders
           </li>
         )}

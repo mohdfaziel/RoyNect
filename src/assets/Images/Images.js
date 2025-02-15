@@ -25,5 +25,6 @@ import plus from './plus.png'
 import rupee from './rupee.png'
 import cross from './cross.png'
 import back from './back.png'
+import empty from './emptyOrders.svg'
 import whatsapp from './whatsapp.png'
-export {attention,bees1,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,bees1,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

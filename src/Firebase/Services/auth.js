@@ -1,18 +1,33 @@
-import { auth } from "../config";
+import { auth, firestore } from "../config"; 
 import {
   signOut,
   signInWithPopup,
   onAuthStateChanged,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { login, logout } from "../../Store/User/UserSlice";
 import toast from "react-hot-toast";
 
 class AuthService {
   async initAuth(dispatch) {
     try {
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, async (user) => {
         if (user) {
+          const userRef = doc(firestore, "users", user.uid);
+          const userSnap = await getDoc(userRef);
+
+          if (!userSnap.exists()) {
+            await setDoc(userRef, {
+              uid: user.uid,
+              name: user.displayName,
+              email: user.email,
+              photoURL: user.photoURL,
+              role: "customer",
+              createdAt: new Date().toISOString(),
+            });
+          }
+
           dispatch(
             login({
               uid: user.uid,
@@ -35,7 +50,21 @@ class AuthService {
       const provider = new GoogleAuthProvider();
       const userInfo = await signInWithPopup(auth, provider);
       const user = userInfo.user;
-      console.log(user);
+
+      const userRef = doc(firestore, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (!userSnap.exists()) {
+        await setDoc(userRef, {
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL, 
+          role: "customer",
+          createdAt: new Date().toISOString(),
+        });
+      }
+
       dispatch(
         login({
           uid: user.uid,
@@ -44,6 +73,7 @@ class AuthService {
           photoUrl: user.photoURL,
         })
       );
+
       toast.success("Sign In Successful");
     } catch (error) {
       toast.error(error.message);
