@@ -4,6 +4,7 @@ import Orders from './Orders'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import databaseService from '../../Firebase/Services/database'
+import Loader from '../../components/Loader.jsx'
 function MyOrders() {
     const [orders, setOrders] = useState([]);
     const Navigate = useNavigate();
@@ -22,7 +23,7 @@ function MyOrders() {
 
     fetchOrders();
   }, [user]);
-  if (loading) return <p className="text-center font-bold">Loading Orders...</p>;
+  if (loading) return <Loader/>;
   return (
     <div
       id="myOrders"

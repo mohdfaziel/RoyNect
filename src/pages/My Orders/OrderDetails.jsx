@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
+import Loader from "../../components/Loader";
 import databaseService from "../../Firebase/Services/database";
 
 function OrderDetails() {
@@ -32,7 +33,7 @@ function OrderDetails() {
     fetchOrderDetails();
   }, [orderId]);
 
-  if (loading) return <p className="text-center font-bold">Loading Order Details...</p>;
+  if (loading) return <Loader/>;
 
   return (
     <div className="p-4 max-w-2xl mx-auto bg-white shadow-md rounded-lg">
