@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import authService from "./Firebase/Services/auth";
 import MyOrders from "./pages/My Orders/MyOrders";
+import OrderDetails from "./pages/My Orders/OrderDetails";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Product />} />
             <Route path="about" element={<About />} />
             <Route path="myOrders" element={<MyOrders />} />
+            <Route path="myOrders/:orderId" element={<OrderDetails />} />
            </Routes>
            <Cart/>
         </div>

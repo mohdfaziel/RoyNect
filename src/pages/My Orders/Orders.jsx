@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 const Orders = ({ orders }) => {
+  const Navigate = useNavigate();
   return (
     <div className="overflow-x-auto w-full h-full">
       <table className="w-full border border-gray-200 rounded-lg">
@@ -23,6 +25,7 @@ const Orders = ({ orders }) => {
             orders.map((order, index) => (
               <tr
                 key={index}
+                onClick={() => Navigate(`/myOrders/${order.id}`)}
                 className="text-center cursor-pointer hover:bg-unactive text-lg font-semibold border-t"
               >
                 <td className="hidden md:table-cell px-4 py-2">{index + 1}</td>

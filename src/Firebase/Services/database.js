@@ -23,7 +23,22 @@ class DatabaseService {
         return { success: false, error: error.message };
     }
   }
-
+  //Get Order Details
+  async getOrder (orderId) {
+    try {
+      const orderRef = doc(firestore, "orders", orderId);
+      const orderSnap = await getDoc(orderRef);
+  
+      if (orderSnap.exists()) {
+        return orderSnap.data();
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching order:", error);
+      return null;
+    }
+  }
   // ✅ Get All Orders for a User
   async getUserOrders(userId) {
     try {

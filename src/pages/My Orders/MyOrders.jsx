@@ -7,18 +7,22 @@ import databaseService from '../../Firebase/Services/database'
 function MyOrders() {
     const [orders, setOrders] = useState([]);
     const Navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
     const user = useSelector((state) => state.user.userData);
   useEffect(() => {
     const fetchOrders = async () => {
+      setLoading(true);
       const userId = user.uid;
       document.body.style.cursor = 'wait';
       const userOrders = await databaseService.getUserOrders(userId);
       setOrders(userOrders);
       document.body.style.cursor = 'default';
+      setLoading(false);
     };
 
     fetchOrders();
   }, [user]);
+  if (loading) return <p className="text-center font-bold">Loading Orders...</p>;
   return (
     <div
       id="myOrders"
