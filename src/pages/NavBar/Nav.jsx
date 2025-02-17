@@ -10,6 +10,7 @@ import Item from "./Item";
 import Auth from "./Auth";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Cart from "../../assets/Animations/icons/Cart";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default function Nav() {
             onClick={() => dispatch(toggleState())}
             className="Cart relative md:w-[45px] hover:scale-105 transition-all w-[30px] p-1 flex justify-center items-center rounded-full h-[30px] md:h-[45px] cursor-pointer bg-Dark2"
           >
-            <img src={cart} className="w-[100%] h-[100%] object-cover" alt="" />
+            <Cart/>
             <span className="absolute transition-all right-0 -top-1 p-2 rounded-full md:w-5 md:h-5 w-4 h-4 bg-white  flex justify-center items-center">
               <p className="md:text-xs text-[9px] font-bold">{qty}</p>
             </span>
