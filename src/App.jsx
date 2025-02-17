@@ -1,8 +1,8 @@
-import Product from "./Product/Product"
-import Nav from "./NavBar/Nav"
-import About from "./About Us/About"
+import Product from "./pages/Product/Product"
+import Nav from "./pages/NavBar/Nav"
+import About from "./pages/About Us/About"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Cart from "./Cart/Cart"
+import Cart from "./components/Cart/Cart.jsx"
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import authService from "./Firebase/Services/auth";

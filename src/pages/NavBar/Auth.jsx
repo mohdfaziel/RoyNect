@@ -1,4 +1,4 @@
-import { person } from "../assets/Images/Images";
+import { person } from "../../assets/Images/Images";
 import { useDispatch, useSelector } from "react-redux";
 import UserDetails from "./UserDetails";
 import { useState } from "react";

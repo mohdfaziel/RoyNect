@@ -15,10 +15,10 @@ function OrderDetails() {
         document.body.style.cursor = "wait";
         setLoading(true);
 
-        const response = await databaseService.getOrder(orderId);
+        const info = await databaseService.getOrder(orderId);
 
-        if (response) {
-          setOrderDetails(response);
+        if (info) {
+          setOrderDetails(info);
         } else {
           console.log("No order found");
         }

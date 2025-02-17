@@ -1,7 +1,7 @@
 import Item from "./Item";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleState } from "../Store/Cart/CartSlice";
-import { back } from "../assets/Images/Images";
+import { toggleState } from "../../Store/Cart/CartSlice";
+import { back } from "../../assets/Images/Images";
 export default function Cart({}) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart.state);

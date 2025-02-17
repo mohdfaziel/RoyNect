@@ -1,6 +1,6 @@
-import { email, ig, me, whatsapp } from "../assets/Images/Images";
+import { email, ig, me, whatsapp } from "../../assets/Images/Images";
 import { motion } from "framer-motion";
-import fadeIn from "../Framer/Fadein";
+import fadeIn from "../../Framer/Fadein";
 import Social from "./Social";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 

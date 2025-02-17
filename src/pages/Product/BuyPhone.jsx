@@ -1,4 +1,4 @@
-import { rupee } from "../assets/Images/Images";
+import { rupee } from "../../assets/Images/Images";
 import Count from "./Count";
 
 export default function BuyPhone({onClick, weight, price,qty,setQty }) {

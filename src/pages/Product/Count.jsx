@@ -1,5 +1,5 @@
 import React from "react";
-import { minus, plus } from "../assets/Images/Images";
+import { minus, plus } from "../../assets/Images/Images";
 export default function Count({qty,setQty})
 {
     return(

@@ -16,6 +16,7 @@ import aboutUnActive from './aboutIconUnActive.png'
 import jars from './jars.jpg'
 import kash from './kash.jpg'
 import less from './lessthen.png'
+import user from './User.svg'
 import Logo from './Logo.png'
 import withbees from './me with bees.jpg'
 import me from './me.png'
@@ -27,4 +28,4 @@ import cross from './cross.png'
 import back from './back.png'
 import empty from './emptyOrders.svg'
 import whatsapp from './whatsapp.png'
-export {attention,bees1,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,bees1,user,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

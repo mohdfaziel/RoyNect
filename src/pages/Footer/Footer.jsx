@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import fadeIn from "../Framer/Fadein";
+import fadeIn from "../../Framer/Fadein";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { ImGithub } from "react-icons/im";
 import { SiLeetcode } from "react-icons/si";

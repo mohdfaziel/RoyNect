@@ -1,8 +1,8 @@
-import { cross, jar3, rupee } from "../assets/Images/Images";
-import { removeItem } from "../Store/Cart/CartSlice";
-import { minus,plus } from "../assets/Images/Images";
+import { cross, jar3, rupee } from "../../assets/Images/Images";
+import { removeItem } from "../../Store/Cart/CartSlice";
+import { minus,plus } from "../../assets/Images/Images";
 import { useDispatch,useSelector } from "react-redux";
-import { incQty,decQty } from "../Store/Cart/CartSlice";
+import { incQty,decQty } from "../../Store/Cart/CartSlice";
 export default function Item({id}) {
   const dispatch = useDispatch();
   const item = useSelector((state) =>

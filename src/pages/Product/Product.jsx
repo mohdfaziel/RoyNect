@@ -5,12 +5,12 @@ import {
   minus,
   plus,
   rupee,
-} from "../assets/Images/Images";
+} from "../../assets/Images/Images";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
-import fadeIn from "../Framer/Fadein";
-import { useSelector, useDispatch } from "react-redux";
-import { addItem } from "../Store/Cart/CartSlice";
+import fadeIn from "../../Framer/Fadein";
+import {useDispatch } from "react-redux";
+import { addItem } from "../../Store/Cart/CartSlice";
 import Buy from "./Buy";
 import BuyPhone from "./BuyPhone";
 import Quantity from "./Quantity";

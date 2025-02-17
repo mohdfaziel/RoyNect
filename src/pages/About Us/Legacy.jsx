@@ -5,10 +5,10 @@ import {
   jars,
   kash,
   withbees,
-} from "../assets/Images/Images";
+} from "../../assets/Images/Images";
 import Content from "./Content";
 import { motion } from "framer-motion";
-import fadeIn from "../Framer/Fadein";
+import fadeIn from "../../Framer/Fadein.js";
 
 export default function Legacy() {
   const content = [

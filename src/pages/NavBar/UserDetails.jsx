@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import authService from "../Firebase/Services/auth";
+import authService from "../../Firebase/Services/auth";
 import {useNavigate } from "react-router-dom";
-import { ggle } from "../assets/Images/Images";
+import { ggle } from "../../assets/Images/Images";
 
 function UserDetails({ status, setStatus }) {
   const userPresent = useSelector((state) => state.user.status);

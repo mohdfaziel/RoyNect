@@ -1,6 +1,6 @@
-import { bees1, bees2, dadu, me } from "../assets/Images/Images";
+import { bees1, bees2, dadu, me } from "../../assets/Images/Images";
 import { motion } from "framer-motion";
-import fadeIn from "../Framer/Fadein";
+import fadeIn from "../../Framer/Fadein";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Content({ img, title, sentence, flag }) {
   return (

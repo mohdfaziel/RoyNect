@@ -5,10 +5,10 @@ import {
   jarActive,
   jarUnActive,
   Logo,
-} from "../assets/Images/Images";
+} from "../../assets/Images/Images";
 import Item from "./Item";
 import Auth from "./Auth";
-import { toggleState } from "../Store/Cart/CartSlice";
+import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Nav() {
