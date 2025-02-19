@@ -30,8 +30,12 @@ const Orders = ({ orders }) => {
               >
                 <td className="hidden md:table-cell px-4 py-2">{index + 1}</td>
                 <td className="hidden md:table-cell px-4 py-2">{order.id}</td>
-                <td className="hidden md:table-cell px-4 py-2">{order.quantity}kg</td>
-                <td className="hidden md:table-cell px-4 py-2">{order.totalPrice}&#8377;</td>
+                <td className="hidden md:table-cell px-4 py-2">
+                  {order.quantity}kg
+                </td>
+                <td className="hidden md:table-cell px-4 py-2">
+                  {order.totalPrice}&#8377;
+                </td>
                 <td className="px-4 py-2">
                   {order.orderDate
                     ? format(
@@ -47,20 +51,22 @@ const Orders = ({ orders }) => {
                         ? "bg-yellow-500"
                         : order.status === "Shipped"
                         ? "bg-blue-500"
+                        : order.status === "cancelled"
+                        ? "bg-red-500"
                         : "bg-green-500"
                     }`}
                   >
                     {order.status}
                   </span>
                 </td>
-                
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="5" className="px-4 py-4 text-center text-gray-500">
-                
-              </td>
+              <td
+                colSpan="5"
+                className="px-4 py-4 text-center text-gray-500"
+              ></td>
             </tr>
           )}
         </tbody>
