@@ -133,7 +133,7 @@ function OrderDetails() {
             <div className="text-sm text-gray-500 w-full font-semibold">
               Knowledge Park II, Greater Noida, UttarPradesh
             </div>
-            <div className="text-sm text-gray-500 w-full font-semibold">
+            <div className="text-base text-gray-500 w-full font-semibold">
               Pincode : 201310
             </div>
           </div>
