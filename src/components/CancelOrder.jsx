@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import databaseService from "../Firebase/Services/database";
-import { update } from "firebase/database";
 const CancelOrder = ({ orderId,updateOrderStatus,setLoading}) => {
   const [showPopup, setShowPopup] = useState(false);
   async function CancelOrder(orderId) {
     setLoading(true);
-    const response = await databaseService.updateOrderStatus(orderId, "cancelled");
+    const response = await databaseService.updateAttribute(orderId,"status","cancelled");
+    const response2 = await databaseService.updateAttribute(orderId,"isCancelled",true);
     updateOrderStatus("cancelled");
     setLoading(false);
   }

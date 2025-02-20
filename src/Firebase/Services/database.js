@@ -78,6 +78,16 @@ class DatabaseService {
       return { success: false, error: error.message };
     }
   }
+  async updateAttribute(orderId,attribute, value) {
+    try {
+      const orderRef = doc(firestore, "orders", orderId);
+      await updateDoc(orderRef, { [attribute]: value });
+      return { success: true };
+    } catch (error) {
+      console.error("Error updating order status:", error);
+      return { success: false, error: error.message };
+    }
+  }
 
   // ✅ Update User Profile (Phone & Address)
   async updateUserProfile(userId, profileData) {
