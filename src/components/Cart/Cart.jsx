@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { back } from "../../assets/Images/Images";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 export default function Cart({}) {
   const dispatch = useDispatch();
+  const userStatus = useSelector((state) => state.user.status);
   const state = useSelector((state) => state.cart.state);
   const items = useSelector((state) => state.cart.items || []);
   const totalHoney = useSelector((state) => state.cart.totalWeight);
@@ -12,7 +14,11 @@ export default function Cart({}) {
   const honeyInStock = useSelector((state) => state.honey.qtyAvailable);
   const Navigate = useNavigate();
   const checkOut = () => {
-    Navigate("/checkOut");
+    if(userStatus){
+      Navigate("/checkOut");
+    }else{
+      toast.error("Please Login to Continue");
+    }
     dispatch(toggleState());
   }
   const handleBackdropClick = (e) => {

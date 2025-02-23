@@ -2,25 +2,51 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Person from "../../assets/Animations/icons/Person";
 import Address from "../../assets/Animations/icons/Address";
-function Details() {
+function Details({handleNext}) {
+  const [check, setCheck] = React.useState(false);
   const {
     register,
     handleSubmit,
-    setError,
-    formState: { errors, isSubmitting },
-  } = useForm();
+    getValues,
+    setValue,
+    formState: { errors, isSubmitting},
+  } = useForm({mode:"onChange"});
   function submit(data) {
     console.log(data);
+    handleNext();
+  }
+  async function getstateDistrict() {
+    setCheck(true);
+    const pincode = getValues("pincode");
+    const pincodeElement = document.getElementById("pincode");
+    if (pincode.length !== 6) {
+      pincodeElement.style.border = "2px solid #ef4444";
+      setCheck(false);
+      return;
+    }else{
+        pincodeElement.style.border = "2px solid #d1d5db"
+    }
+    try {
+      const response = await fetch(
+        `https://api.postalpincode.in/pincode/${pincode}`
+      );
+      const data = await response.json();
+      setValue("state", data[0].PostOffice[0].State);
+      setValue("district", data[0].PostOffice[0].District);
+      setCheck(false);
+    } catch (err) {
+      console.log(err.message);
+    }
   }
   return (
     <form
-      className="container w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-40 bg-white p-5 md:p-10 rounded-3xl shadow-xl"
+      className="container w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-40 bg-white p-2 md:p-10 rounded-2xl md:rounded-3xl shadow-xl"
       onSubmit={handleSubmit(submit)}
     >
       <div className="contact-details flex flex-col gap-3 md:gap-4">
         <div className="flex justify-start items-center">
           <Person />
-          <h1 className="text-xl md:text-2xl font-extrabold">
+          <h1 className="text-lg md:text-xl font-bold">
             Contact Details
           </h1>
         </div>
@@ -74,7 +100,7 @@ function Details() {
       <div className="address-details flex flex-col gap-3 md:gap-4">
         <div className="flex justify-start items-center">
           <Address />
-          <h1 className="text-xl md:text-2xl font-extrabold">Address</h1>
+          <h1 className="text-lg md:text-xl font-bold">Address</h1>
         </div>
         <div className="flex flex-col gap-2 md:gap-4">
           <div className="houseNo">
@@ -121,7 +147,7 @@ function Details() {
                 {...register("pincode", {
                   required: { value: true, message: "This field is required" },
                   minLength: { value: 6, message: "Min length is 6" },
-                maxLength: { value: 6, message: "Max length is 6" },
+                  maxLength: { value: 6, message: "Max length is 6" },
                 })}
                 className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
                   errors.pincode ? "border-red-500 bg-red-200" : ""
@@ -131,7 +157,13 @@ function Details() {
                 id="pincode"
                 placeholder="Pincode"
               />
-              <button className="bg-main text-white w-1/2 py-1 md:py-2 rounded-2xl text-lg font-semibold shadow-sm">
+              <button
+                type="button"
+                onClick={getstateDistrict}
+                className={`bg-main ${
+                  check ? "opacity-40" : ""
+                } transition-all text-white w-1/2 py-1 md:py-2 rounded-2xl text-lg font-semibold shadow-sm`}
+              >
                 Check
               </button>
             </div>
@@ -141,20 +173,7 @@ function Details() {
               </p>
             )}
           </div>
-          <div className="city-district flex w-full justify-center items-center gap-4">
-            <input
-              {...register("city", {
-                required: { value: true, message: "This field is required" },
-              })}
-              className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
-                errors.city ? "border-red-500 bg-red-200" : ""
-              }`}
-              readOnly
-              type="text"
-              name="city"
-              id="city"
-              placeholder="City"
-            />
+          <div className="state-district flex w-full justify-center items-center gap-4">
             <input
               {...register("district", {
                 required: { value: true, message: "This field is required" },
@@ -168,9 +187,23 @@ function Details() {
               id="district"
               placeholder="District"
             />
+            <input
+              {...register("state", {
+                required: { value: true, message: "This field is required" },
+              })}
+              className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
+                errors.state ? "border-red-500 bg-red-200" : ""
+              }`}
+              readOnly
+              type="text"
+              name="state"
+              id="state"
+              placeholder="state"
+            />
           </div>
         </div>
       </div>
+      <button className="hidden" type="submit"></button>
     </form>
   );
 }
