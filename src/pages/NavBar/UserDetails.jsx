@@ -9,10 +9,10 @@ function UserDetails({ status, setStatus }) {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   async function signIn() {
-    authService.signInWithGoogle(dispatch);
+    await authService.signInWithGoogle(dispatch);
   }
   async function signOut() {
-    authService.signOut(dispatch);
+    await authService.signOut(dispatch);
     Navigate("/")
   }
   return (

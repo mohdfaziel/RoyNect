@@ -2,8 +2,10 @@ import React from "react";
 import Person from "../../../assets/Animations/icons/Person";
 import Address from "../../../assets/Animations/icons/Address";
 import Summary from "./Summary";
-
+import { useSelector } from "react-redux";
 function Submit() {
+  const contactDetails = useSelector((state) => state.order.orderDetails);
+  const user = useSelector((state) => state.user.userData);
   return (
     <div className='className="container w-full grid grid-cols-1 md:grid-cols-2 gap-5 bg-white p-2 md:p-5 rounded-3xl shadow-xl'>
       <div className="Contact-Details border-[2px] flex flex-col justify-center items-start gap-2 md:gap-4 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
@@ -14,11 +16,11 @@ function Submit() {
           </h1>
         </div>
         <div className="flex text-base md:text-lg pl-2 md:pl-4 flex-col md:gap-2">
-        <p className="  font-bold">Name : <span className="text-slate-700">Mohd Faziel</span></p>
-        <p className="  font-bold">Phone No. : <span className="text-slate-700">7006205934</span></p>
+        <p className="  font-bold">Name : <span className="text-slate-700">{user? user.name : ""}</span></p>
+        <p className="  font-bold">Phone No. : <span className="text-slate-700">{contactDetails? contactDetails.phone:""}</span></p>
         </div>
       </div>
-      <Summary/>
+      <Summary />
       <div className="Address border-[2px] flex flex-col justify-center items-start gap-2 md:gap-4 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
         <div className="flex justify-start items-center">
         <Address/>
@@ -27,10 +29,10 @@ function Submit() {
           </h1>
         </div>
         <div className="flex text-base md:text-lg pl-2 md:pl-4 flex-col md:gap-2">
-        <p className="font-bold">Knowledge Park II, Greater Noida, UttarPradesh</p>
-        <p className="font-bold">District : <span className="text-slate-700">Doda</span></p>
-        <p className="font-bold">State : <span className="text-slate-700">Uttar Pradesh</span></p>
-        <p className="font-bold">Pincode : <span className="text-slate-700">201310</span></p>
+        <p className="font-bold">{contactDetails? contactDetails.houseNo +", "+ contactDetails.area:""}</p>
+        <p className="font-bold">District : <span className="text-slate-700">{contactDetails? contactDetails.district:""}</span></p>
+        <p className="font-bold">State : <span className="text-slate-700">{contactDetails? contactDetails.state:""}</span></p>
+        <p className="font-bold">Pincode : <span className="text-slate-700">{contactDetails? contactDetails.pincode:""}</span></p>
         </div>
       </div>
     </div>

@@ -1,20 +1,39 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useEffect } from "react";
+import { set, useForm } from "react-hook-form";
 import Person from "../../assets/Animations/icons/Person";
 import Address from "../../assets/Animations/icons/Address";
-function Details({handleNext}) {
+import { useDispatch, useSelector } from "react-redux";
+import { setOrder } from "../../Store/OrderDetails/OrderSlice";
+function Details({ handleNext }) {
+  const dispatch = useDispatch();
+  const orderDetails = useSelector((state) => state.order.orderDetails);
+  const user = useSelector((state) => state.user.userData);
   const [check, setCheck] = React.useState(false);
   const {
     register,
     handleSubmit,
     getValues,
     setValue,
-    formState: { errors, isSubmitting},
-  } = useForm({mode:"onChange"});
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm({ mode: "onChange" });
   function submit(data) {
-    console.log(data);
+    dispatch(setOrder(data));
     handleNext();
   }
+  useEffect(() => {
+    if (user) {
+      setValue("name", user.name);
+    }
+    if (orderDetails) {
+      setValue("phone", orderDetails.phone);
+      setValue("houseNo", orderDetails.houseNo);
+      setValue("area", orderDetails.area);
+      setValue("pincode", orderDetails.pincode);
+      setValue("state", orderDetails.state);
+      setValue("district", orderDetails.district);
+    }
+  }, [user, setValue, orderDetails]);
   async function getstateDistrict() {
     setCheck(true);
     const pincode = getValues("pincode");
@@ -23,8 +42,8 @@ function Details({handleNext}) {
       pincodeElement.style.border = "2px solid #ef4444";
       setCheck(false);
       return;
-    }else{
-        pincodeElement.style.border = "2px solid #d1d5db"
+    } else {
+      pincodeElement.style.border = "2px solid #d1d5db";
     }
     try {
       const response = await fetch(
@@ -33,9 +52,13 @@ function Details({handleNext}) {
       const data = await response.json();
       setValue("state", data[0].PostOffice[0].State);
       setValue("district", data[0].PostOffice[0].District);
-      setCheck(false);
     } catch (err) {
-      console.log(err.message);
+      setError("pincode", {
+        type: "manual",
+        message: "Invalid Pincode",
+      });
+    } finally {
+      setCheck(false);
     }
   }
   return (
@@ -46,9 +69,7 @@ function Details({handleNext}) {
       <div className="contact-details flex flex-col gap-3 md:gap-4">
         <div className="flex justify-start items-center">
           <Person />
-          <h1 className="text-lg md:text-xl font-bold">
-            Contact Details
-          </h1>
+          <h1 className="text-lg md:text-xl font-bold">Contact Details</h1>
         </div>
         <div className="flex flex-col gap-2 md:gap-4">
           <div className="name">
@@ -56,7 +77,7 @@ function Details({handleNext}) {
               {...register("name", {
                 required: { value: true, message: "This field is required" },
               })}
-              className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full${
+              className={` font-medium border-[2px] w-full shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full${
                 errors.name ? "border-red-500 bg-red-200 text-white" : ""
               }`}
               type="text"
@@ -176,10 +197,10 @@ function Details({handleNext}) {
           <div className="state-district flex w-full justify-center items-center gap-4">
             <input
               {...register("district", {
-                required: { value: true, message: "This field is required" },
+                required: true,
               })}
               className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
-                errors.district ? "border-red-500 bg-red-200" : ""
+                errors.pincode ? "border-red-500 bg-red-200" : ""
               }`}
               readOnly
               type="text"
@@ -189,10 +210,10 @@ function Details({handleNext}) {
             />
             <input
               {...register("state", {
-                required: { value: true, message: "This field is required" },
+                required: true,
               })}
               className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
-                errors.state ? "border-red-500 bg-red-200" : ""
+                errors.pincode ? "border-red-500 bg-red-200" : ""
               }`}
               readOnly
               type="text"

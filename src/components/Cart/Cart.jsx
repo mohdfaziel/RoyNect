@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { back } from "../../assets/Images/Images";
 import { useNavigate } from "react-router-dom";
+import authService from "../../Firebase/Services/auth";
 import toast from "react-hot-toast";
 export default function Cart({}) {
   const dispatch = useDispatch();
@@ -13,13 +14,20 @@ export default function Cart({}) {
   const totalCost = useSelector((state) => state.cart.total);
   const honeyInStock = useSelector((state) => state.honey.qtyAvailable);
   const Navigate = useNavigate();
-  const checkOut = () => {
+  const checkOut = async () => {
+    if(items.length === 0) 
+    {
+      toast.error("Your cart is empty");
+      return;
+    }
     if(userStatus){
       Navigate("/checkOut");
     }else{
-      toast.error("Please Login to Continue");
+      await authService.signInWithGoogle(dispatch);
+      Navigate("/checkOut");
     }
     dispatch(toggleState());
+    console.log(items);
   }
   const handleBackdropClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
