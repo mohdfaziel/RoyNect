@@ -8,7 +8,7 @@ function StatusBar({ orderDetails }) {
   const statusIndex = statusArr.indexOf(currStatus.toLowerCase());
   console.log(statusIndex);
   return (
-    <div className="flex border-l-[3px] border-gray-300 flex-col justify-center items-start gap-4">
+    <div className="flex border-l-[3px] py-2 border-gray-300 flex-col justify-center items-start gap-4">
       <div className="relative">
         <div
           className={`placed pl-3 ${

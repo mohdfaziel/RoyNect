@@ -2,6 +2,7 @@ import Item from "./Item";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { back } from "../../assets/Images/Images";
+import { useNavigate } from "react-router-dom";
 export default function Cart({}) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart.state);
@@ -9,6 +10,11 @@ export default function Cart({}) {
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
   const honeyInStock = useSelector((state) => state.honey.qtyAvailable);
+  const Navigate = useNavigate();
+  const checkOut = () => {
+    Navigate("/checkOut");
+    dispatch(toggleState());
+  }
   const handleBackdropClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
       dispatch(toggleState());
@@ -63,7 +69,7 @@ export default function Cart({}) {
             Out Of Stock
           </button>): honeyInStock < totalHoney ? ( <button className="w-full opacity-50 transition-all h-[3rem] bg-main text-xl font-bold">
             Only {honeyInStock}kg Honey Available
-          </button>): ( <button className="w-full h-[3rem] transition-all bg-main text-xl font-bold">
+          </button>): ( <button onClick={checkOut} className="w-full h-[3rem] transition-all bg-main text-xl font-bold">
             Buy Now
           </button>)}
         </div>
