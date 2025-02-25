@@ -10,6 +10,7 @@ function Summary({orderPlacing,setOrderPlacing}) {
   const twoKgJar = items.filter((item) => item.id === 3)[0]?.qty || 0;
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
+  //testing for github
   return (
     <div className="row-span-2  order-last md:order-none flex flex-col gap-5">
       <div className=" border-[2px] flex flex-col justify-center items-start gap-6 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
