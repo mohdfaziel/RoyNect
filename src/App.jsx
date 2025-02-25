@@ -1,11 +1,14 @@
-import Product from "./Product/Product"
-import Nav from "./NavBar/Nav"
-import About from "./About Us/About"
+import Product from "./pages/Product/Product"
+import Nav from "./pages/NavBar/Nav"
+import About from "./pages/About Us/About"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Cart from "./Cart/Cart"
+import Cart from "./components/Cart/Cart.jsx"
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import authService from "./Firebase/Services/auth";
+import MyOrders from "./pages/My Orders/MyOrders";
+import OrderDetails from "./pages/My Orders/OrderDetails";
+import CheckOut from "./pages/Check Out/CheckOut.jsx";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,6 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Product />} />
             <Route path="about" element={<About />} />
+            <Route path="myOrders" element={<MyOrders />} />
+            <Route path="checkOut" element={<CheckOut />} />
+            <Route path="myOrders/:orderId" element={<OrderDetails />} />
            </Routes>
            <Cart/>
         </div>

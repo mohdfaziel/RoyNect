@@ -6,7 +6,7 @@ import { Store } from "./Store/Store.js";
 import { Toaster } from "react-hot-toast";
 createRoot(document.getElementById("root")).render(
   <Provider store={Store}>
-    <Toaster position="top-center" reverseOrder={true} />
+    <Toaster position="bottom-center" reverseOrder={true} />
     <App />
   </Provider>
 );

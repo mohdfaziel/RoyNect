@@ -3,7 +3,10 @@ import toast from "react-hot-toast";
 const calculateTotals = (items) => {
   const qty = items.reduce((sum, item) => sum + item.qty, 0);
   const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
-  const totalWeight = items.reduce((sum, item) => sum + item.weight * item.qty, 0);
+  const totalWeight = items.reduce(
+    (sum, item) => sum + item.weight * item.qty,
+    0
+  );
   return { qty, total, totalWeight };
 };
 
@@ -13,7 +16,7 @@ export const CartSlice = createSlice({
     const items = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
-    const { qty, total , totalWeight} = calculateTotals(items);
+    const { qty, total, totalWeight } = calculateTotals(items);
     return {
       items,
       qty,
@@ -101,9 +104,16 @@ export const CartSlice = createSlice({
         localStorage.setItem("cart", JSON.stringify(state.items));
       }
     },
+    clearCart: (state) => {
+      state.items = [];
+      state.qty = 0;
+      state.total = 0;
+      state.totalWeight = 0;
+      localStorage.removeItem("cart");
+    },
   },
 });
 
-export const { toggleState, addItem, removeItem, incQty, decQty } =
+export const { toggleState, addItem, removeItem, incQty, decQty, clearCart } =
   CartSlice.actions;
 export default CartSlice.reducer;
