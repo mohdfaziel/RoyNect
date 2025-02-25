@@ -82,7 +82,7 @@ function OrderDetails() {
                     0.5kg Jar
                   </p>
                   <p className="text-base font-base font-semibold text-gray-500">
-                    2x
+                    x{orderDetails?.halfKgJars}
                   </p>
                 </div>
                 <div className="flex justify-between w-full">
@@ -90,7 +90,7 @@ function OrderDetails() {
                     1kg Jar
                   </p>
                   <p className="text-base font-base font-semibold text-gray-500">
-                    3x
+                    x{orderDetails?.oneKgJars}
                   </p>
                 </div>
                 <div className="flex justify-between w-full">
@@ -98,7 +98,7 @@ function OrderDetails() {
                     2kg Jar
                   </p>
                   <p className="text-base font-base font-semibold text-gray-500">
-                    1x
+                    x{orderDetails?.twoKgJars}
                   </p>
                 </div>
                 <div className="flex justify-between w-full mt-3 border-t-[1px] border-gray-400">
@@ -106,7 +106,7 @@ function OrderDetails() {
                     Total
                   </p>
                   <p className="text-base font-base font-semibold text-gray-500">
-                    6kg
+                    {orderDetails?.quantity}kg
                   </p>
                 </div>
               </div>
@@ -126,15 +126,15 @@ function OrderDetails() {
           </div>
 
           <div className="userDetails bg-white px-4 flex flex-col justify-start items-start gap-[6.5px] py-4 rounded-xl">
-            <div className="text-xl w-full font-bold">Mohd Faziel</div>
+            <div className="text-xl w-full font-bold">{orderDetails?.userName}</div>
             <div className="text-base text-gray-600 w-full font-semibold">
-              +91 7006205934
+              +91 {orderDetails?.userPhone}
             </div>
             <div className="text-sm text-gray-500 w-full font-semibold">
-              Knowledge Park II, Greater Noida, UttarPradesh
+              {orderDetails?.area}, {orderDetails?.district}, {orderDetails?.state}
             </div>
             <div className="text-base text-gray-500 w-full font-semibold">
-              Pincode : 201310
+              Pincode : {orderDetails?.pincode}
             </div>
           </div>
           <div className="paymentDetails bg-white px-4 py-4 flex flex-col justify-center gap-8 md:gap-4 items-center rounded-xl">
@@ -142,15 +142,15 @@ function OrderDetails() {
               <h1 className="text-xl w-full font-bold">Payment Details</h1>
               <div className="text-base font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Total amount</p>
-                <p>2,000&#8377;</p>
+                <p>&#8377;{orderDetails?.totalprice}</p>
               </div>
               <div className="text-base font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Shipping amount</p>
-                <p>200&#8377;</p>
+                <p>&#8377;0</p>
               </div>
               <div className="text-base border-t-[1px] border-gray-400 mt-3 font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Grand Total</p>
-                <p>2,200&#8377;</p>
+                <p>&#8377;0</p>
               </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center">
@@ -162,6 +162,7 @@ function OrderDetails() {
                       setOrderDetails((prev) => ({
                         ...prev,
                         status: newStatus,
+                        cancelledDate: new Date().toISOString(),
                         isCancelled: true,
                       }))
                     }

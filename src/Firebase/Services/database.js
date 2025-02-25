@@ -6,17 +6,18 @@ class DatabaseService {
   // ✅ Place Order
   async placeOrder(userId, orderData) {
     try {
-        const orderId = `ORD-${Date.now()}`; // Simple unique order ID
+        const orderId = `ORD-${Date.now()}`; 
         const orderRef = doc(firestore, "orders", orderId); 
 
         await setDoc(orderRef, {
             orderId,
             userId,
             ...orderData,
-            status: "pending",
-            createdAt: new Date().toISOString(),
+            status: "placed",
+            isCancelled: false,
+            orderDate: new Date().toISOString(),
         });
-
+        console.log("Order placed successfully:", orderData);
         return { success: true, orderId };
     } catch (error) {
         console.error("Error placing order:", error);
@@ -78,16 +79,27 @@ class DatabaseService {
       return { success: false, error: error.message };
     }
   }
-  async updateAttribute(orderId,attribute, value) {
+  //
+  async updateAttribute(orderId, attribute, value) {
     try {
       const orderRef = doc(firestore, "orders", orderId);
-      await updateDoc(orderRef, { [attribute]: value });
+      const orderSnap = await getDoc(orderRef);
+  
+      if (orderSnap.exists()) {
+        // If order exists, update the attribute
+        await updateDoc(orderRef, { [attribute]: value });
+      } else {
+        // If order doesn't exist, create it with the new attribute
+        await setDoc(orderRef, { [attribute]: value }, { merge: true });
+      }
+  
       return { success: true };
     } catch (error) {
-      console.error("Error updating order status:", error);
+      console.error("Error updating/adding attribute:", error);
       return { success: false, error: error.message };
     }
   }
+  
 
   // ✅ Update User Profile (Phone & Address)
   async updateUserProfile(userId, profileData) {

@@ -3,7 +3,7 @@ import Person from "../../../assets/Animations/icons/Person";
 import Address from "../../../assets/Animations/icons/Address";
 import Summary from "./Summary";
 import { useSelector } from "react-redux";
-function Submit() {
+function Submit({orderPlacing,setOrderPlacing}) {
   const contactDetails = useSelector((state) => state.order.orderDetails);
   const user = useSelector((state) => state.user.userData);
   return (
@@ -20,7 +20,7 @@ function Submit() {
         <p className="  font-bold">Phone No. : <span className="text-slate-700">{contactDetails? contactDetails.phone:""}</span></p>
         </div>
       </div>
-      <Summary />
+      <Summary orderPlacing={orderPlacing} setOrderPlacing={setOrderPlacing}/>
       <div className="Address border-[2px] flex flex-col justify-center items-start gap-2 md:gap-4 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
         <div className="flex justify-start items-center">
         <Address/>

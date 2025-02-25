@@ -7,6 +7,7 @@ const CancelOrder = ({ orderId,updateOrderStatus,setLoading}) => {
     setLoading(true);
     const response = await databaseService.updateAttribute(orderId,"status","cancelled");
     const response2 = await databaseService.updateAttribute(orderId,"isCancelled",true);
+    const response3 = await databaseService.updateAttribute(orderId,"cancelledDate",new Date().toISOString());
     updateOrderStatus("cancelled");
     setLoading(false);
   }

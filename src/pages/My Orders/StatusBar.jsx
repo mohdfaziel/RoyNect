@@ -19,7 +19,9 @@ function StatusBar({ orderDetails }) {
           <p className="text-sm text-gray-500 w-full font-semibold">
             {orderDetails.orderDate
               ? format(
-                  new Date(orderDetails.orderDate.seconds * 1000),
+                  typeof orderDetails.orderDate === "string"
+                    ? new Date(orderDetails.orderDate) // If stored as an ISO string
+                    : new Date(orderDetails.orderDate?.seconds * 1000), // If stored as Firebase Timestamp
                   "dd MMM yyyy"
                 )
               : "N/A"}
@@ -41,15 +43,15 @@ function StatusBar({ orderDetails }) {
           <p className="text-sm text-gray-500 w-full font-semibold">
             {orderDetails.shippedDate
               ? format(
-                  new Date(orderDetails.shippedDate.seconds * 1000),
+                  typeof orderDetails.shippedDate === "string"
+                    ? new Date(orderDetails.shippedDate) // If stored as an ISO string
+                    : new Date(orderDetails.shippedDate?.seconds * 1000), // If stored as Firebase Timestamp
                   "dd MMM yyyy"
                 )
               : "N/A"}
           </p>
         </div>
-        <Dot
-          active={!isCancelled && statusIndex >= 1}
-        />
+        <Dot active={!isCancelled && statusIndex >= 1} />
       </div>
       <div className="relative">
         <div
@@ -65,15 +67,15 @@ function StatusBar({ orderDetails }) {
           <p className="text-sm text-gray-500 w-full font-semibold">
             {orderDetails.deliveredDate
               ? format(
-                  new Date(orderDetails.deliveredDate.seconds * 1000),
+                  typeof orderDetails.deliveredDate === "string"
+                    ? new Date(orderDetails.deliveredDate) // If stored as an ISO string
+                    : new Date(orderDetails.deliveredDate?.seconds * 1000), // If stored as Firebase Timestamp
                   "dd MMM yyyy"
                 )
               : "N/A"}
           </p>
         </div>
-        <Dot
-          active={!isCancelled && statusIndex >= 2}
-        />
+        <Dot active={!isCancelled && statusIndex >= 2} />
       </div>
       {isCancelled && (
         <div className={`cancelled relative pl-3`}>
@@ -81,10 +83,12 @@ function StatusBar({ orderDetails }) {
           <p className="text-sm text-gray-500 w-full font-semibold">
             {orderDetails.cancelledDate
               ? format(
-                  new Date(orderDetails.cancelledDate.seconds * 1000),
+                  typeof orderDetails.cancelledDate === "string"
+                    ? new Date(orderDetails.cancelledDate) // If stored as an ISO string
+                    : new Date(orderDetails.cancelledDate?.seconds * 1000), // If stored as Firebase Timestamp
                   "dd MMM yyyy"
                 )
-              : " "}
+              : "N/A"}
           </p>
           <Dot active={true} />
         </div>

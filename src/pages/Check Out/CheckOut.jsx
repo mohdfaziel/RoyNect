@@ -4,9 +4,11 @@ import Submit from "./Submit/Submit";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { check } from "../../assets/Images/Images";
+import OrderPlaced from "../../components/OrderPlaced";
 function CheckOut() {
   const Navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+  const [orderPlacing, setOrderPlacing] = useState(false);
   const checkOutSteps = [
     {
       name: "Details",
@@ -14,7 +16,7 @@ function CheckOut() {
     },
     {
       name: "submit",
-      component: () => <Submit />,
+      component: () => <Submit orderPlacing={orderPlacing} setOrderPlacing={setOrderPlacing}/>,
     },
   ];
   function handleNext() {
@@ -30,6 +32,7 @@ function CheckOut() {
     }
   }
   const activeComponent = checkOutSteps[currentStep - 1].component;
+  if(orderPlacing) return <OrderPlaced />;
   return (
     <div
       id="myOrders"

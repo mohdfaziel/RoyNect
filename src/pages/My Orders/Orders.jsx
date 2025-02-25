@@ -34,12 +34,14 @@ const Orders = ({ orders }) => {
                   {order.quantity}kg
                 </td>
                 <td className="hidden md:table-cell px-4 py-2">
-                  {order.totalPrice}&#8377;
+                &#8377;{order.totalprice}
                 </td>
                 <td className="px-4 py-2">
                   {order.orderDate
                     ? format(
-                        new Date(order.orderDate.seconds * 1000),
+                        typeof order.orderDate === "string"
+                          ? new Date(order.orderDate) // If stored as an ISO string
+                          : new Date(order.orderDate?.seconds * 1000), // If stored as Firebase Timestamp
                         "dd MMM yyyy"
                       )
                     : "N/A"}
@@ -47,9 +49,9 @@ const Orders = ({ orders }) => {
                 <td className="px-4 py-2">
                   <span
                     className={`px-3 py-1 rounded-full text-white text-xs ${
-                      order.status === "Placed"
+                      order.status === "placed"
                         ? "bg-yellow-500"
-                        : order.status === "Shipped"
+                        : order.status === "shipped"
                         ? "bg-blue-500"
                         : order.status === "cancelled"
                         ? "bg-red-500"
