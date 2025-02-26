@@ -20,7 +20,7 @@ function Submit({orderPlacing,setOrderPlacing}) {
         <p className="  font-bold">Phone No. : <span className="text-slate-700">{contactDetails? contactDetails.phone:""}</span></p>
         </div>
       </div>
-      <Summary orderPlacing={orderPlacing} setOrderPlacing={setOrderPlacing}/>
+      <Summary  setOrderPlacing={setOrderPlacing}/>
       <div className="Address border-[2px] flex flex-col justify-center items-start gap-2 md:gap-4 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
         <div className="flex justify-start items-center">
         <Address/>

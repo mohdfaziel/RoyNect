@@ -6,7 +6,8 @@ import { clearOrder } from "../../../Store/OrderDetails/OrderSlice";
 import { clearCart } from "../../../Store/Cart/CartSlice";
 import { useNavigate } from "react-router-dom";
 import sound from '../../../assets/sounds/wind-172559.mp3'
-function Pay({ orderPlacing,setOrderPlacing }) {
+import toast from "react-hot-toast";
+function Pay({setOrderPlacing }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(false);
@@ -39,12 +40,12 @@ function Pay({ orderPlacing,setOrderPlacing }) {
       oneKgJars: oneKgJar,
       twoKgJars: twoKgJar,
     };
-    await databaseService.placeOrder(userDetails.uid,order);
+    const id = await databaseService.placeOrder(userDetails.uid,order);
     await new Promise((resolve) => setTimeout(resolve, 1500));
     dispatch(clearOrder());
     dispatch(clearCart());
-    await new Promise((resolve) => setTimeout(resolve, 1000)); 
-    navigate("/myOrders");
+    await new Promise((resolve) => setTimeout(resolve, 5)); 
+    navigate("/myOrders/"+id);
     setOrderPlacing((prev) => !prev);
   }
   return (

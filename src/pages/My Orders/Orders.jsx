@@ -22,7 +22,7 @@ const Orders = ({ orders }) => {
         </thead>
         <tbody>
           {orders.length > 0 ? (
-            orders.map((order, index) => (
+            orders.reverse().map((order, index) => (
               <tr
                 key={index}
                 onClick={() => Navigate(`/myOrders/${order.id}`)}

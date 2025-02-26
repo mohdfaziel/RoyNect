@@ -7,7 +7,7 @@ import databaseService from '../../Firebase/Services/database'
 import Loader from '../../components/Loader.jsx'
 function MyOrders() {
     const [orders, setOrders] = useState([]);
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const user = useSelector((state) => state.user.userData);
   useEffect(() => {
@@ -31,7 +31,7 @@ function MyOrders() {
     >
     <div className='Container w-full min-h-[70%] max-h-[70%] flex flex-col justify-center items-center gap-3'>
     <div className='options w-full flex justify-start items-center'>
-        <img src={back} onClick={()=>Navigate("/")} className='md:w-10 w-7 transition-all hover:scale-105'></img>
+        <img src={back} onClick={()=>navigate("/")} className='md:w-10 w-7 transition-all hover:scale-105'></img>
         <h1 className='text-xl md:text-3xl font-extrabold'>My Orders</h1>
     </div>
     <div className="w-full h-full px-4 py-4  shadow-lg bg-main rounded-3xl">

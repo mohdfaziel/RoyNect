@@ -18,7 +18,7 @@ class DatabaseService {
             orderDate: new Date().toISOString(),
         });
         console.log("Order placed successfully:", orderData);
-        return { success: true, orderId };
+        return orderId;
     } catch (error) {
         console.error("Error placing order:", error);
         return { success: false, error: error.message };

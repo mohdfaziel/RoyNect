@@ -23,7 +23,7 @@ function CheckOut() {
     },
     {
       name: "submit",
-      component: () => <Submit orderPlacing={orderPlacing} setOrderPlacing={setOrderPlacing}/>,
+      component: () => <Submit setOrderPlacing={setOrderPlacing}/>,
     },
   ];
   function handleNext() {

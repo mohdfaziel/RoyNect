@@ -3,7 +3,7 @@ import Sumry from "../../../components/Animations/Sumry.jsx";
 import Payment from "../../../components/Animations/Payment.jsx";
 import Pay from "./Pay";
 import {useSelector} from "react-redux";
-function Summary({orderPlacing,setOrderPlacing}) {
+function Summary({setOrderPlacing}) {
   const items = useSelector((state) => state.cart.items || []);
   const halfKgJar = items.filter((item) => item.id === 1)[0]?.qty || 0;
   const oneKgJar = items.filter((item) => item.id === 2)[0]?.qty || 0;
@@ -59,7 +59,7 @@ function Summary({orderPlacing,setOrderPlacing}) {
           </div>
         </div>
       </div>
-      <Pay orderPlacing={orderPlacing} setOrderPlacing = {setOrderPlacing}/>
+      <Pay setOrderPlacing = {setOrderPlacing}/>
     </div>
   );
 }

@@ -99,6 +99,7 @@ function Details({ handleNext }) {
                 minLength: { value: 10, message: "Min length is 10" },
                 maxLength: { value: 10, message: "Max length is 10" },
               })}
+              
               className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
                 errors.phone ? "border-red-500 bg-red-200" : ""
               } appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}

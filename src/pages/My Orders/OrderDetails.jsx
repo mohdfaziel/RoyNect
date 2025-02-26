@@ -33,7 +33,7 @@ function OrderDetails() {
 
         const info = await databaseService.getOrder(orderId);
 
-        if (info && info.userId === user.uid) {
+        if (info && user?.uid && info.userId === user.uid) {
           setOrderDetails(info);
         } else {
           console.log("No order found");
@@ -46,9 +46,8 @@ function OrderDetails() {
         setLoading(false);
       }
     }
-
-    fetchOrderDetails();
-  }, [orderId]);
+    if (user) fetchOrderDetails();
+  }, [orderId, user]);
 
   if (loading) return <Loader />;
   return (
@@ -128,12 +127,15 @@ function OrderDetails() {
           </div>
 
           <div className="userDetails bg-white px-4 flex flex-col justify-start items-start gap-[6.5px] py-4 rounded-xl">
-            <div className="text-xl w-full font-bold">{orderDetails?.userName}</div>
+            <div className="text-xl w-full font-bold">
+              {orderDetails?.userName}
+            </div>
             <div className="text-base text-gray-600 w-full font-semibold">
               +91 {orderDetails?.userPhone}
             </div>
             <div className="text-sm text-gray-500 w-full font-semibold">
-              {orderDetails?.area}, {orderDetails?.district}, {orderDetails?.state}
+              {orderDetails?.area}, {orderDetails?.district},{" "}
+              {orderDetails?.state}
             </div>
             <div className="text-base text-gray-500 w-full font-semibold">
               Pincode : {orderDetails?.pincode}
