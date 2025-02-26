@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
 import databaseService from "../../Firebase/Services/database";
@@ -22,7 +23,8 @@ function OrderDetails() {
   const Navigate = useNavigate();
   const [orderDetails, setOrderDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const user = useSelector((state) => state.user.userData);
+  console.log(user);
   useEffect(() => {
     async function fetchOrderDetails() {
       try {
@@ -31,7 +33,7 @@ function OrderDetails() {
 
         const info = await databaseService.getOrder(orderId);
 
-        if (info) {
+        if (info && info.userId === user.uid) {
           setOrderDetails(info);
         } else {
           console.log("No order found");
@@ -48,7 +50,7 @@ function OrderDetails() {
   }, [orderId]);
 
   if (loading) return <Loader />;
-
+  if(orderDetails === null) Navigate("/");
   return (
     <div
       id="orderDetails"
