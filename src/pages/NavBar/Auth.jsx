@@ -1,8 +1,7 @@
-import { person } from "../../assets/Images/Images";
 import { useDispatch, useSelector } from "react-redux";
 import UserDetails from "./UserDetails";
 import { useState } from "react";
-import Person from "../../assets/Animations/icons/Person";
+import Person from "../../components/Animations/Person";
 export default function Auth() {
     const user = useSelector((state)=> state.user.userData);
     const status = useSelector((state)=> state.user.status);

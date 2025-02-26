@@ -1,6 +1,6 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import animationData from "./address.json";
+import animationData from "../../assets/Animations/icons/address.json";
 
 const Address = () => {
   return (

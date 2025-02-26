@@ -1,6 +1,6 @@
 import React from "react";
-import Person from "../../../assets/Animations/icons/Person";
-import Address from "../../../assets/Animations/icons/Address";
+import Person from "../../../components/Animations/Person";
+import Address from "../../../components/Animations/Address";
 import Summary from "./Summary";
 import { useSelector } from "react-redux";
 function Submit({orderPlacing,setOrderPlacing}) {

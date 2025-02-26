@@ -1,10 +1,10 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import animationData from "./cart.json";
+import animationData from "../../assets/Animations/icons/person.json";
 
-const Cart = () => {
+const Person = () => {
   return (
-    <div className="flex  w-[20px] h-[20px] md:h-[28px] md:w-[28px] justify-center items-center">
+    <div className="flex w-[23px] h-[23px] md:w-[32px] md:h-[32px] justify-center items-center">
       <Player
         autoplay
         loop
@@ -15,4 +15,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Person;

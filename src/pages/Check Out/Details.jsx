@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { set, useForm } from "react-hook-form";
-import Person from "../../assets/Animations/icons/Person";
-import Address from "../../assets/Animations/icons/Address";
+import { useForm } from "react-hook-form";
+import Person from "../../components/Animations/Person";
+import Address from "../../components/Animations/Address";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../Store/OrderDetails/OrderSlice";
 function Details({ handleNext }) {

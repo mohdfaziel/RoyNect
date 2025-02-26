@@ -10,7 +10,7 @@ import Item from "./Item";
 import Auth from "./Auth";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Cart from "../../assets/Animations/icons/Cart";
+import Cart from "../../components/Animations/Cart";
 
 export default function Nav() {
   const dispatch = useDispatch();

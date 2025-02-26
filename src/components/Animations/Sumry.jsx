@@ -1,8 +1,8 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import animationData from "../payment.json";
+import animationData from "../../assets/Animations/summary.json";
 
-const Payment = () => {
+const Sumry = () => {
   return (
     <div className="flex w-[23px] h-[23px] md:w-[32px] md:h-[32px] justify-center items-center">
       <Player
@@ -15,4 +15,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default Sumry;

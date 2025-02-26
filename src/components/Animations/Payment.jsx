@@ -1,8 +1,8 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import animationData from "./person.json";
+import animationData from "../../assets/Animations/payment.json";
 
-const Person = () => {
+const Payment = () => {
   return (
     <div className="flex w-[23px] h-[23px] md:w-[32px] md:h-[32px] justify-center items-center">
       <Player
@@ -15,4 +15,4 @@ const Person = () => {
   );
 };
 
-export default Person;
+export default Payment;

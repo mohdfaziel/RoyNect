@@ -1,6 +1,6 @@
 import React from "react";
-import Sumry from "../../../assets/Animations/icons/Sumry.jsx";
-import Payment from "../../../assets/Animations/icons/payment.jsx";
+import Sumry from "../../../components/Animations/Sumry.jsx";
+import Payment from "../../../components/Animations/Payment.jsx";
 import Pay from "./Pay";
 import {useSelector} from "react-redux";
 function Summary({orderPlacing,setOrderPlacing}) {
