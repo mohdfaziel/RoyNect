@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import Details from "./Details";
 import Submit from "./Submit/Submit";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { check } from "../../assets/Images/Images";
 import OrderPlaced from "../../components/OrderPlaced";
@@ -9,6 +10,12 @@ function CheckOut() {
   const Navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [orderPlacing, setOrderPlacing] = useState(false);
+  const user = useSelector((state) => state.user.userData);
+  const cartItems = useSelector((state) => state.cart.items);
+  useEffect(() => {
+    if (!user || cartItems.length === 0) {
+      Navigate("/");
+    }},[user]);
   const checkOutSteps = [
     {
       name: "Details",

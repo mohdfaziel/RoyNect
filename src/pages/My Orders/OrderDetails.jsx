@@ -37,6 +37,7 @@ function OrderDetails() {
           setOrderDetails(info);
         } else {
           console.log("No order found");
+          Navigate("/");
         }
       } catch (err) {
         console.log(err.message);
@@ -50,7 +51,6 @@ function OrderDetails() {
   }, [orderId]);
 
   if (loading) return <Loader />;
-  if(orderDetails === null) Navigate("/");
   return (
     <div
       id="orderDetails"
