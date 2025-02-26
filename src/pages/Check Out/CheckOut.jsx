@@ -15,7 +15,7 @@ function CheckOut() {
   useEffect(() => {
     if (!user || cartItems.length === 0) {
       Navigate("/");
-    }},[user]);
+    }},[user, cartItems.length]);
   const checkOutSteps = [
     {
       name: "Details",
@@ -69,8 +69,8 @@ function CheckOut() {
             <div>{step.name}</div>
           </div>
         ))}
-        <div className="progressBar border-[1px] border-white absolute top-3 left-[5%] w-[90%] h-3 bg-white">
-          <div className={`progress ${currentStep==1? "w-0":"w-full"} transition-all bg-main h-full`}></div>
+        <div className="progressBar  border-[1px] border-white absolute top-3 left-[5%] w-[90%] h-3 bg-white">
+          <div className={`progress ${currentStep==1? "w-0":"w-full"} transition-all duration-700 ease-in-out bg-main h-full`}></div>
         </div>
       </div>
       {activeComponent()}
