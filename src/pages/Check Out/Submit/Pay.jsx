@@ -43,6 +43,7 @@ function Pay({ orderPlacing,setOrderPlacing }) {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     dispatch(clearOrder());
     dispatch(clearCart());
+    await new Promise((resolve) => setTimeout(resolve, 1000)); 
     navigate("/myOrders");
     setOrderPlacing((prev) => !prev);
   }

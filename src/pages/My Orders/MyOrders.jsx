@@ -13,11 +13,7 @@ function MyOrders() {
   useEffect(() => {
     const fetchOrders = async () => {
       setLoading(true);
-      if (!user) {
-        Navigate('/');
-        return;
-      }
-      const userId = user?.uid;
+      const userId = user.uid;
       document.body.style.cursor = 'wait';
       const userOrders = await databaseService.getUserOrders(userId);
       setOrders(userOrders);
