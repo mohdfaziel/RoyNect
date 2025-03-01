@@ -109,11 +109,11 @@ function Details({ handleNext }) {
               placeholder="Phone Number"
             />
             {errors.phone && (
-              <p className="text-xs md:text-sm px-2 mt-1 font-base font-semibold text-red-500">
+              <p className="text-xs md:text-sm px-2 mt-1 font-semibold text-red-500">
                 {errors.phone.message}
               </p>
             )}
-            <p className="text-xs md:text-sm px-2 mt-1 font-base font-semibold text-gray-400">
+            <p className="text-xs md:text-sm px-2 mt-1 font-semibold text-gray-400">
               We'll call this number to coordinate delivery
             </p>
           </div>

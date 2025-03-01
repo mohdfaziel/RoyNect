@@ -79,7 +79,7 @@ function OrderDetails() {
               <div className="w-full">
                 <h1 className="text-xl w-full mb-2 font-bold">Quantities</h1>
                 <div className="flex justify-between w-full">
-                  <p className="text-base font-base font-semibold text-gray-500">
+                  <p className="text-base font-semibold text-gray-500">
                     0.5kg Jar
                   </p>
                   <p className="text-base font-base font-semibold text-gray-500">

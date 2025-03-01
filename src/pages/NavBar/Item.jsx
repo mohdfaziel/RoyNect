@@ -16,7 +16,7 @@ export default function Item({title,link,iconActive,iconUnactive}) {
         <div>
         <p
           className={classNames(
-            "text-xs hidden md:block md:text-sm font-medium",
+            "text-xs hidden md:block md:text-sm font-semibold",
             {
               "text-active": isActive,
               "text-unactive": !isActive,
