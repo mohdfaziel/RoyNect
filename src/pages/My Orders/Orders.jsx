@@ -6,7 +6,7 @@ const Orders = ({ orders }) => {
   return (
     <div className="overflow-x-auto w-full h-full">
       <table className="w-full border border-gray-200 rounded-lg">
-        <thead className="sticky bg-white top-0 shadow-sm text-gray-600 uppercase text-bold text-lg">
+        <thead className="sticky bg-white top-0 shadow-sm text-gray-600 uppercase text-bold text-base md:text-lg">
           <tr className="hidden md:table-row">
             <th className="px-4 py-2">S No.</th>
             <th className="px-4 py-2">Order ID</th>
