@@ -18,11 +18,11 @@ function CheckOut() {
     }},[user, cartItems.length]);
   const checkOutSteps = [
     {
-      name: "Details",
+      name: "Address",
       component: () => <Details handleNext={handleNext}/>,
     },
     {
-      name: "submit",
+      name: "Submit",
       component: () => <Submit setOrderPlacing={setOrderPlacing}/>,
     },
   ];
@@ -43,10 +43,10 @@ function CheckOut() {
   return (
     <div
       id="myOrders"
-      className={`w-full ${currentStep==2? "pt-[8.6rem] pb-[8rem]":""} max-w-[102rem] md:min-h-[45rem] px-2 md:px-[12rem] min-h-screen flex flex-col justify-center items-center`}
+      className={`w-full ${currentStep==2? "pt-[5rem] pb-[2rem]":""} max-w-[102rem] md:min-h-[45rem] px-2 md:px-[12rem] min-h-screen flex flex-col justify-center items-center`}
     >
      <div className="container transition-all w-full h-full flex flex-col justify-center items-center gap-5">
-     <div className="Stepper w-[50%] relative flex justify-between items-center">
+     <div className="Stepper w-[95%] md:w-[50%] relative flex justify-between items-center">
         {checkOutSteps.map((step, index) => (
           <div
             className="flex flex-col gap-2 z-10 justify-center items-center"
@@ -66,7 +66,7 @@ function CheckOut() {
                 ></img>
               </div>
             </div>
-            <div>{step.name}</div>
+            <div className="text-base md:text-lg font-bold">{step.name}</div>
           </div>
         ))}
         <div className="progressBar  border-[1px] border-white absolute top-3 left-[5%] w-[90%] h-3 bg-white">

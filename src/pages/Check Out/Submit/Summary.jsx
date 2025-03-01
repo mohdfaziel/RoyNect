@@ -2,8 +2,8 @@ import React from "react";
 import Sumry from "../../../components/Animations/Sumry.jsx";
 import Payment from "../../../components/Animations/Payment.jsx";
 import Pay from "./Pay";
-import {useSelector} from "react-redux";
-function Summary({setOrderPlacing}) {
+import { useSelector } from "react-redux";
+function Summary({ setOrderPlacing }) {
   const items = useSelector((state) => state.cart.items || []);
   const halfKgJar = items.filter((item) => item.id === 1)[0]?.qty || 0;
   const oneKgJar = items.filter((item) => item.id === 2)[0]?.qty || 0;
@@ -20,18 +20,24 @@ function Summary({setOrderPlacing}) {
             <h1 className="text-lg md:text-xl font-bold">OrderDetails</h1>
           </div>
           <div className="w-full pl-2 md:pl-4 flex border-t-[2px] border-b-[2px] border-gray-300 py-2 flex-col md:gap-2 text-base md:text-lg font-bold">
-            <div className="flex justify-between">
-              <p className="">0.5kg Jar : </p>
-              <p className="text-slate-700">x{halfKgJar}</p>
-            </div>
-            <div className="flex justify-between">
-              <p className="">1kg Jar : </p>
-              <p className="text-slate-700">x{oneKgJar}</p>
-            </div>
-            <div className="flex justify-between">
-              <p className="">2kg Jar : </p>
-              <p className="text-slate-700">x{twoKgJar}</p>
-            </div>
+            {halfKgJar > 0 && (
+              <div className="flex justify-between">
+                <p className="">0.5kg Jar : </p>
+                <p className="text-slate-700">x{halfKgJar}</p>
+              </div>
+            )}
+            {oneKgJar > 0 && (
+              <div className="flex justify-between">
+                <p className="">1kg Jar : </p>
+                <p className="text-slate-700">x{oneKgJar}</p>
+              </div>
+            )}
+            {twoKgJar > 0 && (
+              <div className="flex justify-between">
+                <p className="">2kg Jar : </p>
+                <p className="text-slate-700">x{twoKgJar}</p>
+              </div>
+            )}
             <div className="flex justify-between">
               <p className="">Total Honey : </p>
               <p className="text-slate-700">{totalHoney}kg</p>
@@ -55,11 +61,11 @@ function Summary({setOrderPlacing}) {
           </div>
           <div className="flex text-lg md:text-xl pl-2 font-bold md:pl-4 justify-between">
             <p className="">Grand Total : </p>
-            <p className="text-slate-700">{totalCost+300}&#8377;</p>
+            <p className="text-slate-700">{totalCost + 300}&#8377;</p>
           </div>
         </div>
       </div>
-      <Pay setOrderPlacing = {setOrderPlacing}/>
+      <Pay setOrderPlacing={setOrderPlacing} />
     </div>
   );
 }
