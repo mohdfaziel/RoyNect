@@ -22,7 +22,7 @@ function UserDetails({ status, setStatus }) {
         status ? "flex" : "hidden"
       } flex transition-all absolute  w-[8rem] md:w-[9rem] top-10 md:top-14 -left-12 rounded-md flex-col py-1 bg-unactive shadow-md justify-center items-center`}
     >
-      <ul className="flex flex-col gap-2 w-full min-h-[5rem] justify-center items-center">
+      <ul className="flex flex-col text-base md:text-lg font-bold gap-2 w-full min-h-[5rem] justify-center items-center">
         {userPresent && (
           <li onClick={()=> Navigate('/myOrders')} className="px-4 transition-all py-1 cursor-pointer  font-medium hover:bg-slate-300 rounded-full">
             My Orders
