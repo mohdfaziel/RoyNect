@@ -57,13 +57,13 @@ export default function Legacy() {
   ];
   return (
     <div className="w-full flex flex-col justify-center items-center py-[1rem] px-[1rem] md:px-[3rem] min-h-screen">
-      <div className="container w-full min-h-screen flex flex-col gap-10 justify-center items-center">
+      <div className="container w-full min-h-screen flex flex-col gap-5 md:gap-7  justify-center items-center">
         <motion.h1
           variants={fadeIn("", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.1 }}
-          className="text-white text-5xl text-center md:text-6xl font-extrabold"
+          className="text-white text-4xl text-center md:text-5xl font-extrabold"
         >
           The Story Behind the Hive
         </motion.h1>

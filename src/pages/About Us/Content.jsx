@@ -45,10 +45,10 @@ export default function Content({ img, title, sentence, flag }) {
         className="info w-full md:w-[50%] flex justify-center items-center h-full"
       >
         <div className="flex flex-col justify-center w-[30rem] gap-3 items-center">
-          <h1 className="md:block hidden text-5xl font-extrabold text-center text-white">
+          <h1 className="md:block hidden text-4xl md:text-5xl font-extrabold text-center text-white">
             {title}
           </h1>
-          <p className="text-lg font-medium text-justify">{sentence}</p>
+          <p className="text-lg md:text-xl font-semibold text-justify">{sentence}</p>
         </div>
       </motion.div>
     </div>

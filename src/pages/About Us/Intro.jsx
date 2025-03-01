@@ -36,12 +36,12 @@ export default function Intro() {
         viewport={{ once: false, amount: 0.1 }}
         className="info z-20 flex flex-col justify-center items-start gap-5 w-full md:w-[50%] md:h-full"
       >
-        <h1 className="text-5xl font-extrabold text-white">Who Am I ?</h1>
-        <p className="text-lg font-medium text-justify">
+        <h1 className=" text-4xl md:text-5xl font-extrabold text-white">Who Am I ?</h1>
+        <p className="text-lg md:text-xl font-semibold text-justify">
           I am{" "}
-          <span className="font-semibold text-white">Dawood Ahmed Sheikh</span>,
+          <span className="font-extrabold text-white">Dawood Ahmed Sheikh</span>,
           a passionate beekeeper from the picturesque town of{" "}
-          <span className="font-semibold text-white">Bhaderwah</span>.
+          <span className="font-extrabold text-white">Bhaderwah. </span>
           Beekeeping is more than a profession to me—it’s a tradition and a
           craft I’ve cherished since learning it from my grandfather. With
           dedication and care, I personally extract honey from my hives,
