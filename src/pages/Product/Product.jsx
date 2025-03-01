@@ -44,7 +44,7 @@ export default function Main() {
           </h1>
           <div className="quantity text-lg">{weight}kg</div>
         </motion.div>
-        <div className="Image animate-float md:animate-none md:absolute w-[20rem] md:w-[50rem] md:-top-[6rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
+        <div className="Image animate-float md:animate-none md:absolute w-[24rem] md:w-[50rem] md:-top-[6rem] md:left-1/2 md:transform md:-translate-x-1/2 ">
           <LazyLoadImage
             src={mainImg2}
             effect="blur"
