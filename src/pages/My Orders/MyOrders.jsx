@@ -39,7 +39,7 @@ function MyOrders() {
         <img src={back} onClick={()=>navigate("/")} className='md:w-10 w-7 transition-all hover:scale-105'></img>
         <h1 className='text-xl md:text-3xl font-extrabold'>My Orders</h1>
     </div>
-    <div className="w-full h-full px-4 py-4  shadow-lg bg-main rounded-3xl">
+    <div className="w-full h-full p-4  shadow-lg bg-main rounded-3xl">
     <div className='orders relative font-medium flex flex-col transition-all justify-center items-center gap-2 overflow-y-auto w-full h-full bg-white rounded-xl'>
        {orders.length>0? <Orders orders={orders}/> : (
         <div>

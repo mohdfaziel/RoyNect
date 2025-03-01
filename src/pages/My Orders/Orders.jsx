@@ -6,7 +6,7 @@ const Orders = ({ orders }) => {
   return (
     <div className="overflow-x-auto w-full h-full">
       <table className="w-full border border-gray-200 rounded-lg">
-        <thead className="sticky bg-white top-0 shadow-sm text-gray-600 uppercase text-sm">
+        <thead className="sticky bg-white top-0 shadow-sm text-gray-600 uppercase text-bold text-lg">
           <tr className="hidden md:table-row">
             <th className="px-4 py-2">S No.</th>
             <th className="px-4 py-2">Order ID</th>
@@ -26,7 +26,7 @@ const Orders = ({ orders }) => {
               <tr
                 key={index}
                 onClick={() => Navigate(`/myOrders/${order.id}`)}
-                className="text-center cursor-pointer hover:bg-unactive text-lg font-semibold border-t"
+                className="text-center cursor-pointer hover:bg-unactive text-base md:text-lg font-semibold border-t"
               >
                 <td className="hidden md:table-cell px-4 py-2">{index + 1}</td>
                 <td className="hidden md:table-cell px-4 py-2">{order.id}</td>
@@ -48,7 +48,7 @@ const Orders = ({ orders }) => {
                 </td>
                 <td className="px-4 py-2">
                   <span
-                    className={`px-3 py-1 rounded-full text-white text-xs ${
+                    className={`px-3 py-1 rounded-full text-white text-sm ${
                       order.status === "placed"
                         ? "bg-yellow-500"
                         : order.status === "shipped"
