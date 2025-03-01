@@ -79,7 +79,7 @@ class DatabaseService {
       return { success: false, error: error.message };
     }
   }
-  //
+  //update attribute if present if not then add new one.
   async updateAttribute(orderId, attribute, value) {
     try {
       const orderRef = doc(firestore, "orders", orderId);
