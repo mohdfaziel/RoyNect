@@ -110,11 +110,11 @@ export default function Main() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.1 }}
-          className="text-xl w-[30rem]"
+          className="text-xl text-justify font-bold w-[30rem]"
         >
-          Golden, raw, and unfiltered—our honey is harvested directly from our
+          Golden, raw, and unfiltered, our honey is harvested directly from our
           hives, preserving its natural goodness. Perfect for your tea, toast,
-          or as a wholesome treat, it’s the sweetness you can trustk
+          or as a wholesome treat, it’s the sweetness you can trust.
         </motion.p>
         <div className="price flex justify-center items-center">
           <h1 className="text-6xl font-extrabold">{price}</h1>
