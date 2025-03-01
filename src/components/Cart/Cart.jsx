@@ -62,7 +62,7 @@ export default function Cart({}) {
           {items.length > 0 ? (
             items.map((item) => <Item key={item.id} id={item.id} />)
           ) : (
-            <p className="text-xl font-semibold text-center">
+            <p className="text-xl font-bold text-center">
               Your cart is empty
             </p>
           )}
