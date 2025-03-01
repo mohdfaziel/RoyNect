@@ -98,8 +98,8 @@ export default function Main() {
             />
           </div>
           <div className="Attention flex justify-center items-center gap-1">
-            <img src={attention} loading="lazy" className="w-6" alt="" />
-            <p className="text-sm">100% Natural. Always Pure</p>
+            <img src={attention} loading="lazy" className="w-4 md:w-6" alt="" />
+            <p className="text-xs md:text-sm font-semibold">100% Natural. Always Pure</p>
           </div>
         </motion.div>
         <div className="absolute -z-10 w-[30rem] h-[30rem] md:w-[40rem] md:h-[40rem] rounded-full blur-3xl opacity-40 bg-white md:-top-[6rem] md:left-[55%] md:transform md:-translate-x-1/2"></div>
