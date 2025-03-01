@@ -68,22 +68,21 @@ export default function Cart({}) {
           )}
         </div>
         <div className="buttons h-fit w-full fixed bottom-0">
-          <div className="summary flex flex-col justify-center items-start gap-2 w-full p-2 bg-white">
-          <h1 className="text-2xl font-semibold">Summary</h1>
+          <div className="summary font-bold flex flex-col justify-center items-start gap-2 w-full p-2 bg-white">
           <div className="totalhoney w-full py-1 flex justify-between items-center border-b-[2px]">
-            <h1 className="text-xl font-semibold">Total Honey (in kilograms)</h1>
-            <p className="text-lg">{totalHoney}kg</p>
+            <h1 className="text-xl">Total Honey (in kilograms)</h1>
+            <p className="text-lg text-gray-600">{totalHoney}kg</p>
           </div>
           <div className="totalcost border-b-[2px] py-1 w-full flex justify-between items-center">
-            <h1 className="text-xl font-semibold">Total Cost (in rupees)</h1>
-            <p className="text-lg">{totalCost} &#8377;</p>
+            <h1 className="text-xl">Total Cost (in rupees)</h1>
+            <p className="text-lg text-gray-600">&#8377;{totalCost}</p>
           </div>
           </div>
           {honeyInStock === 0 ? ( <button className="w-full transition-all opacity-50 h-[3rem] bg-main text-xl font-bold">
             Out Of Stock
           </button>): honeyInStock < totalHoney ? ( <button className="w-full opacity-50 transition-all h-[3rem] bg-main text-xl font-bold">
             Only {honeyInStock}kg Honey Available
-          </button>): ( <button onClick={checkOut} className="w-full h-[3rem] transition-all bg-main text-xl font-bold">
+          </button>): ( <button onClick={checkOut} className="w-full p-3 transition-all bg-main text-xl font-extrabold">
             Buy Now
           </button>)}
         </div>
