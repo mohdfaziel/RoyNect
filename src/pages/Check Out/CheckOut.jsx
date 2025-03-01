@@ -74,7 +74,7 @@ function CheckOut() {
         </div>
       </div>
       {activeComponent()}
-      <div className="button w-full flex justify-between items-center">
+      <div className={`button flex w-full ${currentStep==2? "justify-center":"justify-between"} items-center`}>
       <button className="bg-white px-6 py-3 shadow-md border-[2px] border-white hover:bg-main transition-all text-xl font-bold text-slate-700 rounded-2xl " onClick={handleBack}>
         Back
       </button>
