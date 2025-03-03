@@ -6,19 +6,16 @@ class DatabaseService {
   // ✅ Place Order
   async placeOrder(userId, orderData) {
     try {
-        const orderId = `ORD-${Date.now()}`; 
-        const orderRef = doc(firestore, "orders", orderId); 
-
+        const orderRef = doc(firestore, "orders", orderData.orderId); 
         await setDoc(orderRef, {
-            orderId,
+          ...orderData,
             userId,
-            ...orderData,
             status: "placed",
             isCancelled: false,
             orderDate: new Date().toISOString(),
         });
         console.log("Order placed successfully:", orderData);
-        return orderId;
+        return {orderId: orderData.orderId, success: true};
     } catch (error) {
         console.error("Error placing order:", error);
         return { success: false, error: error.message };

@@ -1,11 +1,11 @@
-import React, { Component, useEffect } from "react";
+import React, {useEffect } from "react";
 import Details from "./Details";
 import Submit from "./Submit/Submit";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { check } from "../../assets/Images/Images";
-import OrderPlaced from "../../components/OrderPlaced";
+import Loader from '../../components/Loader'
 function CheckOut() {
   const Navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
@@ -39,7 +39,7 @@ function CheckOut() {
     }
   }
   const activeComponent = checkOutSteps[currentStep - 1].component;
-  if(orderPlacing) return <OrderPlaced />;
+  if(orderPlacing) return <Loader/>;
   return (
     <div
       id="myOrders"
