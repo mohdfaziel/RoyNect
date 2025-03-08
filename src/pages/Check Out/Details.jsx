@@ -34,6 +34,7 @@ function Details({ handleNext }) {
       setValue("area", orderDetails.area);
       setValue("pincode", orderDetails.pincode);
       setValue("state", orderDetails.state);
+      setValue("shippingCost", orderDetails.shippingCost);
       setValue("district", orderDetails.district);
     }
   }, [user, setValue, orderDetails]);

@@ -24,7 +24,6 @@ function OrderDetails() {
   const [orderDetails, setOrderDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const user = useSelector((state) => state.user.userData);
-  console.log(user);
   useEffect(() => {
     async function fetchOrderDetails() {
       try {
@@ -78,30 +77,36 @@ function OrderDetails() {
             <div className="h-full w-full flex flex-col justify-evenly items-start">
               <div className="w-full">
                 <h1 className="text-xl w-full mb-2 font-bold">Quantities</h1>
-                <div className="flex justify-between w-full">
-                  <p className="text-base font-semibold text-gray-500">
-                    0.5kg Jar
-                  </p>
-                  <p className="text-base font-base font-semibold text-gray-500">
-                    x{orderDetails?.halfKgJars}
-                  </p>
-                </div>
-                <div className="flex justify-between w-full">
-                  <p className="text-base font-base font-semibold text-gray-500">
-                    1kg Jar
-                  </p>
-                  <p className="text-base font-base font-semibold text-gray-500">
-                    x{orderDetails?.oneKgJars}
-                  </p>
-                </div>
-                <div className="flex justify-between w-full">
-                  <p className="text-base font-base font-semibold text-gray-500">
-                    2kg Jar
-                  </p>
-                  <p className="text-base font-base font-semibold text-gray-500">
-                    x{orderDetails?.twoKgJars}
-                  </p>
-                </div>
+                {orderDetails?.halfKgJars != 0 && (
+                  <div className="flex justify-between w-full">
+                    <p className="text-base font-semibold text-gray-500">
+                      0.5kg Jar
+                    </p>
+                    <p className="text-base font-base font-semibold text-gray-500">
+                      x{orderDetails?.halfKgJars}
+                    </p>
+                  </div>
+                )}
+                {orderDetails?.oneKgJars != 0  && (
+                  <div className="flex justify-between w-full">
+                    <p className="text-base font-base font-semibold text-gray-500">
+                      1kg Jar
+                    </p>
+                    <p className="text-base font-base font-semibold text-gray-500">
+                      x{orderDetails?.oneKgJars}
+                    </p>
+                  </div>
+                )}
+                {orderDetails?.twoKgJars !=0 && (
+                  <div className="flex justify-between w-full">
+                    <p className="text-base font-base font-semibold text-gray-500">
+                      2kg Jar
+                    </p>
+                    <p className="text-base font-base font-semibold text-gray-500">
+                      x{orderDetails?.twoKgJars}
+                    </p>
+                  </div>
+                )}
                 <div className="flex justify-between w-full mt-3 border-t-[1px] border-gray-400">
                   <p className="text-base font-base font-semibold text-gray-500">
                     Total
@@ -158,7 +163,9 @@ function OrderDetails() {
               </div>
               <div className="text-base border-t-[1px] border-gray-400 mt-3 font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Grand Total</p>
-                <p>&#8377;{orderDetails?.totalprice + orderDetails?.shippingCost}</p>
+                <p>
+                  &#8377;{orderDetails?.totalprice + orderDetails?.shippingCost}
+                </p>
               </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center">
@@ -177,7 +184,7 @@ function OrderDetails() {
                 />
               ) : (
                 <p className="text-base text-center font-base font-semibold text-gray-500">
-                Order cannot be canceled once it has been shipped
+                  Order cannot be canceled once it has been shipped
                 </p>
               )}
               <div className="w-full -mt-5 flex justify-center gap-1 items-center">
