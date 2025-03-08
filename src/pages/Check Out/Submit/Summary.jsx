@@ -10,7 +10,8 @@ function Summary({ setOrderPlacing }) {
   const twoKgJar = items.filter((item) => item.id === 3)[0]?.qty || 0;
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
-  //testing for github
+  const shippingCost = useSelector((state)=>state.order.orderDetails.shippingCost);
+  console.log(shippingCost);
   return (
     <div className="row-span-2  order-last md:order-none flex flex-col gap-5">
       <div className=" border-[2px] flex flex-col justify-center items-start gap-6 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
@@ -56,12 +57,12 @@ function Summary({ setOrderPlacing }) {
             </div>
             <div className="flex justify-between">
               <p className="">Shipping Cost : </p>
-              <p className="text-slate-700">300&#8377;</p>
+              <p className="text-slate-700">{shippingCost}&#8377;</p>
             </div>
           </div>
           <div className="flex text-lg md:text-xl pl-2 font-bold md:pl-4 justify-between">
             <p className="">Grand Total : </p>
-            <p className="text-slate-700">{totalCost + 300}&#8377;</p>
+            <p className="text-slate-700">{totalCost + (shippingCost || 0)}&#8377;</p>
           </div>
         </div>
       </div>

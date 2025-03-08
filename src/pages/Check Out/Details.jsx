@@ -4,9 +4,12 @@ import Person from "../../components/Animations/Person";
 import Address from "../../components/Animations/Address";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../Store/OrderDetails/OrderSlice";
+import shippingCost from "../../ShippingDetails/shippingCost.js";
+import checkServiceability from "../../ShippingDetails/checkServiceability.js";
 function Details({ handleNext }) {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.order.orderDetails);
+  const weight = useSelector((state) => state.cart.totalWeight);
   const user = useSelector((state) => state.user.userData);
   const [check, setCheck] = React.useState(false);
   const {
@@ -46,12 +49,17 @@ function Details({ handleNext }) {
       pincodeElement.style.border = "2px solid #d1d5db";
     }
     try {
-      const response = await fetch(
-        `https://api.postalpincode.in/pincode/${pincode}`
-      );
-      const data = await response.json();
-      setValue("state", data[0].PostOffice[0].State);
-      setValue("district", data[0].PostOffice[0].District);
+      const addressData = await checkServiceability(pincode);
+      const cost = await shippingCost(pincode, weight);
+      console.log(addressData);
+      console.log(cost.total_amount);
+      if (addressData && addressData.serviceable) {
+        setValue("state", addressData.state);
+        setValue("district", addressData.district);
+        setValue("shippingCost", cost.total_amount);
+      } else {
+        throw new Error("Not serviceable");
+      }
     } catch (err) {
       setError("pincode", {
         type: "manual",
@@ -99,7 +107,6 @@ function Details({ handleNext }) {
                 minLength: { value: 10, message: "Min length is 10" },
                 maxLength: { value: 10, message: "Max length is 10" },
               })}
-              
               className={` font-medium border-[2px] shadow-s hover:border-main text-sm md:text-base md:px-3 px-2 py-2 md:py-3 rounded-xl md:rounded-2xl w-full ${
                 errors.phone ? "border-red-500 bg-red-200" : ""
               } appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
@@ -225,6 +232,7 @@ function Details({ handleNext }) {
           </div>
         </div>
       </div>
+      <input type="hidden" name="shippingCost" {...register("shippingCost")} id="shippingCost" />
       <button className="hidden" type="submit"></button>
     </form>
   );

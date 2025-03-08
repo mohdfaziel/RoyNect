@@ -17,7 +17,7 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        amount: orderInfo.totalprice * 100,
+        amount: (orderInfo.totalprice + orderInfo.shippingCost) * 100,
         currency,
         receipt: orderInfo.orderId,
       }),

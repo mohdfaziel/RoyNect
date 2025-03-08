@@ -150,36 +150,34 @@ function OrderDetails() {
               </div>
               <div className="text-base font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Shipping amount</p>
-                <p>&#8377;0</p>
+                <p>&#8377;{orderDetails?.shippingCost}</p>
+              </div>
+              <div className="text-base font-base font-semibold text-gray-500 flex justify-between w-full">
+                <p>Payment Id</p>
+                <p>{orderDetails?.paymentId}</p>
               </div>
               <div className="text-base border-t-[1px] border-gray-400 mt-3 font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Grand Total</p>
-                <p>&#8377;0</p>
+                <p>&#8377;{orderDetails?.totalprice + orderDetails?.shippingCost}</p>
               </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center">
-              {orderDetails.status !== "cancelled" ? (
-                orderDetails.status !== "delivered" ? (
-                  <CancelOrder
-                    orderId={orderId}
-                    updateOrderStatus={(newStatus) =>
-                      setOrderDetails((prev) => ({
-                        ...prev,
-                        status: newStatus,
-                        cancelledDate: new Date().toISOString(),
-                        isCancelled: true,
-                      }))
-                    }
-                    setLoading={setLoading}
-                  />
-                ) : (
-                  <p className="text-base font-base font-semibold text-gray-500">
-                    Order {orderDetails.status}
-                  </p>
-                )
+              {orderDetails.status === "placed" ? (
+                <CancelOrder
+                  orderId={orderId}
+                  updateOrderStatus={(newStatus) =>
+                    setOrderDetails((prev) => ({
+                      ...prev,
+                      status: newStatus,
+                      cancelledDate: new Date().toISOString(),
+                      isCancelled: true,
+                    }))
+                  }
+                  setLoading={setLoading}
+                />
               ) : (
-                <p className="text-base font-base font-semibold text-gray-500">
-                  Order {orderDetails.status}
+                <p className="text-base text-center font-base font-semibold text-gray-500">
+                Order cannot be canceled once it has been shipped
                 </p>
               )}
               <div className="w-full -mt-5 flex justify-center gap-1 items-center">

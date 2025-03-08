@@ -33,6 +33,7 @@ function Pay({ setOrderPlacing }) {
       area: orderDetails.area,
       pincode: orderDetails.pincode,
       district: orderDetails.district,
+      shippingCost: orderDetails.shippingCost,
       state: orderDetails.state,
       totalprice: totalCost,
       quantity: totalHoney,
