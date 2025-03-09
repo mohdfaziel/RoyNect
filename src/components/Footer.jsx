@@ -9,7 +9,7 @@ function policies()
     Navigate("/policies");
 }
   return (
-    <div className="w-full flex transition-all text-sm md:text-base flex-col gap-5 md:gap-10 min-h-[5rem] font-semibold text-gray-300 px-3 md:px-[10rem] py-10 bg-slate-950">
+    <div className="w-full flex transition-all text-sm md:text-base flex-col gap-5 md:gap-10 min-h-[5rem] font-semibold text-gray-300 px-3 md:px-[10rem] py-10 bg-slate-950 bg-radial-gradient-footer">
       <div className="Policies flex flex-col md:flex-row border-b-[1px] pb-5 md:pb-10 border-slate-500 gap-4 md:gap-0 md:justify-between w-full items-start md:items-center">
         <div className="Logo flex md:flex-col w-full md:w-fit justify-center gap-2 md:items-start items-center">
           <div className="p-2 md:p-3 w-12 md:w-20 rounded-full bg-Dark1">

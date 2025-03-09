@@ -29,6 +29,7 @@ export default {
       },
       backgroundImage: {
         'radial-gradient': 'radial-gradient(circle, #FFCE23, #F6B012)',
+        'radial-gradient-footer': 'radial-gradient(circle, #0f172a, #020617)',
       },
     },
   },
