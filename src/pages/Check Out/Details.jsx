@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { get, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Person from "../../components/Animations/Person";
 import Address from "../../components/Animations/Address";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,7 @@ function Details({ handleNext }) {
   } = useForm({ mode: "onChange" });
   async function submit(data) {
     const cost = await getShippingCost(data.pincode);
-    data = {...data,shippingCost:cost};
+    data = {...data,shippingCost:Math.ceil(cost)};
     dispatch(setOrder(data));
     handleNext();
   }

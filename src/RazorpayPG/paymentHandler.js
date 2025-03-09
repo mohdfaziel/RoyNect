@@ -87,7 +87,7 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
 
     var rzp1 = new window.Razorpay(options);
     rzp1.on("payment.failed", function (response) {
-      alert("Payment Failed: " + response.error.description);
+      console.log("Payment Failed: " + response.error.description);
       reject(new Error("Payment failed"));
     });
 

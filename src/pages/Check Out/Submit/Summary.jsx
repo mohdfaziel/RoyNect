@@ -53,16 +53,16 @@ function Summary({ setOrderPlacing }) {
           <div className="w-full pl-2 md:pl-4 flex border-t-[2px] border-b-[2px] border-gray-300 py-2 flex-col gap-2 text-base md:text-lg font-bold">
             <div className="flex justify-between">
               <p className="">Total Amount : </p>
-              <p className="text-slate-700">{totalCost}&#8377;</p>
+              <p className="text-slate-700">&#8377;{totalCost}</p>
             </div>
             <div className="flex justify-between">
               <p className="">Shipping Cost : </p>
-              <p className="text-slate-700">{shippingCost}&#8377;</p>
+              <p className="text-slate-700">&#8377;{shippingCost}</p>
             </div>
           </div>
           <div className="flex text-lg md:text-xl pl-2 font-bold md:pl-4 justify-between">
             <p className="">Grand Total : </p>
-            <p className="text-slate-700">{totalCost + (shippingCost || 0)}&#8377;</p>
+            <p className="text-slate-700">&#8377;{totalCost + (shippingCost || 0)}</p>
           </div>
         </div>
       </div>

@@ -48,7 +48,7 @@ function Pay({ setOrderPlacing }) {
     try {
       const updatedOrderData = await paymentHandler(
         initialOrderData,
-        setOrderInfo
+        setOrderInfo,
       );
       if (!updatedOrderData) {
         console.error(
@@ -80,7 +80,6 @@ function Pay({ setOrderPlacing }) {
       setOrderPlacing(false);
     }
   }
-
   return (
     <div className="w-full p-2 md:p-4 flex flex-col transition-all gap-2 rounded-2xl md:rounded-2xl border-[2px] text-sm font-bold border-gray-300 shadow-sm">
       <label className="flex items-center gap-2 text-xs md:text-sm text-gray-700">
