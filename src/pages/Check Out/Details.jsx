@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { get, useForm } from "react-hook-form";
 import Person from "../../components/Animations/Person";
 import Address from "../../components/Animations/Address";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +20,9 @@ function Details({ handleNext }) {
     setError,
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onChange" });
-  function submit(data) {
+  async function submit(data) {
+    const cost = await getShippingCost(data.pincode);
+    data = {...data,shippingCost:cost};
     dispatch(setOrder(data));
     handleNext();
   }
@@ -34,10 +36,18 @@ function Details({ handleNext }) {
       setValue("area", orderDetails.area);
       setValue("pincode", orderDetails.pincode);
       setValue("state", orderDetails.state);
-      setValue("shippingCost", orderDetails.shippingCost);
+      // setValue("shippingCost", orderDetails.shippingCost);
       setValue("district", orderDetails.district);
     }
   }, [user, setValue, orderDetails]);
+  async function getShippingCost(pincode) {
+    try {
+      const cost = await shippingCost(pincode, weight);
+      return cost.total_amount;
+    } catch (err) {
+      console.log("Failed to genetate shipping Cost");
+    }
+  }
   async function getstateDistrict() {
     setCheck(true);
     const pincode = getValues("pincode");
@@ -51,13 +61,11 @@ function Details({ handleNext }) {
     }
     try {
       const addressData = await checkServiceability(pincode);
-      const cost = await shippingCost(pincode, weight);
-      console.log(addressData);
-      console.log(cost.total_amount);
+      // const cost = await getShippingCost(pincode);
       if (addressData && addressData.serviceable) {
         setValue("state", addressData.state);
         setValue("district", addressData.district);
-        setValue("shippingCost", cost.total_amount);
+        // setValue("shippingCost", Math.ceil(cost));
       } else {
         throw new Error("Not serviceable");
       }
@@ -233,7 +241,12 @@ function Details({ handleNext }) {
           </div>
         </div>
       </div>
-      <input type="hidden" name="shippingCost" {...register("shippingCost")} id="shippingCost" />
+      <input
+        type="hidden"
+        name="shippingCost"
+        {...register("shippingCost")}
+        id="shippingCost"
+      />
       <button className="hidden" type="submit"></button>
     </form>
   );
