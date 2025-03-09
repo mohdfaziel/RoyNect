@@ -11,7 +11,6 @@ import Auth from "./Auth";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Cart from "../../components/Animations/Cart";
-
 export default function Nav() {
   const dispatch = useDispatch();
   const qty = useSelector((state) => state.cart.qty);

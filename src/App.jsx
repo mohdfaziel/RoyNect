@@ -9,6 +9,7 @@ import authService from "./Firebase/Services/auth";
 import MyOrders from "./pages/My Orders/MyOrders";
 import OrderDetails from "./pages/My Orders/OrderDetails";
 import CheckOut from "./pages/Check Out/CheckOut.jsx";
+import Policies from "./pages/Terms and Conditions/Policies.jsx";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
             <Route path="myOrders" element={<MyOrders />} />
             <Route path="checkOut" element={<CheckOut />} />
             <Route path="myOrders/:orderId" element={<OrderDetails />} />
+            <Route path="policies" element={<Policies />} />
            </Routes>
            <Cart/>
         </div>
