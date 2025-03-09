@@ -40,7 +40,7 @@ function policies()
           </a>
         </h1>
         <h1>Phone: +91 7006205934</h1>
-        <h1>Address: Hallyan, Bhadarwah, Jammu and Kashmir, 182222</h1>
+        <h1>Address: Bhadarwah, Jammu and Kashmir, 182222</h1>
       </div>
       <div className="Promotion text-center">
         &copy;{" "}
