@@ -11,7 +11,6 @@ function Policies() {
         "Unauthorized use of our website is prohibited.",
         "Orders are subject to acceptance and availability.",
         "All payments are processed securely via Razorpay in Indian Rupees (INR).",
-        "We reserve the right to modify our terms without prior notice.",
       ],
     },
     {
