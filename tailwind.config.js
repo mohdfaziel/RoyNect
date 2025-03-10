@@ -25,7 +25,11 @@ export default {
         Dark2: '#DA8A00',
         Dark3: '#B17E0F',
         active: '#111111',
-        unactive: '#EAEDF1'
+        unactive: '#EAEDF1',
+        "Adark1": "#252734",
+        "Adark2": "#333646",
+        "Aunactive": "#8E94A4",
+        "Aactive": "#FFFFFF",
       },
       backgroundImage: {
         'radial-gradient': 'radial-gradient(circle, #FFCE23, #F6B012)',

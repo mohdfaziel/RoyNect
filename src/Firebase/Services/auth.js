@@ -1,4 +1,4 @@
-import { auth, firestore } from "../config"; 
+import { auth, firestore } from "../config";
 import {
   signOut,
   signInWithPopup,
@@ -17,25 +17,25 @@ class AuthService {
           const userRef = doc(firestore, "users", user.uid);
           const userSnap = await getDoc(userRef);
 
-          if (!userSnap.exists()) {
+          let userData = {
+            uid: user.uid,
+            email: user.email,
+            name: user.displayName,
+            photoUrl: user.photoURL,
+            role: "customer",
+          };
+
+          if (userSnap.exists()) {
+            const userDoc = userSnap.data();
+            userData.role = userDoc.role;
+          } else {
             await setDoc(userRef, {
-              uid: user.uid,
-              name: user.displayName,
-              email: user.email,
-              photoURL: user.photoURL,
-              role: "customer",
+              ...userData,
               createdAt: new Date().toISOString(),
             });
           }
 
-          dispatch(
-            login({
-              uid: user.uid,
-              email: user.email,
-              name: user.displayName,
-              photoUrl: user.photoURL,
-            })
-          );
+          dispatch(login(userData));
         } else {
           dispatch(logout());
         }
@@ -54,26 +54,25 @@ class AuthService {
       const userRef = doc(firestore, "users", user.uid);
       const userSnap = await getDoc(userRef);
 
-      if (!userSnap.exists()) {
+      let userData = {
+        uid: user.uid,
+        email: user.email,
+        name: user.displayName,
+        photoUrl: user.photoURL,
+        role: "customer", 
+      };
+
+      if (userSnap.exists()) {
+        const userDoc = userSnap.data();
+        userData.role = userDoc.role;
+      } else {
         await setDoc(userRef, {
-          uid: user.uid,
-          name: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL, 
-          role: "customer",
+          ...userData,
           createdAt: new Date().toISOString(),
         });
       }
 
-      dispatch(
-        login({
-          uid: user.uid,
-          email: user.email,
-          name: user.displayName,
-          photoUrl: user.photoURL,
-        })
-      );
-
+      dispatch(login(userData));
       toast.success("Sign In Successful");
     } catch (error) {
       toast.error(error.message);

@@ -11,6 +11,7 @@ import OrderDetails from "./pages/My Orders/OrderDetails";
 import CheckOut from "./pages/Check Out/CheckOut.jsx";
 import Policies from "./pages/Terms and Conditions/Policies.jsx";
 import Footer from "./components/Footer.jsx";
+import Admin from "./pages/Admin/Admin.jsx";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
             <Route path="checkOut" element={<CheckOut />} />
             <Route path="myOrders/:orderId" element={<OrderDetails />} />
             <Route path="policies" element={<Policies />} />
+            <Route path="admin" element={<Admin />} />
           </Routes>
           <Cart />
         </div>

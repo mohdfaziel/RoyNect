@@ -11,8 +11,13 @@ import Auth from "./Auth";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Cart from "../../components/Animations/Cart";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 export default function Nav() {
   const dispatch = useDispatch();
+  const location = useLocation(); 
+  if (location.pathname.startsWith("/admin")) {
+    return null;
+  }
   const qty = useSelector((state) => state.cart.qty);
   return (
     <div className="Nav w-full z-30 md:px-[3rem] px-[1rem] flex top-5 md:top-7 backdrop-blur-[2px] transition-all justify-center items-center min-h-7 fixed">

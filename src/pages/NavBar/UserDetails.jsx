@@ -5,6 +5,7 @@ import {useNavigate } from "react-router-dom";
 import { ggle } from "../../assets/Images/Images";
 
 function UserDetails({ status, setStatus }) {
+  const role = useSelector((state)=> state.user.userData?.role);
   const userPresent = useSelector((state) => state.user.status);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -45,6 +46,14 @@ function UserDetails({ status, setStatus }) {
             className="px-4 cursor-pointer transition-all py-1 font-medium hover:bg-slate-300 rounded-full"
           >
             Sign Out
+          </li>
+        )}
+        {role==='admin' && (
+          <li
+            onClick={()=> Navigate("/admin")}
+            className="px-4 cursor-pointer transition-all py-1 font-medium hover:bg-slate-300 rounded-full"
+          >
+            Admin
           </li>
         )}
       </ul>
