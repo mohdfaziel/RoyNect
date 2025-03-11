@@ -28,15 +28,25 @@ function Users({ orders, users }) {
                 users.reverse().map((user, index) => (
                   <tr
                     key={index}
-                    className="text-center cursor-pointer hover:bg-Adark1 hover:text-white text-base md:text-lg font-semibold border-b border-gray-500"
+                    className="text-center cursor-pointer text-base md:text-lg font-semibold border-b border-gray-500"
                   >
                     <td className="hidden md:table-cell px-4 py-2">
                       {index + 1}
                     </td>
-                    <td className="px-4 py-2">{user.name}</td>
+                    <td className="px-4 py-2">
+                      {" "}
+                      <span className="block md:hidden">
+                        {user.name.length > 6
+                          ? user.name.slice(0, 6) + " ..."
+                          : user.name}
+                      </span>
+                      <span className="hidden md:block">
+                        {user.name}
+                      </span>
+                    </td>
                     <td className="px-4 py-2">
                       <div className="w-full h-full flex justify-center items-center gap-2">
-                      <span className="block md:hidden">
+                        <span className="block md:hidden">
                           {user.email.length > 3
                             ? user.email.slice(0, 3) + " ..."
                             : user.email}
