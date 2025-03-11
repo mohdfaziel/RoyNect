@@ -64,6 +64,17 @@ class DatabaseService {
       return [];
     }
   }
+  // ✅ Get All Users (Admin)
+  async getAllUsers() {
+    try {
+      const ordersRef = collection(firestore, "users");
+      const querySnapshot = await getDocs(ordersRef);
+      return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+      console.error("Error fetching all orders:", error);
+      return [];
+    }
+  }
 
   // ✅ Update Order Status (Admin)
   async updateOrderStatus(orderId, status) {
