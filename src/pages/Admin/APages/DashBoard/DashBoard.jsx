@@ -21,10 +21,10 @@ function DashBoard({ orders, users }) {
   );
   
   return (
-    <div className="w-full h-full gap-5 flex flex-col justify-center items-center">
+    <div className="w-full max-h-[30rem] h-full gap-5 flex flex-col justify-center items-center">
       <div className="w-full flex flex-col gap-1 justify-center items-start">
         <h1 className="text-3xl font-extrabold text-Aunactive">DashBoard</h1>
-        <div className="w-full h-full rounded-3xl flex justify-center items-center gap-3">
+        <div className="w-full h-full rounded-3xl flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
           <Block
             content={`₹${revenue}`}
             title="Total Revenue"
@@ -63,7 +63,7 @@ function DashBoard({ orders, users }) {
                        </thead>
                        <tbody>
                          {orders.length > 0 &&
-                           orders.slice(0,5).map((order, index) => (
+                           orders.slice(0,4).map((order, index) => (
                              <tr
                                key={index}
                                className="text-center cursor-pointer hover:bg-Adark1 hover:text-white text-base md:text-lg font-semibold border-b border-gray-500"

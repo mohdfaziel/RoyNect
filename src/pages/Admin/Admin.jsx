@@ -46,9 +46,9 @@ function Admin() {
   }, []);
   if (loading) return <Loader/>;
   return (
-    <div className="w-full h-screen">
-      <div className="container w-full flex bg-gray-100 h-full">
-        <div className="left h-full w-[20%] bg-Aunactive flex flex-col justify-center items-center gap-8">
+    <div className="w-full h-screen md:h-screen">
+      <div className="container w-full flex flex-col md:flex-row bg-gray-100 h-full">
+        <div className="left w-full md:w-[20%] bg-Aunactive flex py-5 flex-col justify-center items-center gap-3 md:gap-8">
           <div className="Founder flex justify-center items-center gap-2">
             {admin?.photoUrl && (
               <div className="Logo w-12 rounded-full overflow-hidden">
@@ -60,7 +60,7 @@ function Admin() {
               <p className="text-sm font-medium">Founder</p>
             </div>
           </div>
-          <div className="Pages gap-4 flex flex-col justify-center items-center">
+          <div className="Pages w-full px-4 md:px-0 md:gap-4 flex md:flex-col justify-between md:justify-center items-center">
             <Option
               logo1={dashboard}
               logo2={dashboard2}
@@ -92,12 +92,12 @@ function Admin() {
           </div>
           <div
             onClick={() => Navigate("/")}
-            className="exit transition-all w-[3rem]"
+            className="exit transition-all w-8 hover:scale-105 md:w-[3rem]"
           >
             <img className="w-full h-full" src={exit}></img>
           </div>
         </div>
-        <div className="right w-[80%] px-10 py-[7rem] h-full bg-Adark1 flex justify-center items-center">
+        <div className="right w-full md:w-[80%] px-2 md:px-10 py-[2rem] md:py-[7rem] h-full bg-Adark1 flex justify-center items-center">
           {page === "DashBoard" && <DashBoard orders={orders} users={users}/>}
           {page === "Orders" && <Orders orders={orders} users={users}/>}
           {page === "Users" && <Users orders={orders} users={users}/>}
