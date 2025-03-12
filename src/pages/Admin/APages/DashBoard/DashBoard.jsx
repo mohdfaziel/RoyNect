@@ -21,7 +21,7 @@ function DashBoard({ orders, users }) {
   );
   
   return (
-    <div className="w-full max-h-[30rem] h-full gap-5 flex flex-col justify-center items-center">
+    <div className="w-full max-h-[35rem] h-full gap-5 flex flex-col justify-center items-center">
       <div className="w-full flex flex-col gap-1 justify-center items-start">
         <h1 className="text-3xl font-extrabold text-Aunactive">DashBoard</h1>
         <div className="w-full h-full rounded-3xl flex flex-wrap md:flex-nowrap justify-center items-center gap-3">

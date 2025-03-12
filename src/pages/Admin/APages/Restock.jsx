@@ -25,7 +25,7 @@ const honeyAvailable = useSelector((state)=>state.honey.qtyAvailable);
       }
   }
   return (
-    <div className="w-full max-h-[40rem] h-full flex justify-center items-start">
+    <div className="w-full max-h-[35rem] h-full flex justify-center items-start">
       <div className={`container ${loader && "opacity-80"} p-5 w-full h-full rounded-3xl flex flex-col justify-center items-center gap-10 overflow-hidden bg-Aunactive`}>
         <h1 className="text-3xl text-center md:text-4xl font-extrabold text-Adark1">
           Total Honey in Stock (in Kilograms)
