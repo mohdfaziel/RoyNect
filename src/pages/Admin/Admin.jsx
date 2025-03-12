@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
+  ajar1,
+  ajar2,
   dashboard,
   dashboard2,
   exit,
@@ -19,6 +21,7 @@ import DashBoard from "./APages/DashBoard/DashBoard";
 import Orders from "./APages/Orders";
 import Users from "./APages/Users";
 import Transactions from "./APages/Transactions";
+import Restock from "./APages/Restock";
 
 function Admin() {
   const [loading, setLoading] = useState(true);
@@ -88,6 +91,13 @@ function Admin() {
               page={page}
               setPage={setPage}
             />
+            <Option
+              logo1={ajar1}
+              logo2={ajar2}
+              title="Honey"
+              page={page}
+              setPage={setPage}
+            />
           </div>
           <div
             onClick={() => Navigate("/")}
@@ -101,6 +111,7 @@ function Admin() {
           {page === "Orders" && <Orders orders={orders} users={users}/>}
           {page === "Users" && <Users orders={orders} users={users}/>}
           {page === "Transactions" && <Transactions orders={orders} users={users}/>}
+          {page === "Honey" && <Restock orders={orders} users={users}/>}
         </div>
       </div>
     </div>
