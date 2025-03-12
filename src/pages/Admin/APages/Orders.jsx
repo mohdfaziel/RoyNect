@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { cpy } from "../../../assets/Images/Images";
 function Orders({ orders, users }) {
   return (
-    <div className="w-full max-h-[40rem] h-full gap-1 flex flex-col justify-center items-start">
+    <div className="w-full max-h-[30rem] h-full gap-1 flex flex-col justify-center items-start">
       <h1 className="text-3xl font-extrabold text-Aunactive">Orders</h1>
       <div className="w-full h-full rounded-3xl overflow-hidden bg-Aunactive">
         <div className="overflow-auto h-full">
