@@ -6,15 +6,17 @@ import {
   plus,
   rupee,
 } from "../../assets/Images/Images";
+import databaseService from "../../Firebase/Services/database";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import fadeIn from "../../Framer/Fadein";
-import {useDispatch } from "react-redux";
+import { reStock } from "../../Store/Honey/HoneySlice";
+import { useDispatch } from "react-redux";
 import { addItem } from "../../Store/Cart/CartSlice";
 import Buy from "./Buy";
 import BuyPhone from "./BuyPhone";
 import Quantity from "./Quantity";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Main() {
   const [weight, setWeight] = useState(0.5);
   const [price, setPrice] = useState(750);
@@ -26,6 +28,19 @@ export default function Main() {
     dispatch(addItem({ id, qty, price, weight }));
     setQty(1);
   }
+  useEffect(() => {
+    async function updateStock() {
+      try {
+        const stock = await databaseService.getProductStock();
+        console.log("Stock fetched:", stock);
+        dispatch(reStock(stock));
+      } catch (error) {
+        console.error("Error fetching stock:", error);
+      }
+    }
+    updateStock();
+  }, [dispatch]);
+
   return (
     <div
       id="product"
@@ -99,7 +114,9 @@ export default function Main() {
           </div>
           <div className="Attention flex justify-center items-center gap-1">
             <img src={attention} loading="lazy" className="w-4 md:w-6" alt="" />
-            <p className="text-xs md:text-sm font-semibold">100% Natural. Always Pure</p>
+            <p className="text-xs md:text-sm font-semibold">
+              100% Natural. Always Pure
+            </p>
           </div>
         </motion.div>
         <div className="absolute -z-10 w-[30rem] h-[30rem] md:w-[40rem] md:h-[40rem] rounded-full blur-3xl opacity-40 bg-white md:-top-[6rem] md:left-[55%] md:transform md:-translate-x-1/2"></div>

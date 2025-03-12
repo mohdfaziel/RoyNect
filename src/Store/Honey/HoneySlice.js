@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const honeySlice = createSlice({
     name: "honey",
     initialState: {
-        qtyAvailable: 50,
+        qtyAvailable: 0,
     },
     reducers:{
         reStock: (state, action) => {

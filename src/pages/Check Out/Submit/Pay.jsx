@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import databaseService from "../../../Firebase/Services/database";
 import { clearOrder } from "../../../Store/OrderDetails/OrderSlice";
 import { clearCart } from "../../../Store/Cart/CartSlice";
+import { reStock } from "../../../Store/Honey/HoneySlice";
 import sound from "../../../assets/sounds/wind-172559.mp3";
 import toast from "react-hot-toast";
 import paymentHandler from "../../../RazorpayPG/paymentHandler";
@@ -13,6 +14,7 @@ function Pay({ setOrderPlacing }) {
   const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(false);
   const [orderInfo, setOrderInfo] = useState(null);
+  const honeyInStock = useSelector((state)=> state.honey.qtyAvailable);
   const userDetails = useSelector((state) => state.user.userData);
   const orderDetails = useSelector((state) => state.order.orderDetails);
   const items = useSelector((state) => state.cart.items || []);
@@ -62,6 +64,9 @@ function Pay({ setOrderPlacing }) {
           updatedOrderData
         );
         if (result.success) {
+          const remHoney = honeyInStock-totalHoney;
+          await databaseService.updateProductStock(remHoney)
+          dispatch(reStock(remHoney));
           dispatch(clearOrder());
           dispatch(clearCart());
           toast.success("Order placed successfully!");

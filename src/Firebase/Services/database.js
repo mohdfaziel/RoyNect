@@ -109,18 +109,6 @@ class DatabaseService {
   }
   
 
-  // ✅ Update User Profile (Phone & Address)
-  async updateUserProfile(userId, profileData) {
-    try {
-      const userRef = doc(firestore, "users", userId);
-      await updateDoc(userRef, profileData);
-      return { success: true };
-    } catch (error) {
-      console.error("Error updating user profile:", error);
-      return { success: false, error: error.message };
-    }
-  }
-
   // ✅ Get Honey Stock
   async getProductStock() {
     try {

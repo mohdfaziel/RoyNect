@@ -25,7 +25,6 @@ function Admin() {
   const Navigate = useNavigate();
   const [page, setPage] = useState("DashBoard");
   const admin = useSelector((state) => state.user.userData);
-  //Orders
   const [orders, setOrders] = useState([]);
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -38,7 +37,7 @@ function Admin() {
       const allUsers = await databaseService.getAllUsers();
       const allOrders = await databaseService.getAllOrders();
       setOrders(allOrders.reverse());
-      setUsers(allUsers);
+      setUsers(allUsers.sort((a,b)=> a.name.localeCompare(b.name)));
       setLoading(false);
     };
 

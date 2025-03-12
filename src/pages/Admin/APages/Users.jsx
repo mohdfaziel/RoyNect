@@ -25,7 +25,7 @@ function Users({ orders, users }) {
             </thead>
             <tbody>
               {users.length > 0 &&
-                users.reverse().map((user, index) => (
+                users.map((user, index) => (
                   <tr
                     key={index}
                     className="text-center cursor-pointer text-base md:text-lg font-semibold border-b border-gray-500"
