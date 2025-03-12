@@ -14,7 +14,7 @@ import {
   users1,
   users2,
 } from "../../../../assets/Images/Images";
-function DashBoard({ orders, users }) {
+function DashBoard({ orders, users, setSelectedOrderId }) {
   const revenue = orders?.reduce(
     (sum, order) => sum + ((Number(order?.totalprice) || 0) + (Number(order?.shippingCost) || 0)),
     0
@@ -65,6 +65,7 @@ function DashBoard({ orders, users }) {
                          {orders.length > 0 &&
                            orders.slice(0,4).map((order, index) => (
                              <tr
+                               onClick={()=>setSelectedOrderId(order.id)}
                                key={index}
                                className="text-center cursor-pointer hover:bg-Adark1 hover:text-white text-base md:text-lg font-semibold border-b border-gray-500"
                              >

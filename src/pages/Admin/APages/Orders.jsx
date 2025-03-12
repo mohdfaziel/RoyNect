@@ -1,7 +1,9 @@
 import React from "react";
 import { format } from "date-fns";
 import { cpy } from "../../../assets/Images/Images";
-function Orders({ orders, users }) {
+import { useNavigate } from "react-router-dom";
+function Orders({ orders, users, setSelectedOrderId }) {
+  const Navigate = useNavigate();
   return (
     <div className="w-full max-h-[35rem] h-full gap-1 flex flex-col justify-center items-start">
       <h1 className="text-3xl font-extrabold text-Aunactive">Orders</h1>
@@ -27,6 +29,7 @@ function Orders({ orders, users }) {
               {orders.length > 0 &&
                 orders.map((order, index) => (
                   <tr
+                  onClick={()=>setSelectedOrderId(order.id)}
                     key={index}
                     className="text-center cursor-pointer hover:bg-Adark1 hover:text-white text-base md:text-lg font-semibold border-b border-gray-500"
                   >

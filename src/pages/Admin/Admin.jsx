@@ -12,8 +12,8 @@ import {
   users1,
   users2,
 } from "../../assets/Images/Images";
-import databaseService from '../../Firebase/Services/database'
-import Loader from "../../components/Loader"
+import databaseService from "../../Firebase/Services/database";
+import Loader from "../../components/Loader";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Option from "./Option";
@@ -22,11 +22,13 @@ import Orders from "./APages/Orders";
 import Users from "./APages/Users";
 import Transactions from "./APages/Transactions";
 import Restock from "./APages/Restock";
+import OrderInfo from "./APages/OrderInfo/OrderInfo";
 
 function Admin() {
   const [loading, setLoading] = useState(true);
   const Navigate = useNavigate();
   const [page, setPage] = useState("DashBoard");
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
   const admin = useSelector((state) => state.user.userData);
   const [orders, setOrders] = useState([]);
   const [users, setUsers] = useState([]);
@@ -40,13 +42,13 @@ function Admin() {
       const allUsers = await databaseService.getAllUsers();
       const allOrders = await databaseService.getAllOrders();
       setOrders(allOrders.reverse());
-      setUsers(allUsers.sort((a,b)=> a.name.localeCompare(b.name)));
+      setUsers(allUsers.sort((a, b) => a.name.localeCompare(b.name)));
       setLoading(false);
     };
 
     fetchOrders();
   }, []);
-  if (loading) return <Loader/>;
+  if (loading) return <Loader />;
   return (
     <div className="w-full h-screen md:h-screen">
       <div className="container w-full flex flex-col md:flex-row bg-gray-100 h-full">
@@ -69,6 +71,7 @@ function Admin() {
               title="DashBoard"
               page={page}
               setPage={setPage}
+              setSelectedOrderId={setSelectedOrderId}
             />
             <Option
               logo1={orders1}
@@ -76,6 +79,7 @@ function Admin() {
               title="Orders"
               page={page}
               setPage={setPage}
+              setSelectedOrderId={setSelectedOrderId}
             />
             <Option
               logo1={users1}
@@ -83,6 +87,7 @@ function Admin() {
               title="Users"
               page={page}
               setPage={setPage}
+              setSelectedOrderId={setSelectedOrderId}
             />
             <Option
               logo1={transaction1}
@@ -90,6 +95,7 @@ function Admin() {
               title="Transactions"
               page={page}
               setPage={setPage}
+              setSelectedOrderId={setSelectedOrderId}
             />
             <Option
               logo1={ajar1}
@@ -97,6 +103,7 @@ function Admin() {
               title="Honey"
               page={page}
               setPage={setPage}
+              setSelectedOrderId={setSelectedOrderId}
             />
           </div>
           <div
@@ -107,11 +114,21 @@ function Admin() {
           </div>
         </div>
         <div className="right w-full md:w-[80%] px-2 md:px-10 py-[2rem] md:py-[7rem] h-full bg-Adark1 flex justify-center items-center">
-          {page === "DashBoard" && <DashBoard orders={orders} users={users}/>}
-          {page === "Orders" && <Orders orders={orders} users={users}/>}
-          {page === "Users" && <Users orders={orders} users={users}/>}
-          {page === "Transactions" && <Transactions orders={orders} users={users}/>}
-          {page === "Honey" && <Restock orders={orders} users={users}/>}
+          {selectedOrderId != null ? (
+            <OrderInfo orders={orders} selectedOrderId={selectedOrderId} setSelectedOrderId={setSelectedOrderId}/>
+          ) : (
+            <>
+              {page === "DashBoard" && (
+                <DashBoard orders={orders} users={users} setSelectedOrderId={setSelectedOrderId}/>
+              )}
+              {page === "Orders" && <Orders orders={orders} users={users} setSelectedOrderId={setSelectedOrderId}/>}
+              {page === "Users" && <Users orders={orders} users={users} />}
+              {page === "Transactions" && (
+                <Transactions orders={orders} users={users} />
+              )}
+              {page === "Honey" && <Restock orders={orders} users={users} />}
+            </>
+          )}
         </div>
       </div>
     </div>
