@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../Store/OrderDetails/OrderSlice";
 import shippingCost from "../../ShippingDetails/shippingCost.js";
 import checkServiceability from "../../ShippingDetails/checkServiceability.js";
+import { useState } from "react";
 function Details({ handleNext }) {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.order.orderDetails);
   const weight = useSelector((state) => state.cart.totalWeight);
+  const [validPincode, setValidPincode] = useState(false);
   const user = useSelector((state) => state.user.userData);
   const [check, setCheck] = React.useState(false);
   const {
@@ -21,6 +23,13 @@ function Details({ handleNext }) {
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onChange" });
   async function submit(data) {
+    if (!validPincode) {
+      setError("pincode", {
+        type: "manual",
+        message: "Invalid Pincode",
+      });
+      return;
+    }
     const cost = await getShippingCost(data.pincode);
     data = {...data,shippingCost:Math.ceil(cost)};
     dispatch(setOrder(data));
@@ -40,6 +49,12 @@ function Details({ handleNext }) {
       setValue("district", orderDetails.district);
     }
   }, [user, setValue, orderDetails]);
+  useEffect(() => {
+    const pincode = getValues("pincode");
+    if (pincode?.length === 6) {
+      getstateDistrict();
+    }
+  }, [getValues("pincode")]);  
   async function getShippingCost(pincode) {
     try {
       const cost = await shippingCost(pincode, weight);
@@ -55,6 +70,7 @@ function Details({ handleNext }) {
     if (pincode.length !== 6) {
       pincodeElement.style.border = "2px solid #ef4444";
       setCheck(false);
+      setValidPincode(false);
       return;
     } else {
       pincodeElement.style.border = "2px solid #d1d5db";
@@ -65,6 +81,7 @@ function Details({ handleNext }) {
       if (addressData && addressData.serviceable) {
         setValue("state", addressData.state);
         setValue("district", addressData.district);
+        setValidPincode(true);
         // setValue("shippingCost", Math.ceil(cost));
       } else {
         throw new Error("Not serviceable");
@@ -74,13 +91,14 @@ function Details({ handleNext }) {
         type: "manual",
         message: "Invalid Pincode",
       });
+      setValidPincode(false);
     } finally {
       setCheck(false);
     }
   }
   return (
     <form
-      className="container w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-40 bg-white p-2 md:p-10 rounded-2xl md:rounded-3xl shadow-xl"
+      className={`container w-full  grid grid-cols-1 md:grid-cols-2 gap-5 ${check && "opacity-80"} md:gap-40 bg-white p-2 md:p-10 rounded-2xl md:rounded-3xl shadow-xl`}
       onSubmit={handleSubmit(submit)}
     >
       <div className="contact-details flex flex-col gap-3 md:gap-4">
@@ -195,7 +213,7 @@ function Details({ handleNext }) {
                 id="pincode"
                 placeholder="Pincode"
               />
-              <button
+              {/* <button
                 type="button"
                 onClick={getstateDistrict}
                 className={`bg-main ${
@@ -203,7 +221,7 @@ function Details({ handleNext }) {
                 } transition-all text-white w-1/2 py-1 md:py-2 rounded-2xl text-lg font-semibold shadow-sm`}
               >
                 Check
-              </button>
+              </button> */}
             </div>
             {errors.pincode && (
               <p className="text-xs md:text-sm px-2 mt-1 font-base font-semibold text-red-500">

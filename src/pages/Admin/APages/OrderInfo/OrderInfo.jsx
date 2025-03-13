@@ -6,6 +6,8 @@ import Shipped from "./Shipped";
 import Delivered from "./Delivered";
 import Item from "./Item";
 import { cpy } from "../../../../assets/Images/Images";
+import InitiateRefund from "./InitiateRefund";
+import Refunded from "./Refunded";
 function OrderInfo({ orders, selectedOrderId, setSelectedOrderId }) {
   const [loader, setLoader] = useState(false);
   const order = orders.find((order) => order.id === selectedOrderId);
@@ -110,10 +112,15 @@ function OrderInfo({ orders, selectedOrderId, setSelectedOrderId }) {
               <Item title="State" value={order.state} />
               </div>
             </div>
-            {!order.isCancelled && (
+            {!order.isCancelled ? (
               <div className={`bg-Adark1 md:col-span-2 py-3 flex flex-col md:flex-row justify-center gap-3 md:gap-0 md:justify-evenly items-center rounded-2xl `}>
                 <Shipped setLoader={setLoader} order={order} />
                 <Delivered setLoader={setLoader} order={order} />
+              </div>
+            ): (
+              <div className={`bg-Adark1 md:col-span-2 py-3 flex flex-col md:flex-row justify-center gap-3 md:gap-0 md:justify-evenly items-center rounded-2xl `}>
+                <InitiateRefund setLoader={setLoader} order={order}/>
+                <Refunded setLoader={setLoader} order={order}/>
               </div>
             )}
           </div>
