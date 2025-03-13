@@ -1,6 +1,6 @@
 import React from "react";
 import { format } from "date-fns";
-import { cpy } from "../../../assets/Images/Images";
+import { cpy, crown } from "../../../assets/Images/Images";
 function Users({ orders, users }) {
   return (
     <div className="w-full max-h-[35rem] h-full gap-1 flex flex-col justify-center items-start">
@@ -33,8 +33,7 @@ function Users({ orders, users }) {
                     <td className="hidden md:table-cell px-4 py-2">
                       {index + 1}
                     </td>
-                    <td className="px-4 py-2">
-                      {" "}
+                    <td className="relative px-4 py-2">
                       <span className="block md:hidden">
                         {user.name.length > 6
                           ? user.name.slice(0, 6) + " ..."
@@ -43,6 +42,9 @@ function Users({ orders, users }) {
                       <span className="hidden md:block">
                         {user.name}
                       </span>
+                      <div className={`absolute ${user.role!=="admin" && "hidden"} w-4 h-4 top-[25%] md:top-1/3 translate-x-1 left-0`}>
+                        <img className="w-full h-full" src={crown}></img>
+                      </div>
                     </td>
                     <td className="px-4 py-2">
                       <div className="w-full h-full flex justify-center items-center gap-2">

@@ -8,6 +8,7 @@ import databaseService from "../../Firebase/Services/database";
 import { back, jar3, razor } from "../../assets/Images/Images";
 import CancelOrder from "../../components/CancelOrder";
 import StatusBar from "./StatusBar";
+import Splash from "../../components/Splash";
 
 function OrderDetails() {
   const { orderId } = useParams();
@@ -148,7 +149,10 @@ function OrderDetails() {
           </div>
           <div className="paymentDetails bg-white px-4 py-4 flex flex-col justify-center gap-8 md:gap-4 items-center rounded-xl">
             <div className="w-full h-full flex flex-col">
-              <h1 className="text-xl w-full font-bold">Payment Details</h1>
+              <div className="flex justify-start gap-3 items-center">
+              <h1 className="text-xl font-bold">Payment Details</h1>
+              <Splash title={orderDetails.paymentStatus}/>
+              </div>
               <div className="text-base font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Total amount</p>
                 <p>&#8377;{orderDetails?.totalprice}</p>
@@ -175,6 +179,7 @@ function OrderDetails() {
                   updateOrderStatus={(newStatus) =>
                     setOrderDetails((prev) => ({
                       ...prev,
+                      paymentStatus: "Refund Initiated",
                       status: newStatus,
                       cancelledDate: new Date().toISOString(),
                       isCancelled: true,

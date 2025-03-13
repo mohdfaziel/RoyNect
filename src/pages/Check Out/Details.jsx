@@ -99,7 +99,7 @@ function Details({ handleNext }) {
   return (
     <form
       className={`container w-full  grid grid-cols-1 md:grid-cols-2 gap-5 ${
-        check && "opacity-80"
+        check && "brightness-90"
       } md:gap-40 bg-white p-2 md:p-12 rounded-2xl md:rounded-3xl shadow-xl`}
       onSubmit={handleSubmit(submit)}
     >

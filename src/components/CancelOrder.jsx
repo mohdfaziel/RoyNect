@@ -5,9 +5,11 @@ const CancelOrder = ({ orderId,updateOrderStatus,setLoading}) => {
   const [showPopup, setShowPopup] = useState(false);
   async function CancelOrder(orderId) {
     setLoading(true);
-    const response = await databaseService.updateAttribute(orderId,"status","cancelled");
+    const response = await databaseService.updateAttribute(orderId,"paymentStatus","Refund Initiated");
+    const response1 = await databaseService.updateAttribute(orderId,"status","cancelled");
     const response2 = await databaseService.updateAttribute(orderId,"isCancelled",true);
     const response3 = await databaseService.updateAttribute(orderId,"cancelledDate",new Date().toISOString());
+    const response4 = await databaseService.updateAttribute(orderId, "refundInitiated", true);
     updateOrderStatus("cancelled");
     setLoading(false);
   }

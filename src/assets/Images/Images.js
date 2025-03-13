@@ -34,6 +34,7 @@ import minus from './minus.png'
 import person from './User.svg'
 import plus from './plus.png'
 import rupee from './rupee.png'
+import crown from './crown.png'
 import check from './check.svg'
 import exit from './exit.png'
 import cross from './cross.png'
@@ -43,4 +44,4 @@ import del from './delete.svg'
 import back from './back.png'
 import empty from './emptyOrders.svg'
 import whatsapp from './whatsapp.png'
-export {attention,dashboard,ajar1,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,dashboard,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
