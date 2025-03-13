@@ -31,7 +31,7 @@ function Details({ handleNext }) {
       return;
     }
     const cost = await getShippingCost(data.pincode);
-    data = {...data,shippingCost:Math.ceil(cost)};
+    data = { ...data, shippingCost: Math.ceil(cost) };
     dispatch(setOrder(data));
     handleNext();
   }
@@ -54,7 +54,7 @@ function Details({ handleNext }) {
     if (pincode?.length === 6) {
       getstateDistrict();
     }
-  }, [getValues("pincode")]);  
+  }, [getValues("pincode")]);
   async function getShippingCost(pincode) {
     try {
       const cost = await shippingCost(pincode, weight);
@@ -98,7 +98,9 @@ function Details({ handleNext }) {
   }
   return (
     <form
-      className={`container w-full  grid grid-cols-1 md:grid-cols-2 gap-5 ${check && "opacity-80"} md:gap-40 bg-white p-2 md:p-10 rounded-2xl md:rounded-3xl shadow-xl`}
+      className={`container w-full  grid grid-cols-1 md:grid-cols-2 gap-5 ${
+        check && "opacity-80"
+      } md:gap-40 bg-white p-2 md:p-12 rounded-2xl md:rounded-3xl shadow-xl`}
       onSubmit={handleSubmit(submit)}
     >
       <div className="contact-details flex flex-col gap-3 md:gap-4">
