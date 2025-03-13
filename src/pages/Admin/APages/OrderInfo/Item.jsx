@@ -1,13 +1,42 @@
-import React from 'react'
-import { cpy } from '../../../../assets/Images/Images'
+import React from "react";
+import { cpy } from "../../../../assets/Images/Images";
 
-function Item({title,value}) {
+function Item({ title, value }) {
   return (
-    <div className='flex justify-center w-full md:w-fit text-white font-semibold text-sm md:text-lg items-center gap-3 bg-Adark1 px-4 py-2 rounded-full'>
+    <div className="flex justify-center w-fit text-white font-semibold text-sm md:text-lg items-center gap-3 rounded-full">
       <div>{title} : </div>
-      <div className='flex justify-center items-center text-gray-500 gap-3'>{value.length>10? value.slice(0,10)+" ...": value} <img onClick={()=> navigator.clipboard.writeText(value)} className='w-4 hover:scale-110 transition-all' src={cpy}></img></div>
+      <div
+        className={`hidden md:flex justify-center items-center text-gray-400 gap-3  ${
+          value === "DELIVERED" && "text-green-500"
+        } 
+  ${value === "SHIPPED" && "text-blue-500"} 
+  ${value === "PLACED" && "text-yellow-500"} 
+  ${value === "CANCELLED" && "text-red-500"} `}
+      >
+        {value}{" "}
+        <img
+          onClick={() => navigator.clipboard.writeText(value)}
+          className="w-4 hover:scale-110 transition-all"
+          src={cpy}
+        ></img>
+      </div>
+      <div
+        className={`flex md:hidden justify-center items-center  ${
+          value === "DELIVERED" && "text-green-500"
+        } 
+  ${value === "SHIPPED" && "text-blue-500"} 
+  ${value === "PLACED" && "text-yellow-500"} 
+  ${value === "CANCELLED" && "text-red-500"}  text-gray-400 gap-3`}
+      >
+        {value.length > 20 ? value.slice(0, 20) + " ..." : value}{" "}
+        <img
+          onClick={() => navigator.clipboard.writeText(value)}
+          className="w-4 hover:scale-110 transition-all"
+          src={cpy}
+        ></img>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Item
+export default Item;

@@ -20,7 +20,6 @@ function Pay({ setOrderPlacing }) {
   const items = useSelector((state) => state.cart.items || []);
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
-  const audio = new Audio(sound);
 
   async function placeOrder(e) {
     e.preventDefault();

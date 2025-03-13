@@ -87,7 +87,7 @@ function OrderDetails() {
                     </p>
                   </div>
                 )}
-                {orderDetails?.oneKgJars != 0  && (
+                {orderDetails?.oneKgJars != 0 && (
                   <div className="flex justify-between w-full">
                     <p className="text-base font-base font-semibold text-gray-500">
                       1kg Jar
@@ -97,7 +97,7 @@ function OrderDetails() {
                     </p>
                   </div>
                 )}
-                {orderDetails?.twoKgJars !=0 && (
+                {orderDetails?.twoKgJars != 0 && (
                   <div className="flex justify-between w-full">
                     <p className="text-base font-base font-semibold text-gray-500">
                       2kg Jar
@@ -169,7 +169,7 @@ function OrderDetails() {
               </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center">
-              {orderDetails.status === "placed" ? (
+              {orderDetails.status === "placed" && (
                 <CancelOrder
                   orderId={orderId}
                   updateOrderStatus={(newStatus) =>
@@ -182,10 +182,6 @@ function OrderDetails() {
                   }
                   setLoading={setLoading}
                 />
-              ) : (
-                <p className="text-base text-center font-base font-semibold text-gray-500">
-                  Order cannot be canceled once it has been shipped
-                </p>
               )}
               <div className="w-full -mt-5 flex justify-center gap-1 items-center">
                 <p className="text-base font-base font-semibold text-gray-500">
@@ -193,6 +189,10 @@ function OrderDetails() {
                 </p>
                 <img className="w-20 h-15" src={razor}></img>
               </div>
+
+              <p className="text-xs text-center font-base font-semibold text-gray-500">
+                Note : Order cannot be canceled once it has been shipped
+              </p>
             </div>
           </div>
         </div>
