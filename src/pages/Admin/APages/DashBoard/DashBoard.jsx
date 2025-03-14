@@ -29,7 +29,7 @@ function DashBoard({ orders, users, setSelectedOrderId }) {
   return (
     <div className="w-full h-full gap-5 flex flex-col justify-center items-center">
       <div className="w-full flex flex-col gap-1 justify-center items-start">
-        <h1 className="text-3xl font-extrabold text-Aunactive">DashBoard</h1>
+        <h1 className="text-xl md:text-3xl font-extrabold text-Aunactive">DashBoard</h1>
         <div className="w-full h-full rounded-3xl flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
           <Block
             content={`₹${revenue}`}
@@ -46,7 +46,7 @@ function DashBoard({ orders, users, setSelectedOrderId }) {
         </div>
       </div>
       <div className="w-full flex flex-col gap-1 justify-center items-start h-fit">
-        <h1 className="text-3xl font-extrabold text-Aunactive">
+        <h1 className="text-xl md:text-3xl font-extrabold text-Aunactive">
           Recent Orders
         </h1>
         <div className="w-full h-full rounded-3xl overflow-hidden bg-Aunactive">

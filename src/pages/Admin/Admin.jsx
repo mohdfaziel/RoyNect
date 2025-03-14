@@ -108,7 +108,7 @@ function Admin() {
           </div>
           <div
             onClick={() => Navigate("/")}
-            className="exit transition-all w-8 hover:scale-105 md:w-[3rem]"
+            className="exit transition-all w-7 hover:scale-105 md:w-[3rem]"
           >
             <img className="w-full h-full" src={exit}></img>
           </div>
