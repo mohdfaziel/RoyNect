@@ -1,7 +1,13 @@
 import React from "react";
 import { cpy } from "../../../../assets/Images/Images";
+import toast from "react-hot-toast";
 
 function Item({ title, value }) {
+  const copy = (info)=>
+    {
+      navigator.clipboard.writeText(info);
+      toast.success("Copied To Clipboard");
+    }
   return (
     <div className="flex justify-center w-fit text-white font-semibold text-sm md:text-lg items-center gap-3 rounded-full">
       <div>{title} : </div>
@@ -15,7 +21,7 @@ function Item({ title, value }) {
       >
         {value}{" "}
         <img
-          onClick={() => navigator.clipboard.writeText(value)}
+          onClick={() => copy(value)}
           className="w-4 hover:scale-110 transition-all"
           src={cpy}
         ></img>
@@ -30,7 +36,7 @@ function Item({ title, value }) {
       >
         {value.length > 20 ? value.slice(0, 20) + " ..." : value}{" "}
         <img
-          onClick={() => navigator.clipboard.writeText(value)}
+          onClick={() => copy(value)}
           className="w-4 hover:scale-110 transition-all"
           src={cpy}
         ></img>

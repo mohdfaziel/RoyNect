@@ -1,6 +1,7 @@
 import React from "react";
 import Block from "./Block";
 import { format } from "date-fns";
+import toast from "react-hot-toast";
 import {
   cpy,
   dashboard,
@@ -15,6 +16,11 @@ import {
   users2,
 } from "../../../../assets/Images/Images";
 function DashBoard({ orders, users, setSelectedOrderId }) {
+  const copy = (info)=>
+    {
+      navigator.clipboard.writeText(info);
+      toast.success("Copied To Clipboard");
+    }
   const revenue = orders?.reduce(
     (sum, order) => sum + ((Number(order?.totalprice) || 0) + (Number(order?.shippingCost) || 0)),
     0
@@ -86,7 +92,7 @@ function DashBoard({ orders, users, setSelectedOrderId }) {
                                    </span>
                                    <img
                                      onClick={() =>
-                                       navigator.clipboard.writeText(order.id)
+                                       copy(order.id)
                                      }
                                      className="w-4 cursor-pointer hover:scale-105 transition-all"
                                      src={cpy}

@@ -1,7 +1,13 @@
 import React from "react";
 import { format } from "date-fns";
 import { cpy, crown } from "../../../assets/Images/Images";
+import toast from "react-hot-toast";
 function Users({ orders, users }) {
+  const copy = (info)=>
+    {
+      navigator.clipboard.writeText(info);
+      toast.success("Copied To Clipboard");
+    }
   return (
     <div className="w-full h-full gap-1 flex flex-col justify-center items-start">
       <h1 className="text-3xl font-extrabold text-Aunactive">Users</h1>
@@ -60,7 +66,7 @@ function Users({ orders, users }) {
                         </span>
                         <img
                           onClick={() =>
-                            navigator.clipboard.writeText(user.email)
+                            copy(user.email)
                           }
                           className="w-4 cursor-pointer hover:scale-105 transition-all"
                           src={cpy}
@@ -80,7 +86,7 @@ function Users({ orders, users }) {
                             : user.id}
                         </span>
                         <img
-                          onClick={() => navigator.clipboard.writeText(user.id)}
+                          onClick={() => copy(user.id)}
                           className="w-4 cursor-pointer hover:scale-105 transition-all"
                           src={cpy}
                         ></img>

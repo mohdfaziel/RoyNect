@@ -1,7 +1,13 @@
 import React from 'react'
 import { cpy } from '../../../assets/Images/Images'
 import { format } from 'date-fns'
+import toast from 'react-hot-toast';
 function Transactions({orders,users}) {
+  const copy = (info)=>
+  {
+    navigator.clipboard.writeText(info);
+    toast.success("Copied To Clipboard");
+  }
   return (
     <div className='w-full h-full gap-1 flex flex-col justify-center items-start'>
       <h1 className="text-3xl font-extrabold text-Aunactive">Transactions</h1>
@@ -28,7 +34,7 @@ function Transactions({orders,users}) {
                                  orders.map((order, index) => (
                                    <tr
                                      key={index}
-                                     className="text-center cursor-pointer hover:bg-Adark1 hover:text-white text-base md:text-lg font-semibold border-b border-gray-500"
+                                     className="text-center cursor-pointer text-base md:text-lg font-semibold border-b border-gray-500"
                                    >
                                      <td className="hidden md:table-cell px-4 py-2">
                                        {index + 1}
@@ -47,7 +53,7 @@ function Transactions({orders,users}) {
                                          </span>
                                          <img
                                            onClick={() =>
-                                             navigator.clipboard.writeText(order.paymentId)
+                                             copy(order.paymentId)
                                            }
                                            className="w-4 cursor-pointer hover:scale-105 transition-all"
                                            src={cpy}
@@ -68,7 +74,7 @@ function Transactions({orders,users}) {
                                          </span>
                                          <img
                                            onClick={() =>
-                                             navigator.clipboard.writeText(order.id)
+                                            copy(order.id)
                                            }
                                            className="w-4 cursor-pointer hover:scale-105 transition-all"
                                            src={cpy}

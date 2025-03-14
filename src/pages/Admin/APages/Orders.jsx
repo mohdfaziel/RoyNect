@@ -2,8 +2,14 @@ import React from "react";
 import { format } from "date-fns";
 import { cpy } from "../../../assets/Images/Images";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 function Orders({ orders, users, setSelectedOrderId }) {
   const Navigate = useNavigate();
+  const copy = (info)=>
+    {
+      navigator.clipboard.writeText(info);
+      toast.success("Copied To Clipboard");
+    }
   return (
     <div className="w-full h-full gap-1 flex flex-col justify-center items-start">
       <h1 className="text-3xl font-extrabold text-Aunactive">Orders</h1>
@@ -50,7 +56,7 @@ function Orders({ orders, users, setSelectedOrderId }) {
                         </span>
                         <img
                           onClick={() =>
-                            navigator.clipboard.writeText(order.id)
+                            copy(order.id)
                           }
                           className="w-4 cursor-pointer hover:scale-105 transition-all"
                           src={cpy}
