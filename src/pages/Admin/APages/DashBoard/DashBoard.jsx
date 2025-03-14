@@ -63,7 +63,7 @@ function DashBoard({ orders, users, setSelectedOrderId }) {
                        </thead>
                        <tbody>
                          {orders.length > 0 &&
-                           orders.slice(0,4).map((order, index) => (
+                           orders.slice(0,6).map((order, index) => (
                              <tr
                                onClick={()=>setSelectedOrderId(order.id)}
                                key={index}

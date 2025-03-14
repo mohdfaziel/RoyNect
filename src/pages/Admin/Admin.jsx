@@ -50,9 +50,9 @@ function Admin() {
   }, []);
   if (loading) return <Loader />;
   return (
-    <div className="w-full h-screen md:h-screen">
+    <div className="w-full bg-Adark1 min-h-screen md:h-screen">
       <div className="container w-full flex flex-col md:flex-row bg-gray-100 h-full">
-        <div className="left w-full md:w-[20%] bg-Aunactive flex py-5 flex-col justify-center items-center gap-3 md:gap-8">
+        <div className="left w-full md:w-[25%] bg-Aunactive flex py-5 flex-col justify-center items-center gap-3 md:gap-8">
           <div className="Founder flex justify-center items-center gap-2">
             {admin?.photoUrl && (
               <div className="Logo w-12 rounded-full overflow-hidden">
@@ -60,8 +60,8 @@ function Admin() {
               </div>
             )}
             <div className="Name flex flex-col justify-center items-start">
-              <h1 className="text-xl font-semibold">Mohd Faziel</h1>
-              <p className="text-sm font-medium">Founder</p>
+              <h1 className="text-xl font-semibold">{admin.name}</h1>
+              {admin.name==="Mohd Faziel" ? (<p className="text-sm font-medium">Founder</p>) : (<p className="text-sm font-medium">Partner</p>)}
             </div>
           </div>
           <div className="Pages w-full px-4 md:px-0 md:gap-4 flex md:flex-col justify-between md:justify-center items-center">
@@ -113,7 +113,7 @@ function Admin() {
             <img className="w-full h-full" src={exit}></img>
           </div>
         </div>
-        <div className="right w-full md:w-[80%] px-2 md:px-10 py-[2rem] md:py-[7rem] h-full bg-Adark1 flex justify-center items-center">
+        <div className="right w-full px-2 md:px-10 py-[2rem] md:py-[7rem] h-screen bg-Adark1 flex justify-center items-center">
           {selectedOrderId != null ? (
             <OrderInfo orders={orders} selectedOrderId={selectedOrderId} setSelectedOrderId={setSelectedOrderId}/>
           ) : (
