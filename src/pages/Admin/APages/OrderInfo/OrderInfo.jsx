@@ -13,7 +13,7 @@ function OrderInfo({ orders, selectedOrderId, setSelectedOrderId }) {
   const order = orders.find((order) => order.id === selectedOrderId);
   return (
     <div className="w-full h-full gap-1 flex flex-col justify-center items-start">
-      <h1 className="text-3xl font-extrabold  text-Aunactive">Order Details</h1>
+      <h1 className="text-2xl md:text-3xl font-extrabold  text-Aunactive">Order Details</h1>
       <div className="w-full h-full flex justify-center items-center rounded-3xl overflow-hidden bg-Aunactive">
         {loader ? (
           <Loader />
