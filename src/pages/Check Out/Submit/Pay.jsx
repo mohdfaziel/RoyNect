@@ -14,7 +14,7 @@ function Pay({ setOrderPlacing }) {
   const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(false);
   const [orderInfo, setOrderInfo] = useState(null);
-  const honeyInStock = useSelector((state)=> state.honey.qtyAvailable);
+  const honeyInStock = useSelector((state) => state.honey.qtyAvailable);
   const userDetails = useSelector((state) => state.user.userData);
   const orderDetails = useSelector((state) => state.order.orderDetails);
   const items = useSelector((state) => state.cart.items || []);
@@ -49,7 +49,7 @@ function Pay({ setOrderPlacing }) {
     try {
       const updatedOrderData = await paymentHandler(
         initialOrderData,
-        setOrderInfo,
+        setOrderInfo
       );
       if (!updatedOrderData) {
         console.error(
@@ -63,14 +63,14 @@ function Pay({ setOrderPlacing }) {
           updatedOrderData
         );
         if (result.success) {
-          const remHoney = honeyInStock-totalHoney;
-          await databaseService.updateProductStock(remHoney)
+          const remHoney = honeyInStock - totalHoney;
+          await databaseService.updateProductStock(remHoney);
           dispatch(reStock(remHoney));
           dispatch(clearOrder());
           dispatch(clearCart());
           toast.success("Order placed successfully!");
           await new Promise((resolve) => setTimeout(resolve, 1));
-          navigate("/myOrders/"+result.orderId);
+          navigate("/myOrders/" + result.orderId);
         } else {
           toast.error("Failed to save order. Please contact support.");
         }
@@ -93,16 +93,10 @@ function Pay({ setOrderPlacing }) {
           onChange={() => setIsChecked(!isChecked)}
           className="w-4 h-4 accent-main cursor-pointer"
         />
-        I accept the
-        <a href="#" className="text-blue-600">
-          {" "}
-          Terms & Conditions{" "}
-        </a>
+        <div>I accept the
+        <span onClick={()=>navigate("/policies")} className="text-blue-600 cursor-pointer transition-all"> Terms </span>
         and
-        <a href="#" className="text-blue-600">
-          {" "}
-          Privacy Policy{" "}
-        </a>
+        <span onClick={()=>navigate("/policies")} className="text-blue-600 cursor-pointer transition-all"> Privacy Policy</span></div>
       </label>
       <button
         className={`w-full py-2 text-white font-semibold rounded-lg transition-all bg-blue-600 ${
