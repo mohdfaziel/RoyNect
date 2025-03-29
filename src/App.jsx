@@ -23,8 +23,8 @@ function App() {
         <div className="relative overflow-hidden flex flex-col justify-center items-center min-h-screen w-full bg-radial-gradient">
           <Nav />
           <Routes>
-            <Route path="/" element={<Product />} />
-            <Route path="about" element={<About />} />
+            <Route path="/" element={<About />} />
+            <Route path="product" element={<Product />} />
             <Route path="myOrders" element={<MyOrders />} />
             <Route path="checkOut" element={<CheckOut />} />
             <Route path="myOrders/:orderId" element={<OrderDetails />} />

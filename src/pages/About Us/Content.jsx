@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Content({ img, title, sentence, flag }) {
   return (
     <div
-      className={`w-full flex md:h-[25rem] flex-col md:flex-row gap-5 md:gap-0 ${
+      className={`w-full  flex md:h-[25rem] flex-col md:flex-row gap-5 md:gap-0 ${
         flag ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
@@ -48,7 +48,7 @@ export default function Content({ img, title, sentence, flag }) {
           <h1 className="md:block hidden text-4xl md:text-5xl font-extrabold text-center text-white">
             {title}
           </h1>
-          <p className="text-lg md:text-xl font-semibold text-justify">{sentence}</p>
+          <p className="text-base md:text-xl font-semibold text-justify">{sentence}</p>
         </div>
       </motion.div>
     </div>
