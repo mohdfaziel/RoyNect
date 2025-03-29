@@ -27,6 +27,7 @@ import dashboard from './dashboard.png'
 import dashboard2 from './dashboard2.png'
 import whtbee from './whtBee.png'
 import less from './lessthen.png'
+import brand from './brand.png'
 import Logo from './Logo.png'
 import withbees from './me with bees.jpg'
 import me from './me.png'
@@ -48,4 +49,4 @@ import sp from './splash.png'
 import back from './back.png'
 import empty from './emptyOrders.svg'
 import whatsapp from './whatsapp.png'
-export {attention,dashboard,lkdn,faziel,sp,jarWebp,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,dashboard,lkdn,brand,faziel,sp,jarWebp,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

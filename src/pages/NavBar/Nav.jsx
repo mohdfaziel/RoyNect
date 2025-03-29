@@ -1,12 +1,13 @@
 import {
   aboutActive,
   aboutUnActive,
+  brand,
   cart,
   jarActive,
   jarUnActive,
   Logo,
 } from "../../assets/Images/Images";
-import Item from "./Item";
+// import Item from "./Item";
 import Auth from "./Auth";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,12 +21,12 @@ export default function Nav() {
   }
   const qty = useSelector((state) => state.cart.qty);
   return (
-    <div className="Nav w-full z-30 md:px-[3rem] px-[1rem] flex top-5 md:top-3 backdrop-blur-[2px] transition-all justify-center items-center min-h-7 fixed">
+    <div className="Nav w-full z-30 md:px-[3rem] px-[1rem] flex top-5 md:top-3 transition-all justify-center items-center min-h-7 fixed">
       <div className="container py-2 w-[100%] flex justify-between items-center">
-        <div className="Logo">
-          <img src={Logo} className="md:w-32 w-24" alt="" />
+        <div className="Logo  px-6 py-2 rounded-full shadow-md bg-white">
+          <img src={brand} className="w-20 md:w-28" alt="" />
         </div>
-        <div className="Options flex justify-center items-center gap-5">
+        {/* <div className="Options flex justify-center items-center gap-5">
           <Item
             title="Products"
             link=""
@@ -38,8 +39,8 @@ export default function Nav() {
             iconActive={aboutActive}
             iconUnactive={aboutUnActive}
           />
-        </div>
-        <div className="Actions flex justify-center items-center gap-3">
+        </div> */}
+        <div className="Actions flex bg-white py-2 px-10 shadow-md rounded-full justify-center items-center gap-3">
           <Auth/>
           <div
             onClick={() => dispatch(toggleState())}

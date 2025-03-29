@@ -1,5 +1,5 @@
 import React from "react";
-import { whtbee } from "../assets/Images/Images";
+import { brand, Logo, whtbee } from "../assets/Images/Images";
 import { useNavigate } from "react-router-dom";
 function Footer() {
 const Navigate = useNavigate();
@@ -12,10 +12,10 @@ function policies()
     <div className="w-full flex transition-all text-sm md:text-base flex-col gap-5 md:gap-10 min-h-[5rem] font-semibold text-gray-300 px-3 md:px-[10rem] py-10 bg-slate-950 bg-radial-gradient-footer">
       <div className="Policies flex flex-col md:flex-row border-b-[1px] pb-5 md:pb-10 border-slate-500 gap-4 md:gap-0 md:justify-between w-full items-start md:items-center">
         <div className="Logo flex md:flex-col w-full md:w-fit justify-center gap-2 md:items-start items-center">
-          <div className="p-2 md:p-3 w-12 md:w-20 rounded-full bg-Dark1">
+          <div className="px-4 py-2 md:px-6 md:py-2 w-20 md:w-32 rounded-full bg-white">
             <img
               className="w-full h-full drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
-              src={whtbee}
+              src={brand}
             ></img>
           </div>
           <h1 className="md:text-center text-base w-full md:text-xl">
