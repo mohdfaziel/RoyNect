@@ -14,7 +14,9 @@ import Buy from "./Buy";
 import BuyPhone from "./BuyPhone";
 import Quantity from "./Quantity";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 export default function Main() {
+  const dispatch = useDispatch();
   const [weight, setWeight] = useState(0.5);
   const [price, setPrice] = useState(750);
   const [id, setId] = useState(1);
