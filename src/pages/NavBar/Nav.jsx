@@ -7,7 +7,6 @@ import {
   jarUnActive,
   Logo,
 } from "../../assets/Images/Images";
-// import Item from "./Item";
 import Auth from "./Auth";
 import { toggleState } from "../../Store/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
