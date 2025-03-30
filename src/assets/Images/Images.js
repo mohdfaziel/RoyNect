@@ -2,6 +2,10 @@ import attention from './attention.png';
 import bees1 from './bees1.jpg';
 import bees2 from './bees2.png';
 import cart from './cart.png';
+import leaf from './leaf.png';
+import comb from './comb.png';
+import mountain from './mountain.png';
+import stick from './stick.png';
 import dadu from './dadu.png';
 import email from './email.png'
 import ig from './ig.png'
@@ -37,6 +41,7 @@ import person from './User.svg'
 import lkdn from './linkedIn.png'
 import plus from './plus.png'
 import faziel from './Mohd Faziel.webp'
+import faziel2 from './Faziel2.jpg'
 import rupee from './rupee.png'
 import crown from './crown.png'
 import check from './check.svg'
@@ -49,4 +54,4 @@ import sp from './splash.png'
 import back from './back.png'
 import empty from './emptyOrders.svg'
 import whatsapp from './whatsapp.png'
-export {attention,dashboard,lkdn,brand,faziel,sp,jarWebp,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,dashboard,leaf,mountain,comb,stick,lkdn,brand,faziel2,faziel,sp,jarWebp,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};

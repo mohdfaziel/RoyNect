@@ -1,7 +1,7 @@
 import React from "react";
 import {
   email,
-  faziel,
+  faziel2,
   ig,
   lkdn,
   me,
@@ -23,8 +23,8 @@ function Minds() {
           </p>
         </div>
         <div className="grid bg-white shadow-md gap-10 p-5 md:p-10 rounded-xl text-justify grid-cols-1 md:grid-cols-2">
-          <div className="card1 flex flex-col md:flex-row justify-start items-start gap-5">
-            <div className="left">
+          <div className="card1 flex flex-col md:flex-row justify-start items-start gap-5 md:gap-0">
+            <div className="left w-full h-full">
               <div className="flex justify-center items-center w-full md:w-[15rem] rounded-lg overflow-hidden h-[15rem]">
                 <img src={me} className="object-cover w-full h-full"></img>
               </div>
@@ -34,7 +34,7 @@ function Minds() {
                 <h1 className=" text-lg font-bold text-slate-800">
                   Khaleek-UL-Rehman
                 </h1>
-                <p className="text-xs font-semibold">Expert BeeKeeper</p>
+                <p className="text-xs font-semibold">BeeKeeper</p>
               </div>
               <h1 className="font-semibold text-sm">
                 Khaleek is dedicated to nurturing our bees and ensuring the
@@ -56,10 +56,10 @@ function Minds() {
               </div>
             </div>
           </div>
-          <div className="card2 flex flex-col md:flex-row justify-start items-start gap-5">
-            <div className="left">
+          <div className="card2 flex flex-col md:flex-row justify-start items-start gap-5 md:gap-0">
+            <div className="left w-full h-full">
               <div className="flex justify-center items-center w-full md:w-[15rem] rounded-lg overflow-hidden h-[15rem]">
-                <img src={faziel} className="object-cover w-full h-full"></img>
+                <img src={faziel2} className="object-cover w-full h-full"></img>
               </div>
             </div>
             <div className="right flex flex-col gap-5">
