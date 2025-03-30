@@ -36,14 +36,14 @@ export default function Cart({}) {
   };
   return (
     <div
-      className={`w-full h-screen fixed top-0 left-0 z-40 transition-all ${
+      className={`w-full  h-screen fixed top-0 left-0 z-40 transition-all ${
         state ? "visible opacity-100" : "invisible opacity-0"
       }`}
       onClick={handleBackdropClick}
     >
       <div className="backdrop w-full h-full bg-black bg-opacity-50 absolute top-0 left-0"></div>
       <div
-        className={`container md:w-[30%] w-full flex transition-transform transform ${
+        className={`container  md:w-[30%] w-full flex transition-transform transform ${
           state ? "translate-x-0" : "translate-x-full"
         } flex-col justify-center items-start z-50 fixed top-0 right-0 h-full shadow-xl bg-radial-gradient`}
       >

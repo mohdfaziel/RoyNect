@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import fadeIn from "../../../Framer/Fadein.js";
 import {
   email,
   faziel2,
@@ -15,14 +17,32 @@ function Minds() {
     <div className="relative w-full min-h-screen flex mt-[3rem] md:mt-0 justify-center items-center px-[1rem] md:px-[10rem]">
       <div className="container z-10 w-full flex flex-col gap-5 justify-center items-start">
         <div className="flex flex-col gap-2">
-          <h1 className=" text-4xl md:text-5xl font-extrabold text-white">
+          <motion.h1
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className=" text-4xl md:text-5xl font-extrabold text-white"
+          >
             Minds Behind RoyNect
-          </h1>
-          <p className="text-sm font-semibold">
+          </motion.h1>
+          <motion.p
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="text-sm font-semibold"
+          >
             Meet the passionate individuals behind RoyNect
-          </p>
+          </motion.p>
         </div>
-        <div className="grid bg-white shadow-md gap-10 p-5 md:p-10 rounded-xl text-justify grid-cols-1 md:grid-cols-2">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.1 }}
+          className="grid bg-white shadow-md gap-10 p-5 md:p-10 rounded-xl text-justify grid-cols-1 md:grid-cols-2"
+        >
           <div className="card1 flex flex-col md:flex-row justify-start items-start gap-5 md:gap-0">
             <div className="left w-full h-full">
               <div className="flex justify-center items-center w-full md:w-[15rem] rounded-lg overflow-hidden h-[15rem]">
@@ -74,7 +94,7 @@ function Minds() {
                 solutions and management.
               </h1>
               <div className="flex justify-start items-center gap-3">
-              <Social
+                <Social
                   icon={ig}
                   link="https://www.instagram.com/heyy.faziel?igsh=MWQxdW1yNDJ5ZGVicA=="
                 />
@@ -89,7 +109,7 @@ function Minds() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       <img
         className="absolute w-[40rem] hidden md:block -top-[2rem] -right-[20rem]"

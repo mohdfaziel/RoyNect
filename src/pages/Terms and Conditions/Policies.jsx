@@ -56,8 +56,8 @@ function Policies() {
     },
   ];
   return (
-    <div className="w-full min-h-screen ">
-      <div className="w-full bg-radial-gradient h-[10rem] md:h-[15rem] flex flex-col gap-1 justify-end pb-5 md:pb-10 items-center">
+    <div className="w-full bg-[url(/dripHoney.jpg)] bg-cover bg-top min-h-screen ">
+      <div className="w-full h-[10rem] md:h-[15rem] flex flex-col gap-1 justify-end pb-5 md:pb-10 items-center">
         <h1 className="text-slate-900 font-extrabold text-3xl md:text-6xl">
           TERMS OF SERVICE
         </h1>
@@ -65,7 +65,7 @@ function Policies() {
           Updated Mar 9, 2025
         </p>
       </div>
-      <div className="w-full bg-white min-h-screen px-3 py-5 md:py-10 flex justify-center items-start">
+      <div className="w-full min-h-screen px-3 py-5 md:py-10 flex justify-center items-start">
         <div className="container h-full w-full md:w-[60%] flex flex-col gap-5 md:gap-10">
           {policies.map((policy, index) => (
             <TextCard

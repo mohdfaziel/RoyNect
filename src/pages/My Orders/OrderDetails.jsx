@@ -8,6 +8,8 @@ import databaseService from "../../Firebase/Services/database";
 import { back, jar3, razor } from "../../assets/Images/Images";
 import CancelOrder from "../../components/CancelOrder";
 import StatusBar from "./StatusBar";
+import { motion } from "framer-motion";
+import fadeIn from "../../Framer/Fadein.js";
 import Splash from "../../components/Splash";
 
 function OrderDetails() {
@@ -51,9 +53,12 @@ function OrderDetails() {
 
   if (loading) return <Loader />;
   return (
-    <div
+    <motion.div variants={fadeIn("", 0.3)}
+    initial="hidden"
+    whileInView={"show"}
+    viewport={{ once: false, amount: 0.1 }}
       id="orderDetails"
-      className="w-full max-w-[102rem] md:max-h-[50rem] md:min-h-[45rem] overflow-x-hidden md:overflow-hidden px-2 md:px-[12rem] min-h-screen flex flex-col justify-center gap-1  items-center"
+      className="w-full md:bg-[url(/bg.svg)] bg-cover bg-top max-w-[102rem] md:max-h-[50rem] md:min-h-[45rem] overflow-x-hidden md:overflow-hidden px-2 md:px-[12rem] min-h-screen flex flex-col justify-center gap-1  items-center"
     >
       <div className="Container w-full min-h-full md:min-h-[75%] mt-[5rem] mb-[2rem] md:mb-0 md:mt-0 flex flex-col justify-center items-center gap-3">
         <div className="options w-full flex justify-start items-center">
@@ -65,7 +70,7 @@ function OrderDetails() {
           <h1 className="text-xl md:text-3xl font-extrabold">Order Details</h1>
         </div>
         <div className="OrderDetailsContainer px-4 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full bg-main rounded-3xl shadow-lg">
-          <div className="quantity md:row-span-2 bg-white px-4 py-4 flex flex-col justify-start items-center gap-3 rounded-xl">
+          <div className="quantity md:row-span-2 bg-[url(/dripHoney.jpg)] bg-cover bg-top px-4 py-4 flex flex-col justify-start items-center gap-3 rounded-xl">
             <h1 className="text-xl w-full font-bold text-center">
               100% Natural Apis Cerena Honey
             </h1>
@@ -202,7 +207,7 @@ function OrderDetails() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

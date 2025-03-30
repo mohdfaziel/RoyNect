@@ -66,10 +66,10 @@ function Welcome() {
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0.1 }}
-      className="relative w-full px-[1rem] text-center bg-[url(/bg.svg)] bg-cover bg-top h-screen flex flex-col gap-8 md:gap-14 justify-center items-center"
+      className="relative w-full px-[1rem] text-center bg-[url(/dripHoney.jpg)] md:bg-[url(/bg.svg)] bg-cover bg-top h-screen flex flex-col gap-8 md:gap-14 justify-center items-center"
     >
       <div className="flex z-10 flex-col gap-3 w-full justify-center items-center">
-        <h1 className="text-6xl md:text-8xl drop-shadow-md font-extrabold text-white">
+        <h1 className="text-6xl md:text-8xl drop-shadow-md font-extrabold text-slate-800 md:text-white">
           Honey that <br />
           Speaks Tradition.
         </h1>

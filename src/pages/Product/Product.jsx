@@ -30,7 +30,7 @@ export default function Main() {
   return (
     <div
       id="product"
-      className="w-full max-w-[102rem] md:max-h-[50rem] md:min-h-[45rem]  overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-1 md:justify-start  items-center"
+      className="w-full bg-[url(/bg.svg)] bg-cover bg-top max-w-[102rem] md:max-h-[50rem] md:min-h-[45rem]  overflow-x-hidden md:overflow-hidden md:pb-7 md:px-[3rem] h-screen flex flex-col justify-between gap-1 md:justify-start  items-center"
     >
       <div className="upper relative z-10 md:relative h-full md:h-screen flex flex-col md:flex-row md:justify-between justify-center mt-[1rem] md:mt-[8rem] md:items-start items-center w-full">
         <motion.div

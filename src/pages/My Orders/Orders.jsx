@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import fadeIn from "../../Framer/Fadein.js";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 const Orders = ({ orders }) => {
@@ -34,14 +36,14 @@ const Orders = ({ orders }) => {
                   {order.quantity}kg
                 </td>
                 <td className="hidden md:table-cell px-4 py-2">
-                &#8377;{order.totalprice}
+                  &#8377;{order.totalprice}
                 </td>
                 <td className="px-4 py-2">
                   {order.orderDate
                     ? format(
                         typeof order.orderDate === "string"
-                          ? new Date(order.orderDate) // If stored as an ISO string
-                          : new Date(order.orderDate?.seconds * 1000), // If stored as Firebase Timestamp
+                          ? new Date(order.orderDate) 
+                          : new Date(order.orderDate?.seconds * 1000),
                         "dd MMM yyyy"
                       )
                     : "N/A"}
