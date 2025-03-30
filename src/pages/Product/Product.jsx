@@ -6,12 +6,9 @@ import {
   plus,
   rupee,
 } from "../../assets/Images/Images";
-import databaseService from "../../Firebase/Services/database";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import fadeIn from "../../Framer/Fadein";
-import { reStock } from "../../Store/Honey/HoneySlice";
-import { useDispatch } from "react-redux";
 import { addItem } from "../../Store/Cart/CartSlice";
 import Buy from "./Buy";
 import BuyPhone from "./BuyPhone";
@@ -22,24 +19,11 @@ export default function Main() {
   const [price, setPrice] = useState(750);
   const [id, setId] = useState(1);
   const [qty, setQty] = useState(1);
-  const dispatch = useDispatch();
   function addToCart() {
     console.log("Item Added to Cart");
     dispatch(addItem({ id, qty, price, weight }));
     setQty(1);
   }
-  useEffect(() => {
-    async function updateStock() {
-      try {
-        const stock = await databaseService.getProductStock();
-        console.log("Stock fetched:", stock);
-        dispatch(reStock(stock));
-      } catch (error) {
-        console.error("Error fetching stock:", error);
-      }
-    }
-    updateStock();
-  }, [dispatch]);
 
   return (
     <div

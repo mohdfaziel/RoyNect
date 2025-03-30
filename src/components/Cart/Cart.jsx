@@ -13,6 +13,7 @@ export default function Cart({}) {
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
   const honeyInStock = useSelector((state) => state.honey.qtyAvailable);
+  console.log("from cart",honeyInStock);
   const Navigate = useNavigate();
   const checkOut = async () => {
     if (items.length === 0) {
