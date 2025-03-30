@@ -1,11 +1,20 @@
-const paymentHandler = async (orderInfo, setOrderInfo) => {
+const paymentHandler = async (
+  orderInfo,
+  setOrderInfo,
+  setOrderPlacing,
+  navigate
+) => {
   if (!window.Razorpay) {
     console.error("Razorpay SDK not loaded");
+    setOrderPlacing(false);
+    navigate("/product");
     return;
   }
 
   if (!orderInfo.orderId) {
     console.error("Order ID is missing");
+    setOrderPlacing(false);
+    navigate("/product");
     return;
   }
 
@@ -25,11 +34,15 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
     order = await response.json();
   } catch (error) {
     console.error("Error while creating order:", error);
+    setOrderPlacing(false);
+    navigate("/product");
     return;
   }
 
   if (!order.id) {
     console.error("Invalid order data returned from backend:", order);
+    setOrderPlacing(false);
+    navigate("/product");
     return;
   }
 
@@ -40,7 +53,7 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
       currency,
       name: "RoyNect",
       description: "Honey Purchase",
-      image: "https://roynect.vercel.app/assets/Images/Logo.webp",
+      image: "/logo.png",
       order_id: order.id,
       handler: async function (response) {
         try {
@@ -69,10 +82,12 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
               "Payment verification failed:",
               jsonRes?.error || "Unknown error"
             );
+            setOrderPlacing(false);
             reject(new Error("Payment verification failed"));
           }
         } catch (error) {
           console.error("Error during payment verification:", error);
+          setOrderPlacing(false);
           reject(error);
         }
       },
@@ -81,14 +96,16 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
         email: orderInfo.userEmail,
         contact: orderInfo.userPhone,
       },
-      notes: { address: "Dawood-Beekeeper Online Honey Store" },
+      notes: { address: "RoyNect Online Honey Store" },
       theme: { color: "#FFCE23" },
     };
 
     var rzp1 = new window.Razorpay(options);
     rzp1.on("payment.failed", function (response) {
       console.log("Payment Failed: " + response.error.description);
+      setOrderPlacing(false);
       reject(new Error("Payment failed"));
+      navigate("/product");
     });
 
     rzp1.open();

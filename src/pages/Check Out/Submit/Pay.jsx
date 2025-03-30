@@ -5,7 +5,6 @@ import databaseService from "../../../Firebase/Services/database";
 import { clearOrder } from "../../../Store/OrderDetails/OrderSlice";
 import { clearCart } from "../../../Store/Cart/CartSlice";
 import { reStock } from "../../../Store/Honey/HoneySlice";
-import sound from "../../../assets/sounds/wind-172559.mp3";
 import toast from "react-hot-toast";
 import paymentHandler from "../../../RazorpayPG/paymentHandler";
 
@@ -49,7 +48,9 @@ function Pay({ setOrderPlacing }) {
     try {
       const updatedOrderData = await paymentHandler(
         initialOrderData,
-        setOrderInfo
+        setOrderInfo,
+        setOrderPlacing,
+        navigate
       );
       if (!updatedOrderData) {
         console.error(
