@@ -36,7 +36,7 @@ function policies()
             href="https://mail.google.com/mail/?view=cm&fs=1&to=mohdfazel969@gmail.com&su=Customer%20Query&body=Hello%20Dawood%20Beekeeper,%20I%20have%20a%20query."
             target="_blank"
           >
-            mohdfazel969@gmail.com
+          roynectt@gmail.com
           </a>
         </h1>
         <h1>Phone: +91 7006205934</h1>

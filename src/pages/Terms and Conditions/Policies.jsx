@@ -49,7 +49,7 @@ function Policies() {
       title: "Contact Us",
       desc: "If you have any questions or concerns, feel free to reach out:",
       points: [
-        "Email: mohdfazel969@gmail.com",
+        "Email: roynectt@gmail.com",
         "Phone: +91 7006205934",
         "Address: Bhadarwah, Jammu & Kashmir, India",
       ],
