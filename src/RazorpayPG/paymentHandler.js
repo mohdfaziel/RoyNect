@@ -38,9 +38,9 @@ const paymentHandler = async (orderInfo, setOrderInfo) => {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: orderInfo.totalprice * 100,
       currency,
-      name: "Dawood Beekeeper",
+      name: "RoyNect",
       description: "Honey Purchase",
-      image: "https://dawood-beekeeper.vercel.app/assets/Images/Logo.png",
+      image: "https://roynect.vercel.app/assets/Images/Logo.webp",
       order_id: order.id,
       handler: async function (response) {
         try {
