@@ -37,6 +37,7 @@ function Admin() {
       setLoading(true);
       if (admin?.role !== "admin") {
         Navigate("/");
+        setLoading(false);
         return;
       }
       const allUsers = await databaseService.getAllUsers();
@@ -47,7 +48,7 @@ function Admin() {
     };
 
     fetchOrders();
-  }, []);
+  }, [admin, Navigate]);
   if (loading) return <Loader />;
   return (
     <div className="w-full bg-Adark1 min-h-screen md:h-screen">
