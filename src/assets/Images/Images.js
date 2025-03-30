@@ -1,26 +1,26 @@
 import attention from './attention.png';
-import bees1 from './bees1.jpg';
-import bees2 from './bees2.png';
+import bees1 from './bees1.webp';
+import bees2 from './bees2.webp';
 import cart from './cart.png';
 import leaf from './leaf.png';
 import comb from './comb.png';
 import mountain from './mountain.png';
 import stick from './stick.png';
-import dadu from './dadu.png';
+import dadu from './dadu.webp';
 import email from './email.png'
 import ig from './ig.png'
 import ggle from './google.png'
 import mainImg from './Main img.png'
-import mainImg2 from './Main img2.png'
-import jar3 from './jar3.png'
+import mainImg2 from './Main img2.webp'
+import jar3 from './jar3.webp'
 import jarActive from './jarIconActive.png'
 import jarUnActive from './jarIconUnActive.png'
 import aboutActive from './aboutIconActive.png'
 import aboutUnActive from './aboutIconUnActive.png'
-import jars from './jars.jpg'
+import jars from './jars.webp'
 import jarWebp from './jar.webp'
 import razor from './razor.png'
-import kash from './kash.jpg'
+import kash from './kash.webp'
 import orders1 from './orders1.png'
 import orders2 from './orders2.png'
 import users1 from './users1.png'
@@ -33,15 +33,15 @@ import whtbee from './whtBee.png'
 import less from './lessthen.png'
 import brand from './brand.png'
 import Logo from './Logo.png'
-import withbees from './me with bees.jpg'
-import me from './me.png'
+import withbees from './me with bees.webp'
+import me from './me.webp'
 import cpy from './cpy.png'
 import minus from './minus.png'
 import person from './User.svg'
 import lkdn from './linkedIn.png'
 import plus from './plus.png'
 import faziel from './Mohd Faziel.webp'
-import faziel2 from './Faziel2.jpg'
+import faziel2 from './Faziel2.webp'
 import rupee from './rupee.png'
 import crown from './crown.png'
 import check from './check.svg'
@@ -50,8 +50,9 @@ import cross from './cross.png'
 import ajar1 from './ajar1.png'
 import ajar2 from './ajar2.png'
 import del from './delete.svg'
-import sp from './splash.png'
+import sp from './splash.webp'
+import sp2 from './splash2.webp'
 import back from './back.png'
 import empty from './emptyOrders.svg'
 import whatsapp from './whatsapp.png'
-export {attention,dashboard,leaf,mountain,comb,stick,lkdn,brand,faziel2,faziel,sp,jarWebp,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
+export {attention,dashboard,leaf,mountain,sp2,comb,stick,lkdn,brand,faziel2,faziel,sp,jarWebp,ajar1,crown,ajar2,cpy,exit,orders1,orders2,users1,users2,transaction1,transaction2,dashboard2,bees1,whtbee,razor,del,check,empty,ggle,bees2,back,cross,jar3,jarActive,jarUnActive,aboutActive,aboutUnActive,jars,cart,dadu,email,ig,mainImg,mainImg2,kash,less,Logo,withbees,me,minus,person,plus,rupee,whatsapp};
