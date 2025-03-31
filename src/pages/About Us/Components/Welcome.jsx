@@ -85,8 +85,10 @@ function Welcome() {
         >
           Shop Now
         </button>
-        <p className="text-xs md:text-sm text-slate-900 font-semibold">
-          Order Now and Taste the Purity in Every Drop!
+        <p className="text-xs md:text-sm text-center text-slate-900 font-semibold">
+          {/* Order Now and Taste the Purity in Every Drop! */}
+          We're in Test Mode!<br/>
+Some features may be limited. Thanks for your patience!
         </p>
       </div>
       {cards.map((card, key) => (
