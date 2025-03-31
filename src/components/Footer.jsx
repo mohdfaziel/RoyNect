@@ -8,11 +8,15 @@ function policies()
     window.scrollTo({ top: 0, behavior: "smooth" });
     Navigate("/policies");
 }
+function home() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  Navigate("/");
+}
   return (
     <div className="w-full flex transition-all text-sm md:text-base flex-col gap-5 md:gap-10 min-h-[5rem] font-semibold text-gray-300 px-3 md:px-[10rem] py-10 bg-slate-950 bg-radial-gradient-footer">
       <div className="Policies flex flex-col md:flex-row border-b-[1px] pb-5 md:pb-10 border-slate-500 gap-4 md:gap-0 md:justify-between w-full items-start md:items-center">
         <div className="Logo flex md:flex-col w-full md:w-fit justify-center gap-2 md:items-start items-center">
-          <div className="px-4 py-2 md:px-6 md:py-2 w-20 md:w-32 rounded-full bg-white">
+          <div onClick={home} className="px-4 cursor-pointer py-2 md:px-6 md:py-2 w-20 md:w-32 rounded-full bg-white">
             <img
               className="w-full h-full drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
               src={brand}
