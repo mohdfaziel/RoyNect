@@ -9,7 +9,6 @@ import Loader from '../../components/Loader'
 function CheckOut() {
   const Navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
-  const [orderPlacing, setOrderPlacing] = useState(false);
   const user = useSelector((state) => state.user.userData);
   const cartItems = useSelector((state) => state.cart.items);
   useEffect(() => {
@@ -23,7 +22,7 @@ function CheckOut() {
     },
     {
       name: "Submit",
-      component: () => <Submit setOrderPlacing={setOrderPlacing}/>,
+      component: () => <Submit/>,
     },
   ];
   function handleNext() {
@@ -39,7 +38,6 @@ function CheckOut() {
     }
   }
   const activeComponent = checkOutSteps[currentStep - 1].component;
-  if(orderPlacing) return <Loader/>;
   return (
     <div
       id="myOrders"

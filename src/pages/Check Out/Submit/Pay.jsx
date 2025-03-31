@@ -8,7 +8,7 @@ import { reStock } from "../../../Store/Honey/HoneySlice";
 import toast from "react-hot-toast";
 import paymentHandler from "../../../RazorpayPG/paymentHandler";
 
-function Pay({ setOrderPlacing }) {
+function Pay() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(false);
@@ -22,7 +22,10 @@ function Pay({ setOrderPlacing }) {
 
   async function placeOrder(e) {
     e.preventDefault();
-    setOrderPlacing(true);
+    document.body.style.cursor = 'wait';
+    setTimeout(() => {
+      document.body.style.cursor = 'default';
+    }, 5000);
     const orderId = `ORD-${Date.now()}`;
     const initialOrderData = {
       orderId,
@@ -49,9 +52,9 @@ function Pay({ setOrderPlacing }) {
       const updatedOrderData = await paymentHandler(
         initialOrderData,
         setOrderInfo,
-        setOrderPlacing,
         navigate
       );
+      console.log("Payment data",updatedOrderData);
       if (!updatedOrderData) {
         console.error(
           "Payment processing failed, received undefined order data."
@@ -81,8 +84,6 @@ function Pay({ setOrderPlacing }) {
     } catch (error) {
       console.error("Error in payment process:", error);
       toast.error("Something went wrong. Please try again.");
-    } finally {
-      setOrderPlacing(false);
     }
   }
   return (
