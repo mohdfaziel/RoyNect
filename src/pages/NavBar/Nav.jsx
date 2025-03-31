@@ -23,14 +23,14 @@ export default function Nav() {
   const qty = useSelector((state) => state.cart.qty);
   return (
     <div className="Nav w-full z-30 md:px-[3rem] px-[1rem] flex top-1 transition-all justify-center items-center min-h-7 fixed">
-      <div className="container bg-white/80 rounded-full shadow-md p-1 w-[100%] flex justify-between items-center">
+      <div className="container bg-white/80 rounded-full shadow-md md:p-1 w-[100%] flex justify-between items-center">
         <div
           onClick={() => Navigate("/")}
-          className="Logo cursor-pointer px-6 py-2"
+          className="Logo cursor-pointer px-2 md:px-6 py-2"
         >
           <img src={brand} className="w-20 md:w-28" alt="" />
         </div>
-        <div className="Actions flex py-2 px-3 justify-center items-center gap-3">
+        <div className="Actions flex py-2 px-2 md:px-3 justify-center items-center gap-3">
           <Auth />
           <div
             onClick={() => dispatch(toggleState())}
