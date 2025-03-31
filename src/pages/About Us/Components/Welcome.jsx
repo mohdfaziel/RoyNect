@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { sendOrderConfirmation } from "../../../Mailer/EmailSenderUser.js";
 import Card from "./Card";
 import { motion } from "framer-motion";
 import fadeIn from "../../../Framer/Fadein.js";
@@ -84,6 +85,12 @@ function Welcome() {
           className="bg-white w-fit shadow-md hover:bg-main border-[1px] hover:border-white transition-all hover:scale-105 text-sm md:text-2xl font-semibold text-slate-900 px-8 md:px-10 py-4 md:py-4 rounded-full"
         >
           Shop Now
+        </button>
+        <button
+          onClick={sendOrderConfirmation}
+          className="bg-white w-fit shadow-md hover:bg-main border-[1px] hover:border-white transition-all hover:scale-105 text-sm md:text-2xl font-semibold text-slate-900 px-8 md:px-10 py-4 md:py-4 rounded-full"
+        >
+          Send Email
         </button>
         <p className="text-xs md:text-sm text-slate-900 font-semibold">
           Order Now and Taste the Purity in Every Drop!

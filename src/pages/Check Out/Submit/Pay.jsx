@@ -7,6 +7,8 @@ import { clearCart } from "../../../Store/Cart/CartSlice";
 import { reStock } from "../../../Store/Honey/HoneySlice";
 import toast from "react-hot-toast";
 import paymentHandler from "../../../RazorpayPG/paymentHandler";
+import { sendOrderConfirmation } from "../../../Mailer/EmailSenderUser";
+import { newOrder } from "../../../Mailer/EmailSenderAdmin";
 
 function Pay() {
   const navigate = useNavigate();
@@ -67,6 +69,8 @@ function Pay() {
           updatedOrderData
         );
         if (result.success) {
+          sendOrderConfirmation(updatedOrderData);
+          newOrder(updatedOrderData);
           const remHoney = honeyInStock - totalHoney;
           await databaseService.updateProductStock(remHoney);
           dispatch(reStock(remHoney));
