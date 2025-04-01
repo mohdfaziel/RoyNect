@@ -69,7 +69,7 @@ function Welcome() {
       className="relative w-full px-[1rem] text-center bg-[url(/dripHoney.jpg)] md:bg-[url(/bg.svg)] bg-cover bg-top h-screen flex flex-col gap-8 md:gap-14 justify-center items-center"
     >
       <div className="flex z-10 flex-col gap-3 w-full justify-center items-center">
-        <h1 className="text-6xl md:text-8xl drop-shadow-md font-extrabold text-slate-800 md:text-white">
+        <h1 className="text-7xl font-hotSlice md:text-9xl drop-shadow-md font-medium text-slate-800 md:text-white">
           Honey that <br />
           Speaks Tradition.
         </h1>

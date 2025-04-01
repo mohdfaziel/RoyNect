@@ -9,6 +9,9 @@ export default {
       animation: {
         'float': 'float 3s ease-in-out infinite', // Define the float animation
       },
+      fontFamily: {
+        hotSlice: ["Hot Slice", "sans-serif"],
+      },
       keyframes: {
         float: {
           '0%, 100%': {
