@@ -68,7 +68,7 @@ function OrderDetails() {
         </div>
         <div className="OrderDetailsContainer px-4 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full bg-main rounded-3xl shadow-lg">
           <motion.div
-            variants={fadeIn("up", 0.3)}
+            variants={fadeIn("down", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.1 }}
@@ -128,7 +128,7 @@ function OrderDetails() {
             </div>
           </motion.div>
           <motion.div
-            variants={fadeIn("down", 0.3)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.1 }}
