@@ -8,7 +8,7 @@ import Item from "./Item";
 import { cpy } from "../../../../assets/Images/Images";
 import InitiateRefund from "./InitiateRefund";
 import Refunded from "./Refunded";
-function OrderInfo({ orders, selectedOrderId,, setSelectedOrderId }) {
+function OrderInfo({ orders, selectedOrderId, setSelectedOrderId }) {
   const [loader, setLoader] = useState(false);
   const order = orders.find((order) => order.id === selectedOrderId);
   return (
