@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import databaseService from "../Firebase/Services/database";
+import { orderStatusUpdate } from "../Mailer/EmailSenderUser";
+import { orderUpdated } from "../Mailer/EmailSenderAdmin";
 const CancelOrder = ({ orderId,updateOrderStatus,setLoading}) => {
   const [showPopup, setShowPopup] = useState(false);
   async function CancelOrder(orderId) {
     setLoading(true);
-    const response = await databaseService.updateAttribute(orderId,"paymentStatus","Refund Initiated");
-    const response1 = await databaseService.updateAttribute(orderId,"status","cancelled");
-    const response2 = await databaseService.updateAttribute(orderId,"isCancelled",true);
-    const response3 = await databaseService.updateAttribute(orderId,"cancelledDate",new Date().toISOString());
-    const response4 = await databaseService.updateAttribute(orderId, "refundInitiated", true);
+    await databaseService.updateAttribute(orderId,"status","cancelled");
+    await databaseService.updateAttribute(orderId,"isCancelled",true);
+    await databaseService.updateAttribute(orderId,"cancelledDate",new Date().toISOString());
+    const updatedOrderData = await databaseService.getOrder(orderId);
+    orderStatusUpdate(updatedOrderData); // Send order cancelled email to user
+    orderUpdated(updatedOrderData); // Send order cancelled email to admin
     updateOrderStatus("cancelled");
     setLoading(false);
   }

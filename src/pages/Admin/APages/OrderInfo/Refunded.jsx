@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import databaseService from '../../../../Firebase/Services/database';
-
+import { paymentStatusUpdate } from '../../../../Mailer/EmailSenderUser';
+import { paymentStatusUpdated } from '../../../../Mailer/EmailSenderAdmin';
 function Refunded({ setLoader, order }) {
     const [check, setCheck] = useState(Boolean(order.refunded));
     async function handleCheck(e) {
@@ -14,6 +15,9 @@ function Refunded({ setLoader, order }) {
             setCheck(true);
             await databaseService.updateAttribute(order.id, "refunded", true);
             await databaseService.updateAttribute(order.id, "paymentStatus", "Refunded");
+            const updatedOrderData = await databaseService.getOrder(order.id);
+            paymentStatusUpdate(updatedOrderData); // Send payment refunded email to user
+            paymentStatusUpdated(updatedOrderData); // Send payment refunded email to admin
             setLoader(false);
             toast.success("Refund Complete For the Order");
             await new Promise(resolve => setTimeout(resolve, 1000));

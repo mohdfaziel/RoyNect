@@ -184,7 +184,6 @@ function OrderDetails() {
                   updateOrderStatus={(newStatus) =>
                     setOrderDetails((prev) => ({
                       ...prev,
-                      paymentStatus: "Refund Initiated",
                       status: newStatus,
                       cancelledDate: new Date().toISOString(),
                       isCancelled: true,

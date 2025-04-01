@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import databaseService from '../../../../Firebase/Services/database';
+import { orderStatusUpdate } from '../../../../Mailer/EmailSenderUser';
+import { orderUpdated } from '../../../../Mailer/EmailSenderAdmin';
 
 function Shipped({ setLoader, order }) {
     const [check, setCheck] = useState(Boolean(order.shippedDate));
@@ -15,6 +17,9 @@ function Shipped({ setLoader, order }) {
             const date = new Date().toISOString();
             await databaseService.updateAttribute(order.id, "shippedDate", date);
             await databaseService.updateOrderStatus(order.id, "shipped");
+            const updatedOrderData = await databaseService.getOrder(order.id);
+            orderStatusUpdate(updatedOrderData); // Send order shipped email to user
+            orderUpdated(updatedOrderData); // Send order shipped email to admin
             setLoader(false);
             toast.success("Order marked as shipped");
             await new Promise(resolve => setTimeout(resolve, 1000));
