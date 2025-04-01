@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import fadeIn from "../../../Framer/Fadein.js";
 import databaseService from "../../../Firebase/Services/database";
 import { clearOrder } from "../../../Store/OrderDetails/OrderSlice";
 import { clearCart } from "../../../Store/Cart/CartSlice";
@@ -91,7 +93,10 @@ function Pay() {
     }
   }
   return (
-    <div className="w-full p-2 md:p-4 flex flex-col transition-all gap-2 rounded-2xl md:rounded-2xl border-[2px] text-sm font-bold border-gray-300 shadow-sm">
+    <motion.div   variants={fadeIn("", 0.5)}
+    initial="hidden"
+    whileInView={"show"}
+    viewport={{ once: false, amount: 0.1 }}  className="w-full p-2 md:p-4 flex flex-col transition-all gap-2 rounded-2xl md:rounded-2xl border-[2px] text-sm font-bold border-gray-300 shadow-sm">
       <label className="flex items-center gap-2 text-xs md:text-sm text-gray-700">
         <input
           type="checkbox"
@@ -113,7 +118,7 @@ function Pay() {
       >
         Pay Now
       </button>
-    </div>
+    </motion.div>
   );
 }
 

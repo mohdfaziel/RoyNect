@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import fadeIn from "../../Framer/Fadein.js";
 import { useForm } from "react-hook-form";
 import Person from "../../components/Animations/Person";
 import Address from "../../components/Animations/Address";
@@ -97,7 +99,11 @@ function Details({ handleNext }) {
     }
   }
   return (
-    <form
+    <motion.form
+      variants={fadeIn(" ", 0.3)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: false, amount: 0.1 }}
       className={`container w-full  grid grid-cols-1 md:grid-cols-2 gap-5 ${
         check && "brightness-90"
       } md:gap-40 bg-white p-2 md:p-12 rounded-2xl md:rounded-3xl shadow-xl`}
@@ -109,7 +115,13 @@ function Details({ handleNext }) {
           <h1 className="text-lg md:text-xl font-bold">Contact Details</h1>
         </div>
         <div className="flex flex-col gap-2 md:gap-4">
-          <div className="name">
+          <motion.div
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="name"
+          >
             <input
               {...register("name", {
                 required: { value: true, message: "This field is required" },
@@ -127,8 +139,14 @@ function Details({ handleNext }) {
                 {errors.name.message}
               </p>
             )}
-          </div>
-          <div className="phone">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("right", 0.5)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="phone"
+          >
             <input
               inputMode="numeric"
               {...register("phone", {
@@ -152,7 +170,7 @@ function Details({ handleNext }) {
             <p className="text-xs md:text-sm px-2 mt-1 font-semibold text-gray-400">
               We'll call this number to coordinate delivery
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="address-details flex flex-col gap-3 md:gap-4">
@@ -161,7 +179,13 @@ function Details({ handleNext }) {
           <h1 className="text-lg md:text-xl font-bold">Address</h1>
         </div>
         <div className="flex flex-col gap-2 md:gap-4">
-          <div className="houseNo">
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="houseNo"
+          >
             <input
               {...register("houseNo", {
                 required: { value: true, message: "This field is required" },
@@ -179,8 +203,11 @@ function Details({ handleNext }) {
                 {errors.houseNo.message}
               </p>
             )}
-          </div>
-          <div className="area">
+          </motion.div>
+          <motion.div   variants={fadeIn("left", 0.5)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.1 }}  className="area">
             <input
               {...register("area", {
                 required: { value: true, message: "This field is required" },
@@ -198,8 +225,11 @@ function Details({ handleNext }) {
                 {errors.area.message}
               </p>
             )}
-          </div>
-          <div className="pincode">
+          </motion.div>
+          <motion.div   variants={fadeIn("left", 0.7)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.1 }}  className="pincode">
             <div className="flex w-full justify-center items-center gap-2 md:gap-4">
               <input
                 {...register("pincode", {
@@ -230,8 +260,11 @@ function Details({ handleNext }) {
                 {errors.pincode.message}
               </p>
             )}
-          </div>
-          <div className="state-district flex w-full justify-center items-center gap-4">
+          </motion.div>
+          <motion.div   variants={fadeIn("left", 0.9)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.1 }}  className="state-district flex w-full justify-center items-center gap-4">
             <input
               {...register("district", {
                 required: true,
@@ -258,7 +291,7 @@ function Details({ handleNext }) {
               id="state"
               placeholder="state"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
       <input
@@ -268,7 +301,7 @@ function Details({ handleNext }) {
         id="shippingCost"
       />
       <button className="hidden" type="submit"></button>
-    </form>
+    </motion.form>
   );
 }
 

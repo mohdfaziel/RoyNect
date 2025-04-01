@@ -2,6 +2,8 @@ import React from "react";
 import Sumry from "../../../components/Animations/Sumry.jsx";
 import Payment from "../../../components/Animations/Payment.jsx";
 import Pay from "./Pay";
+import { motion } from "framer-motion";
+import fadeIn from "../../../Framer/Fadein.js";
 import { useSelector } from "react-redux";
 function Summary() {
   const items = useSelector((state) => state.cart.items || []);
@@ -10,11 +12,16 @@ function Summary() {
   const twoKgJar = items.filter((item) => item.id === 3)[0]?.qty || 0;
   const totalHoney = useSelector((state) => state.cart.totalWeight);
   const totalCost = useSelector((state) => state.cart.total);
-  const shippingCost = useSelector((state)=>state.order.orderDetails.shippingCost);
+  const shippingCost = useSelector(
+    (state) => state.order.orderDetails.shippingCost
+  );
   console.log(shippingCost);
   return (
     <div className="row-span-2  order-last md:order-none flex flex-col gap-5">
-      <div className=" border-[2px] flex flex-col justify-center items-start gap-6 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
+      <motion.div   variants={fadeIn("left", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.1 }}  className=" border-[2px] flex flex-col justify-center items-start gap-6 border-gray-300 shadow-sm rounded-2xl p-2 md:p-4">
         <div className="w-full flex flex-col gap-4">
           <div className="flex justify-start gap-1 items-center">
             <Sumry />
@@ -45,7 +52,9 @@ function Summary() {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-4">
+        <div
+          className="w-full flex flex-col gap-4"
+        >
           <div className="flex justify-start gap-1 items-center">
             <Payment />
             <h1 className="text-lg md:text-xl font-bold">Price Details</h1>
@@ -62,10 +71,12 @@ function Summary() {
           </div>
           <div className="flex text-lg md:text-xl pl-2 font-bold md:pl-4 justify-between">
             <p className="">Grand Total : </p>
-            <p className="text-slate-700">&#8377;{totalCost + (shippingCost || 0)}</p>
+            <p className="text-slate-700">
+              &#8377;{totalCost + (shippingCost || 0)}
+            </p>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Pay />
     </div>
   );

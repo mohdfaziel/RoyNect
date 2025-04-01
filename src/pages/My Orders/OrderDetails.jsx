@@ -53,10 +53,7 @@ function OrderDetails() {
 
   if (loading) return <Loader />;
   return (
-    <motion.div variants={fadeIn("", 0.3)}
-    initial="hidden"
-    whileInView={"show"}
-    viewport={{ once: false, amount: 0.1 }}
+    <div
       id="orderDetails"
       className="w-full md:bg-[url(/bg.svg)] bg-cover bg-top max-w-[102rem] md:max-h-[50rem] md:min-h-[45rem] overflow-x-hidden md:overflow-hidden px-2 md:px-[12rem] min-h-screen flex flex-col justify-center gap-1  items-center"
     >
@@ -70,7 +67,13 @@ function OrderDetails() {
           <h1 className="text-xl md:text-3xl font-extrabold">Order Details</h1>
         </div>
         <div className="OrderDetailsContainer px-4 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full bg-main rounded-3xl shadow-lg">
-          <div className="quantity md:row-span-2 bg-[url(/dripHoney.jpg)] bg-cover bg-top px-4 py-4 flex flex-col justify-start items-center gap-3 rounded-xl">
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="quantity md:row-span-2 bg-[url(/dripHoney.jpg)] bg-cover bg-top px-4 py-4 flex flex-col justify-start items-center gap-3 rounded-xl"
+          >
             <h1 className="text-xl w-full font-bold text-center">
               100% Natural Apis Cerena Honey
             </h1>
@@ -123,8 +126,14 @@ function OrderDetails() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="orderID md:row-span-2 bg-white px-4 flex flex-col justify-between items-start py-4 rounded-xl gap-3 ">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("down", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="orderID md:row-span-2 bg-white px-4 flex flex-col justify-between items-start py-4 rounded-xl gap-3 "
+          >
             <h1 className="text-xl font-bold">Order Status</h1>
             <div className="w-full flex justify-center items-center">
               <StatusBar orderDetails={orderDetails} />
@@ -135,9 +144,15 @@ function OrderDetails() {
                 <p>{descriptions[orderDetails.status]}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="userDetails bg-white px-4 flex flex-col justify-start items-start gap-[6.5px] py-4 rounded-xl">
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="userDetails bg-white px-4 flex flex-col justify-start items-start gap-[6.5px] py-4 rounded-xl"
+          >
             <div className="text-xl w-full font-bold">
               {orderDetails?.userName}
             </div>
@@ -151,12 +166,18 @@ function OrderDetails() {
             <div className="text-base text-gray-500 w-full font-semibold">
               Pincode : {orderDetails?.pincode}
             </div>
-          </div>
-          <div className="paymentDetails bg-white px-4 py-4 flex flex-col justify-center gap-8 md:gap-4 items-center rounded-xl">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="paymentDetails bg-white px-4 py-4 flex flex-col justify-center gap-8 md:gap-4 items-center rounded-xl"
+          >
             <div className="w-full h-full flex flex-col">
               <div className="flex justify-start gap-3 items-center">
-              <h1 className="text-xl font-bold">Payment Details</h1>
-              <Splash title={orderDetails.paymentStatus}/>
+                <h1 className="text-xl font-bold">Payment Details</h1>
+                <Splash title={orderDetails.paymentStatus} />
               </div>
               <div className="text-base font-base font-semibold text-gray-500 flex justify-between w-full">
                 <p>Total amount</p>
@@ -203,10 +224,10 @@ function OrderDetails() {
                 Note : Order cannot be canceled once it has been shipped
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
