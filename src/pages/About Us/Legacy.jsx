@@ -64,7 +64,7 @@ export default function Legacy() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.1 }}
-          className="text-white text-4xl text-center md:text-5xl font-extrabold"
+          className="text-white text-6xl font-hotSlice text-center md:text-8xl drop-shadow-md font-medium"
         >
           The Story Behind the Hive
         </motion.h1>

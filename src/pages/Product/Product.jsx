@@ -38,9 +38,9 @@ export default function Main() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.1 }}
-          className="Product md:flex hidden transition-all flex-col justify-center w-96 gap-3 items-start"
+          className="Product md:flex hidden transition-all flex-col justify-center w-96 gap-0 items-start"
         >
-          <h1 className="desc text-5xl font-extrabold z-20">
+          <h1 className="desc text-7xl text-slate-900 font-hotSlice font-medium z-20">
             100% Pure & Natural Apis Cerana Honey
           </h1>
           <div className="quantity text-lg">{weight}kg</div>

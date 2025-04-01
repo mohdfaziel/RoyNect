@@ -19,8 +19,8 @@ function home() {
           <div onClick={home} className="px-2 md:px-6 py-1 md:py-2 cursor-pointer rounded-full bg-slate-700">
           <h1 className="text-xl md:text-4xl text-white font-hotSlice font-medium"><span className="text-main">R</span>oy<span className="text-main">N</span>ect<span className="text-main">.</span></h1>
           </div>
-          <h1 className="md:text-center text-base w-full md:text-xl">
-            We sell 100% Pure and Natural Honey
+          <h1 className="md:text-center text-xl font-hotSlice font-medium w-full md:text-4xl">
+            Pure Honey, Royal Taste
           </h1>
         </div>
         <div className="policies flex flex-col md:flex-row justify-center md:items-center gap-3 md:gap-4">

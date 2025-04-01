@@ -74,7 +74,7 @@ function OrderDetails() {
             viewport={{ once: false, amount: 0.1 }}
             className="quantity md:row-span-2 bg-[url(/dripHoney.jpg)] bg-cover bg-top px-4 py-4 flex flex-col justify-start items-center gap-3 rounded-xl"
           >
-            <h1 className="text-xl w-full font-bold text-center">
+            <h1 className="text-3xl text-slate-900 font-hotSlice w-full font-medium text-center">
               100% Natural Apis Cerena Honey
             </h1>
             <h1 className="text-base text-gray-500 md:text-lg font-bold">
