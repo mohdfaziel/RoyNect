@@ -1,4 +1,5 @@
 import axios from "axios";
+import logo from "../../public/logo.png";
 function getDateParts() {
   const dateObj = new Date(Date.now());
 
@@ -96,26 +97,7 @@ a[x-apple-data-detectors],
       <td valign="top" style="padding:0;Margin:0">
        <table cellpadding="0" cellspacing="0" align="center" class="es-content" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !important">
        </table>
-       <table cellpadding="0" cellspacing="0" align="center" class="es-header" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !important;background-color:transparent;background-repeat:repeat;background-position:center top">
-         <tr>
-          <td align="center" style="padding:0;Margin:0">
-           <table bgcolor="#ffffff" align="center" cellpadding="0" cellspacing="0" class="es-header-body" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;width:600px">
-             <tr>
-              <td align="left" style="padding:20px;Margin:0">
-               <table cellpadding="0" cellspacing="0" width="100%" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                 <tr>
-                  <td valign="top" align="center" class="es-m-p0r" style="padding:0;Margin:0;width:560px">
-                   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                     <tr>
-                      <td align="center" style="padding:0;Margin:0;padding-bottom:10px;font-size:0px"><img src="https://ftkgber.stripocdn.email/content/guids/CABINET_1e3dca3c8e30f6f7e3c4feea4ce500e16250420baf26ca65e74208fb08fc193d/images/brand.png" alt="Logo" width="200" title="Logo" class="adapt-img" style="display:block;font-size:12px;border:0;outline:none;text-decoration:none"></td>
-                     </tr>
-                   </table></td>
-                 </tr>
-               </table></td>
-             </tr>
-           </table></td>
-         </tr>
-       </table>
+       
        <table cellpadding="0" cellspacing="0" align="center" class="es-content" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !important">
          <tr>
           <td align="center" style="padding:0;Margin:0">
