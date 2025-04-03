@@ -5,7 +5,7 @@ function Policies() {
   const policies = [
     {
       title: "Terms and Conditions",
-      desc: "Welcome to Dawood Beekeeper. By accessing or using our website and services, you agree to comply with and be bound by these terms. Our services are subject to the following conditions:",
+      desc: "Welcome to RoyNect. By accessing or using our website and services, you agree to comply with and be bound by these terms. Our services are subject to the following conditions:",
       points: [
         "You must provide accurate details while placing orders.",
         "Unauthorized use of our website is prohibited.",
@@ -15,7 +15,7 @@ function Policies() {
     },
     {
       title: "Privacy Policy",
-      desc: "Your privacy is important to us. Dawood Beekeeper collects, stores, and uses your data only to process your orders and improve our services. We ensure:",
+      desc: "Your privacy is important to us. RoyNect collects, stores, and uses your data only to process your orders and improve our services. We ensure:",
       points: [
         "Your personal data is never shared without consent.",
         "Secure storage of sensitive information.",
@@ -24,9 +24,9 @@ function Policies() {
     },
     {
       title: "Refund & Cancellation Policy",
-      desc: "At Dawood Beekeeper, we strive to provide the highest quality honey. However, please review our policies below:",
+      desc: "At RoyNect, we strive to provide the highest quality honey. However, please review our policies below:",
       points: [
-        "Orders can only be canceled within 24 hours of placement. Once processing has begun, cancellations are not possible.",
+        "Orders can only be canceled if not shipped. Once shipped, cancellation is not possible.",
         "Due to the nature of our product, returns are not allowed. We ensure that every order is packaged and delivered with care.",
         "If you receive a damaged product, please report it within 24 hours of delivery with photos as proof.",
       ],
@@ -42,7 +42,7 @@ function Policies() {
     },
     {
       title: "Pricing in INR",
-      desc: "All prices for products and services listed on Dawood Beekeeper are in Indian Rupees (INR). Taxes, if applicable, are included unless explicitly stated otherwise.",
+      desc: "All prices for products and services listed on RoyNect are in Indian Rupees (INR). Taxes, if applicable, are included unless explicitly stated otherwise.",
       points: [],
     },
     {
