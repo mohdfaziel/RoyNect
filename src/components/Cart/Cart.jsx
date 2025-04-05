@@ -76,7 +76,7 @@ export default function Cart({}) {
               <p className="text-lg text-gray-600">&#8377;{totalCost}</p>
             </div>
           </div>
-          {honeyInStock === 0 ? (
+          {honeyInStock == 0 ? (
             <button className="w-full transition-all opacity-50 h-[3rem] bg-main text-xl font-bold">
               Out Of Stock
             </button>
