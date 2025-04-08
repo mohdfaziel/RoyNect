@@ -34,10 +34,10 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="Home"
+        title="RoyNect - Premium Kashmiri Honey & Apis Cerana Honey"
         description="Welcome to RoyNect - Your trusted source for premium Kashmiri honey and Apis Cerana honey from Bhadarwah. Discover our range of pure, natural honey products. Experience the authentic taste of organic honey from the pristine valleys of Kashmir."
         keywords="Roynect, pure honey, natural honey, Kashmiri honey, Apis cerana honey, organic honey online, Bhadarwah honey, premium honey, raw honey, unfiltered honey"
-        ogImage="/mainImg2.png"
+        ogImage="/mainImg2.png?url"
       />
       <Welcome />
       <RoyNect />

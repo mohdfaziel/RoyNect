@@ -4,7 +4,7 @@ const SEO = ({
   title, 
   description, 
   keywords, 
-  ogImage = '/logo.png',
+  ogImage = '/logo.png?url',
   ogUrl = 'https://roynect.vercel.app',
   type = 'website',
   productData = null,
@@ -21,7 +21,7 @@ const SEO = ({
         "@type": "Product",
         "name": productData.name || "RoyNect Pure Apis Cerana Honey",
         "description": productData.description || "100% pure and natural Apis Cerana honey from Bhadarwah, Kashmir. Golden, raw, and unfiltered honey preserving its natural goodness.",
-        "image": productData.image || "/logo.png",
+        "image": productData.image || "/logo.png?url",
         "brand": {
           "@type": "Brand",
           "name": "RoyNect"
@@ -52,7 +52,7 @@ const SEO = ({
         "@type": "Organization",
         "name": "RoyNect",
         "url": "https://roynect.vercel.app",
-        "logo": "https://roynect.vercel.app/logo.png",
+        "logo": "https://roynect.vercel.app/logo.png?url",
         "description": "Premium quality Kashmiri honey and Apis Cerana honey products from Bhadarwah, Jammu and Kashmir",
         "address": {
           "@type": "PostalAddress",
@@ -98,6 +98,9 @@ const SEO = ({
       <meta name="author" content="RoyNect" />
       <meta name="geo.region" content="IN-JK" />
       <meta name="geo.placename" content="Bhadarwah" />
+      <meta name="brand" content="RoyNect" />
+      <meta name="application-name" content="RoyNect" />
+      <link rel="canonical" href={ogUrl} />
 
       {/* Structured Data */}
       <script type="application/ld+json">

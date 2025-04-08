@@ -46,9 +46,9 @@ export default function Main() {
   return (
     <>
       <SEO 
-        title="Products"
+        title="RoyNect Pure Apis Cerana Honey - Premium Kashmiri Honey"
         description="Shop our premium 100% pure and natural Apis Cerana honey from Bhadarwah, Kashmir. Available in 0.5kg, 1kg, and 2kg sizes. Golden, raw, and unfiltered honey harvested directly from our hives in the pristine valleys of Kashmir."
-        keywords="pure honey, natural honey, Kashmiri honey, Apis cerana honey, organic honey online, Bhadarwah honey, raw honey, unfiltered honey, premium honey, RoyNect honey"
+        keywords="RoyNect, pure honey, natural honey, Kashmiri honey, Apis cerana honey, organic honey online, Bhadarwah honey, raw honey, unfiltered honey, premium honey, RoyNect honey"
         productData={productData}
         breadcrumbs={breadcrumbs}
         ogImage={mainImg2}
