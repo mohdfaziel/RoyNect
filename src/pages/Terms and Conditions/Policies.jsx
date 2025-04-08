@@ -1,11 +1,12 @@
 import React from "react";
 import TextCard from "./TextCard";
+import SEO from "../../components/SEO/SEO";
 
 function Policies() {
   const policies = [
     {
       title: "Terms and Conditions",
-      desc: "Welcome to RoyNect. By accessing or using our website and services, you agree to comply with and be bound by these terms. Our services are subject to the following conditions:",
+      desc: "Welcome to RoyNect, your trusted source for premium Kashmiri honey and Apis Cerana honey from Bhadarwah. By accessing or using our website and services, you agree to comply with and be bound by these terms. Our services are subject to the following conditions:",
       points: [
         "You must provide accurate details while placing orders.",
         "Unauthorized use of our website is prohibited.",
@@ -24,7 +25,7 @@ function Policies() {
     },
     {
       title: "Refund & Cancellation Policy",
-      desc: "At RoyNect, we strive to provide the highest quality honey. However, please review our policies below:",
+      desc: "At RoyNect, we strive to provide the highest quality Kashmiri honey and Apis Cerana honey. However, please review our policies below:",
       points: [
         "Orders can only be canceled if not shipped. Once shipped, cancellation is not possible.",
         "Due to the nature of our product, returns are not allowed. We ensure that every order is packaged and delivered with care.",
@@ -33,7 +34,7 @@ function Policies() {
     },
     {
       title: "Shipping Policy",
-      desc: "We ensure timely delivery of your honey through our trusted logistics partner, Delhivery.",
+      desc: "We ensure timely delivery of your premium honey through our trusted logistics partner, Delhivery.",
       points: [
         "Shipping timelines range from 3 to 7 business days, depending on location.",
         "Tracking details will be shared upon dispatch.",
@@ -42,7 +43,7 @@ function Policies() {
     },
     {
       title: "Pricing in INR",
-      desc: "All prices for products and services listed on RoyNect are in Indian Rupees (INR). Taxes, if applicable, are included unless explicitly stated otherwise.",
+      desc: "All prices for our pure and natural Kashmiri honey products listed on RoyNect are in Indian Rupees (INR). Taxes, if applicable, are included unless explicitly stated otherwise.",
       points: [],
     },
     {
@@ -56,28 +57,36 @@ function Policies() {
     },
   ];
   return (
-    <div className="w-full md:bg-[url(/dripHoney.jpg)] bg-cover bg-top min-h-screen ">
-      <div className="w-full h-[10rem] bg-radial-gradient md:bg-none md:h-[15rem] flex flex-col gap-1 justify-end pb-5 md:pb-10 items-center">
-        <h1 className="text-slate-900  font-extrabold text-3xl md:text-6xl">
-          TERMS OF SERVICE
-        </h1>
-        <p className="font-light md:font-semibold text-xs text-white px-3 md:px-4 py-1 md:py-2 rounded-full bg-slate-900">
-          Updated Mar 9, 2025
-        </p>
-      </div>
-      <div className="w-full bg-white md:bg-transparent min-h-screen px-3 py-5 md:py-10 flex justify-center items-start">
-        <div className="container h-full w-full md:w-[60%] flex flex-col gap-5 md:gap-10">
-          {policies.map((policy, index) => (
-            <TextCard
-              key={index}
-              title={policy.title}
-              desc={policy.desc}
-              points={policy.points}
-            />
-          ))}
+    <>
+      <SEO 
+        title="Terms and Conditions"
+        description="Read our terms and conditions, privacy policy, and shipping information for RoyNect's premium Kashmiri honey and Apis Cerana honey products from Bhadarwah."
+        keywords="terms and conditions, privacy policy, shipping policy, RoyNect honey, Kashmiri honey, Apis cerana honey, Bhadarwah honey, honey policies"
+        ogImage="/mainImg2.png"
+      />
+      <div className="w-full md:bg-[url(/dripHoney.jpg)] bg-cover bg-top min-h-screen ">
+        <div className="w-full h-[10rem] bg-radial-gradient md:bg-none md:h-[15rem] flex flex-col gap-1 justify-end pb-5 md:pb-10 items-center">
+          <h1 className="text-slate-900  font-extrabold text-3xl md:text-6xl">
+            TERMS OF SERVICE
+          </h1>
+          <p className="font-light md:font-semibold text-xs text-white px-3 md:px-4 py-1 md:py-2 rounded-full bg-slate-900">
+            Updated Mar 9, 2025
+          </p>
+        </div>
+        <div className="w-full bg-white md:bg-transparent min-h-screen px-3 py-5 md:py-10 flex justify-center items-start">
+          <div className="container h-full w-full md:w-[60%] flex flex-col gap-5 md:gap-10">
+            {policies.map((policy, index) => (
+              <TextCard
+                key={index}
+                title={policy.title}
+                desc={policy.desc}
+                points={policy.points}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

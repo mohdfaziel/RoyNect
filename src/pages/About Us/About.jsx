@@ -7,9 +7,12 @@ import { useDispatch } from "react-redux";
 import Legacy from "./Legacy";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader";
+import SEO from "../../components/SEO/SEO";
+
 export default function About() {
   const [loader, setLoader] = useState(false);
   const dispatch = useDispatch();
+
   useEffect(() => {
     async function updateStock() {
       setLoader(true);
@@ -25,9 +28,17 @@ export default function About() {
     }
     updateStock();
   }, [dispatch]);
+
   if (loader) return <Loader />;
+
   return (
     <>
+      <SEO 
+        title="Home"
+        description="Welcome to RoyNect - Your trusted source for premium Kashmiri honey and Apis Cerana honey from Bhadarwah. Discover our range of pure, natural honey products. Experience the authentic taste of organic honey from the pristine valleys of Kashmir."
+        keywords="Roynect, pure honey, natural honey, Kashmiri honey, Apis cerana honey, organic honey online, Bhadarwah honey, premium honey, raw honey, unfiltered honey"
+        ogImage="/mainImg2.png"
+      />
       <Welcome />
       <RoyNect />
       <Minds />

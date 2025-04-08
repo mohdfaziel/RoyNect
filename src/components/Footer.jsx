@@ -49,6 +49,7 @@ function home() {
           className="hover:text-white"
           href="https://www.faziel.me/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Mohd Faziel.
         </a>{" "}

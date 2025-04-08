@@ -1,0 +1,16 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://roynect.vercel.app/sitemap.xml
+
+# Disallow admin area
+Disallow: /admin
+
+# Disallow checkout process
+Disallow: /checkOut
+
+# Disallow user-specific pages
+Disallow: /myOrders
+Disallow: /myOrders/* 
