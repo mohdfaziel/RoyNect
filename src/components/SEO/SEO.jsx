@@ -24,7 +24,8 @@ const SEO = ({
         "image": productData.image || "/logo.png?url",
         "brand": {
           "@type": "Brand",
-          "name": "RoyNect"
+          "name": "RoyNect",
+          "description": "RoyNect is a premium Kashmiri honey brand offering pure, natural Apis Cerana honey from Bhadarwah, Kashmir."
         },
         "offers": {
           "@type": "Offer",
@@ -33,7 +34,7 @@ const SEO = ({
           "availability": "https://schema.org/InStock"
         },
         "category": "Natural Honey",
-        "keywords": "pure honey, natural honey, Kashmiri honey, Apis cerana honey, organic honey online, Bhadarwah honey"
+        "keywords": "pure honey, natural honey, Kashmiri honey, Apis cerana honey, organic honey online, Bhadarwah honey, RoyNect"
       };
     } else if (breadcrumbs) {
       return {
@@ -51,6 +52,7 @@ const SEO = ({
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "RoyNect",
+        "alternateName": "RoyNect Honey",
         "url": "https://roynect.vercel.app",
         "logo": "https://roynect.vercel.app/logo.png?url",
         "description": "Premium quality Kashmiri honey and Apis Cerana honey products from Bhadarwah, Jammu and Kashmir",
@@ -63,7 +65,12 @@ const SEO = ({
         },
         "sameAs": [
           "https://roynect.vercel.app"
-        ]
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "RoyNect",
+          "description": "RoyNect is a premium Kashmiri honey brand offering pure, natural Apis Cerana honey from Bhadarwah, Kashmir."
+        }
       };
     }
   };

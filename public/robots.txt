@@ -5,12 +5,13 @@ Allow: /
 # Sitemap location
 Sitemap: https://roynect.vercel.app/sitemap.xml
 
-# Disallow admin area
-Disallow: /admin
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
 
-# Disallow checkout process
-Disallow: /checkOut
+# Crawl-delay for all bots
+Crawl-delay: 10
 
 # Disallow user-specific pages
-Disallow: /myOrders
 Disallow: /myOrders/* 
