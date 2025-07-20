@@ -1,0 +1,27 @@
+:root {
+  --primary-color: #FFB800;
+  --secondary-color: #FF6B00;
+  --dark-color: #1A1A1A;
+  --light-color: #F5F5F5;
+  --gradient-primary: linear-gradient(135deg, #FFB800 0%, #FF6B00 100%);
+  --gradient-dark: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
+  --gradient-light: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+  --gradient-hover: linear-gradient(135deg, #FF6B00 0%, #FFB800 100%);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+} 

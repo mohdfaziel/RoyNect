@@ -47,7 +47,7 @@ function home() {
         &copy;{" "}
         <a
           className="hover:text-white"
-          href="https://www.faziel.me/"
+          href="https://faziel.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
